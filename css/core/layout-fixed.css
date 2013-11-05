@@ -1,0 +1,65 @@
+/*
+* WYMstyle - The free CSS framework
+* Copyright (C) 2006 Daniel Reszka
+*
+* Licensed under the terms of the GNU Lesser General Public License:
+* 			http://www.opensource.org/licenses/lgpl-license.php
+*
+* For further information visit:
+*			http://www.wymstyle.org/
+*			http://trac.wymstyle.org/
+*
+* NOTES: 		recommended tab width = 8 spaces
+* FILE TYPE:            WYMstyle css module
+* FILE NAME:
+* FILE DESCRIPTION:
+* FILE AUTHORS:		Daniel Reszka (daniel@pixarea.com - http://www.pixarea.com - http://blog.pixarea.com)
+*/
+
+/*LAYOUT*/
+
+    /*base*/
+	body, html		{ text-align: center; margin: 0; padding: 0;}
+ 	#header,
+ 	#footer,
+ 	#content		{ text-align: left; width: 780px; margin: auto;}
+	#header			{ height: 50px; overflow: hidden;}
+	/*auto clearing content*/
+	  #content:after 	{ content: "."; display: block; height: 0; clear: both; visibility: hidden;}
+	  #content 		{ display: inline-table;}
+	  /* hide ie/mac \*/
+/*  * html #content		{ height: 1%;}
+	  #content 		{ display: block;}
+	  /* end hide */
+  	/*end advanced clearing*/
+
+    /*content*/
+	.nav, .content		{ width: 170px; float: left; display: inline;}
+	#main			{ width: auto}
+
+    /*no vertical margin-collapse*/
+	.wrapper		{ padding: 1px 0;}
+
+    /*ie debug*/
+    	* html ul,
+	* html #main,
+	* html .nav,
+	* html .nav li,
+	* html .nav a		{ /* hide ie/mac \*/ height: 1px; /* end hide */;}
+ 	* html .nav li 		{ height: 1px; float: left;} /*bugfix for IE5.5*/
+ 	*+html .nav li 		{ height: 1%;} /*bugfix for IE7*/
+ 	
+/*SPACING*/
+
+    /*content margin*/
+    	.content .wrapper	{ margin: 10px;}
+
+    /*navigation*/
+	.nav ul			{ margin: 0; padding: 0;}
+	.nav ul ul		{ padding-bottom: 10px;}
+	.nav li 		{ display: block;}
+	.nav li a		{ display: block; padding: 2px 10px;}
+	.nav li li a		{ padding: 0px 15px;}
+
+/*DEFAULTS:BORDERS*/
+	*, img			{ border: 0 solid gray}

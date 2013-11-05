@@ -1,0 +1,51 @@
+/*
+* WYMstyle - The free CSS framework
+* Copyright (C) 2006 Daniel Reszka
+*
+* Licensed under the terms of the GNU Lesser General Public License:
+* 			http://www.opensource.org/licenses/lgpl-license.php
+*
+* For further information visit:
+*			http://www.wymstyle.org/
+*			http://trac.wymstyle.org/
+*
+* NOTES: 		recommended tab width = 8 spaces
+* FILE TYPE:            WYMstyle css module
+* FILE NAME:
+* FILE DESCRIPTION:     Puts primary navigation horizontally, above contents.
+* FILE AUTHORS:		Daniel Reszka (daniel@pixarea.com - http://www.pixarea.com - http://blog.pixarea.com)
+*/
+
+/*PREREQUISITES*/
+    /*cols-equal compatibility*/
+    @import url(navpri-horizontal-pre.css);
+
+
+   /*undos*/
+	#nav-pri		{ clear: both;} 	/*avoid navpri to disappear under IE, has an unwanted side-effect on default positionning of nav-lang (wrongly affected by the clearing under IE) */
+ * html #nav-pri,
+	#nav-pri,
+  	#nav-pri .wrapper 	{ margin: 0; padding: 0;}
+	#nav-pri a		{ width: auto;}
+
+    /*make available space*/
+	#header			{ height: 75px;}
+	
+    /*prepare for positionning*/
+	#content 		{ position: relative;}
+
+/*LIMITATION*/
+    /*hide submenus*/
+	#nav-pri li ul		{ display:none;}
+
+/*LAYOUT*/
+ * html #nav-pri		{ position: absolute; }
+	#nav-pri		{ position: absolute; width: 100%; left: 0; top: 0;}
+	#nav-pri .wrapper 	{ position: absolute; width: 100%; left: 0; bottom: 0;}
+	#nav-pri li 		{ float: left; display: inline;} 
+	#nav-pri a 		{ float: left; display: block;} 
+    /*clearing*/
+	#nav-pri ul		{ float: left; width: 100%;}
+
+/*SPACING*/
+	#nav-pri a 		{ padding: 0.2em 10px;}

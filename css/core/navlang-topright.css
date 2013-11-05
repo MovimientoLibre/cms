@@ -1,0 +1,35 @@
+/*
+* WYMstyle - The free CSS framework
+* Copyright (C) 2006 Daniel Reszka
+*
+* Licensed under the terms of the GNU Lesser General Public License:
+* 			http://www.opensource.org/licenses/lgpl-license.php
+*
+* For further information visit:
+*			http://www.wymstyle.org/
+*			http://trac.wymstyle.org/
+*
+* NOTES: 		recommended tab width = 8 spaces
+* FILE TYPE:            WYMstyle css module
+* FILE NAME:
+* FILE DESCRIPTION:     Puts the language choice navigation at top-right, inside the header.
+* FILE AUTHORS:		Daniel Reszka (daniel@pixarea.com - http://www.pixarea.com - http://blog.pixarea.com)
+*/
+
+/*PREREQUISITES*/
+    /*undos*/
+	#nav-lang		{ margin-bottom: 0; padding-bottom: 0;}
+	#nav-lang .wrapper	{ margin: 0; padding: 0;}
+	#nav-lang a		{ width: auto;}
+    /*prepare for positionning*/
+	#content 		{ position: relative;}
+
+/*LAYOUT*/
+	#nav-lang 		{ position: absolute; top: -2.2em; left: 0; width: 100%;}
+	#nav-lang ul 		{ position: absolute; bottom: 0; right: 5px;} 	
+	#nav-lang li 		{ float: left; display: inline;} 
+	#nav-lang a 		{ float: left; display: block;}
+
+/*SPACING*/
+	#nav-lang a 		{ padding: 2px 5px;}
+

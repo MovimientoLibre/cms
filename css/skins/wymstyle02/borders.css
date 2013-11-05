@@ -1,0 +1,27 @@
+/*
+* WYMstyle - The free CSS framework
+* Copyright (C) 2006 Daniel Reszka
+*
+* Licensed under the terms of the GNU Lesser General Public License:
+* 			http://www.opensource.org/licenses/lgpl-license.php
+*
+* For further information visit:
+*			http://www.wymstyle.org/
+*			http://trac.wymstyle.org/
+*
+* NOTES: 		recommended tab width = 8 spaces
+* FILE TYPE:            WYMstyle css skin fragment
+* FILE NAME:
+* FILE DESCRIPTION:	fragment of skin wymstyle02
+* FILE AUTHORS:		Daniel Reszka (daniel@pixarea.com - http://www.pixarea.com - http://blog.pixarea.com)
+*/
+
+/*BORDERS*/
+	#content,
+	#nav-pri ul,
+	#nav-sec,
+	#nav-lang li		{ border-width: 1px;}	
+	#footer			{ border-width: 1px 0;}
+	#header			{ border-width: 0 0 1px;}	
+	#nav-lang ul		{ border-width: 0 1px 0 0;}
+	#nav-lang li		{ margin-right: -1px;}

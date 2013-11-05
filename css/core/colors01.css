@@ -1,0 +1,25 @@
+/*
+* WYMstyle - The free CSS framework
+* Copyright (C) 2006 Daniel Reszka
+*
+* Licensed under the terms of the GNU Lesser General Public License:
+* 			http://www.opensource.org/licenses/lgpl-license.php
+*
+* For further information visit:
+*			http://www.wymstyle.org/
+*			http://trac.wymstyle.org/
+*
+* NOTES: 		recommended tab width = 8 spaces
+* FILE TYPE:            WYMstyle css module
+* FILE NAME:
+* FILE DESCRIPTION:
+* FILE AUTHORS:		Daniel Reszka (daniel@pixarea.com - http://www.pixarea.com - http://blog.pixarea.com)
+*/
+
+/*COLORS*/
+	body, html 		{ background: #f5f5f5; color: black;}
+	.nav li a,
+	.nav li a:visited	{ color: black;}
+	.nav li a:hover 	{ color: white; background: black; text-decoration: none;}
+	#nav-pri		{ background: #eee;}
+	#nav-pri li		{ background: #ddd;}

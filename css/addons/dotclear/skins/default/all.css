@@ -1,0 +1,23 @@
+﻿/*
+* WYMstyle - The free CSS framework
+* Copyright (C) 2006 Daniel Reszka
+*
+* Licensed under the terms of the GNU Lesser General Public License:
+* 			http://www.opensource.org/licenses/lgpl-license.php
+*
+* For further information visit:
+*			http://www.wymstyle.org/
+*			http://trac.wymstyle.org/
+*
+* NOTES: 		recommended tab width = 8 spaces
+* FILE TYPE:            WYMstyle CSS skin
+* FILE NAME:		all.css
+* FILE DESCRIPTION:	WYMstyle theme for DotClear
+* FILE AUTHORS:		Jean-François Hovinne - http://www.hovinne.com/ and Daniel Reszka - http://www.pixarea.com/
+*/
+
+/*SKIN FRAGMENTS*/
+	@import "typo.css";
+	@import "layout.css";
+	@import "borders.css";
+	@import "colors.css";

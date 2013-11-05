@@ -1,0 +1,69 @@
+/*
+* WYMstyle - The free CSS framework
+* Copyright (C) 2006 Daniel Reszka
+*
+* Licensed under the terms of the GNU Lesser General Public License:
+* 			http://www.opensource.org/licenses/lgpl-license.php
+*
+* For further information visit:
+*			http://www.wymstyle.org/
+*			http://trac.wymstyle.org/
+*
+* NOTES: 		recommended tab width = 8 spaces
+* FILE TYPE:            WYMstyle css module
+* FILE NAME:
+* FILE DESCRIPTION:     This stylesheet can be used for every project, as a means to reset all typographic styles.
+* 			Suitable for screen display and for print display.
+* FILE AUTHORS:		Daniel Reszka (daniel@pixarea.com - http://www.pixarea.com - http://blog.pixarea.com)
+*/
+
+/*GLOBAL WHITESPACE RESET*/
+	html, body,
+	h1, h2, h3, h4, h5, h6,
+	p,
+	table, caption, tr, td, th,
+	ul, ol, li, dl, dt, dd,
+	form, legend, fieldset	{ margin: 0; padding: 0;}
+
+/*BASIC ELEMENTS*/
+	p, ul, ol, dl		{ margin: 0.8em 0;}
+	ul, ol, dd		{ padding-left: 30px;}
+	li ul, li ol		{ padding: 0 0 5px 15px;}
+	table			{ margin: 1.2em 0;}
+	body			{ font-size: 76%; line-height: 1.3em; font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;}
+	table			{ font-size: 100%;} /*IE 5.5 text too big bugfix*/
+	h1			{ font-size: 1.7em; margin: 1.3em 0 1.3em; line-height: 1.5em;}
+	h2			{ font-size: 1.5em; margin: 1.3em 0 1.3em; line-height: 1.5em;}
+	h3			{ font-size: 1.3em; margin: 1.3em 0 1em; line-height: 1.3em; font-weight: bold;}
+	h4			{ font-size: 1.2em; margin: 1.3em 0 1em; line-height: 1.3em; font-weight: bold;}
+	h5			{ font-size: 1.1em; margin: 1.3em 0 1em; line-height: 1.3em; font-weight: bold;}
+	h6			{ font-size:   1em; margin: 1.3em 0 1em; line-height: 1.3em; font-weight: bold;}
+	p			{ font-size:   1em; margin: 1.2em 0;}
+	address			{ font-style: normal;}
+	label			{ font-weight: bold;}
+	caption			{ font-weight: bold; text-align:left;}
+	tr, td, th		{ vertical-align:top; text-align:left;}
+	img			{ vertical-align:top;}
+
+/*SPECIAL ELEMENTS*/
+	img 			{ border: 0;}
+	hr 			{ border: 0; border-top: 1px solid gray; height: 0; background: gray;}
+
+/*NAVIGATION*/
+	.nav			{ line-height: 1.2em;}
+	.nav ul			{ list-style: none;}
+	.nav a			{ text-decoration: none;}
+	.nav li			{ font-weight: bold;}
+	.nav li	li		{ font-weight: normal;}
+
+/*HIDE ACESSIBILITY TEXT*/
+	.accessibility		{ position: absolute; top: -9999em; left: -9999em;}
+
+/*HIDE PRINT-MEDIA*/
+	.print-media		{ display:none;}
+
+/*DEFAULTS:COLORS (closely related to typography)*/
+	body			{ background: white;}
+	a, a *			{ color: blue;}
+	a:visited, a:visited *	{ color: purple;}
+/*	.nav ul			{ background: white;}*/

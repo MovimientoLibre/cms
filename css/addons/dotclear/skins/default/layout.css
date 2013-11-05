@@ -1,0 +1,35 @@
+﻿/*
+* WYMstyle - The free CSS framework
+* Copyright (C) 2006 Daniel Reszka
+*
+* Licensed under the terms of the GNU Lesser General Public License:
+* 			http://www.opensource.org/licenses/lgpl-license.php
+*
+* For further information visit:
+*			http://www.wymstyle.org/
+*			http://trac.wymstyle.org/
+*
+* NOTES: 		recommended tab width = 8 spaces
+* FILE TYPE:            WYMstyle CSS skin (layout)
+* FILE NAME:		layout.css
+* FILE DESCRIPTION:	WYMstyle theme for DotClear
+* FILE AUTHORS:		Jean-François Hovinne - http://www.hovinne.com/ and Daniel Reszka - http://www.pixarea.com/
+*/
+
+/*DEPENDENCIES*/
+	@import "../../../../core/layout-fixed.css";
+	@import "../../../../core/cols-3-smn.css";
+	@import "../../../../core/navpri-horizontal-menudown.css";
+	@import "../../../../core/navlang-topright.css";
+	/*@import "../../../../core/dev.css";*/
+
+/*LAYOUT*/
+	#footer			{ padding-top: 10px; }
+	div.wrapper		{ margin: 0; padding: 0; }
+	div.submit		{ margin-left: 8.5em; }
+	form .field label	{ width: 8em; display: block; float: left; text-align: right; margin-right: 0.5em; }
+	#search input		{ margin: 0 0 0 10px; }
+	#search input.submit	{ margin: 0; }
+	#calendar		{ margin: 0; padding: 0; }
+	#calendar table,
+	#calendar caption	{ margin: 5px 0 0 10px; padding: 0; }
