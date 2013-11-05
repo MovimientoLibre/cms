@@ -1,0 +1,28 @@
+/*
+* WYMstyle - The free CSS framework
+* Copyright (C) 2006 Daniel Reszka
+*
+* Licensed under the terms of the GNU Lesser General Public License:
+* 			http://www.opensource.org/licenses/lgpl-license.php
+*
+* For further information visit:
+*			http://www.wymstyle.org/
+*			http://trac.wymstyle.org/
+*
+* NOTES: 		recommended tab width = 8 spaces
+* FILE TYPE:            WYMstyle css module
+* FILE NAME:
+* FILE DESCRIPTION:     Undo of minimal styles for ie4, this file should always be imported after ie4.css
+* FILE AUTHORS:		Daniel Reszka (daniel@pixarea.com - http://www.pixarea.com - http://blog.pixarea.com)
+*/
+
+	body,
+	#page,
+	.accessibility  { background: none;}
+	body            { text-align: left; margin: 0; padding: 0;}
+	#page           { width: auto;}
+	.wrapper        { padding: 0;}
+	#page,
+	#header,
+	.content,
+	.nav	 	{ border-width: 0;}

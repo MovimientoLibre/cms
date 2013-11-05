@@ -1,0 +1,27 @@
+/*
+* WYMstyle - The free CSS framework
+* Copyright (C) 2006 Daniel Reszka
+*
+* Licensed under the terms of the GNU Lesser General Public License:
+* 			http://www.opensource.org/licenses/lgpl-license.php
+*
+* For further information visit:
+*			http://www.wymstyle.org/
+*			http://trac.wymstyle.org/
+*
+* NOTES: 		recommended tab width = 8 spaces
+* FILE TYPE:            WYMstyle css module
+* FILE NAME:
+* FILE DESCRIPTION:     Print styles
+* FILE AUTHORS:		Daniel Reszka (daniel@pixarea.com - http://www.pixarea.com - http://blog.pixarea.com)
+*/
+
+/*DEPENDENCIES*/
+	@import "typo-reset.css";
+
+/*HIDE UNWANTED ELEMENTS*/
+	.nav,
+	#footer			{ display: none;}
+
+/*SHOW PRINT MEDIA*/
+	.print-media		{ display:block;}

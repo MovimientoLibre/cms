@@ -1,0 +1,34 @@
+/*
+* WYMstyle - The free CSS framework
+* Copyright (C) 2006 Daniel Reszka
+*
+* Licensed under the terms of the GNU Lesser General Public License:
+* 			http://www.opensource.org/licenses/lgpl-license.php
+*
+* For further information visit:
+*			http://www.wymstyle.org/
+*			http://trac.wymstyle.org/
+*
+* NOTES: 		recommended tab width = 8 spaces
+* FILE TYPE:            WYMstyle css skin fragment
+* FILE NAME:
+* FILE DESCRIPTION:	fragment of skin wymstyle04
+* FILE AUTHORS:		Daniel Reszka (daniel@pixarea.com - http://www.pixarea.com - http://blog.pixarea.com)
+*/
+
+/*DEPENDENCIES*/
+	@import "../../core/layout-fixed.css";
+	@import "../../core/cols-2-xm.css";
+	@import "../../core/cols-equal.css";
+
+/*HIDE UNWANTED ELEMENTS*/
+	#nav-sec,
+	#nav-lang,
+	#sub,
+	#footer,
+	.extradiv		{ display: none;}
+
+/*LAYOUT*/
+	body 			{ padding: 20px 0;}
+	#nav-pri                { width: 168px;}
+	#nav-pri ul     	{ padding: 14px 0;}

@@ -1,0 +1,22 @@
+/*
+* WYMstyle - The free CSS framework
+* Copyright (C) 2006 Daniel Reszka
+*
+* Licensed under the terms of the GNU Lesser General Public License:
+* 			http://www.opensource.org/licenses/lgpl-license.php
+*
+* For further information visit:
+*			http://www.wymstyle.org/
+*			http://trac.wymstyle.org/
+*
+* NOTES: 		recommended tab width = 8 spaces
+* FILE TYPE:            WYMstyle css addon
+* FILE NAME:
+* FILE DESCRIPTION:	Styles specific to default WYM site forms  
+* FILE AUTHORS:		Daniel Reszka (daniel@pixarea.com - http://www.pixarea.com - http://blog.pixarea.com)
+*/
+
+/*TYPO*/
+	form label em		{ color: red; font-weight: bold; font-size: 14px; font-style: normal;
+				  font-family: "Courier New", Courier, monospace; }
+	form .validator         { font-size: 10px;}
