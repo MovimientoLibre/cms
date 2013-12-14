@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 ############################################################################
-#    Copyright (C) 2008 by Guillermo Valdez Lozano                         #
+#    Copyright (C) 2013 by Guillermo Valdes Lozano                         #
 #    guivaloz@movimientolibre.com                                          #
 #                                                                          #
 #    This program is free software; you can redistribute it and#or modify  #
@@ -24,8 +24,8 @@
 # INDIQUE EL DIRECTORIO BASE
 # --------------------------
 
-# Directorio base donde están los archivos del sitio, NO debe tener al final /
-Dir.chdir('/home/guivaloz/www/ml-cms')
+# Directorio base donde están los archivos del sitio, NO debe tener diagonal (/) al final
+Dir.chdir('/home/guivaloz/Documentos/MovimientoLibre/GitHub/cms')
 
 # -----------------------
 # NO MODIFIQUE ESTA PARTE
@@ -120,7 +120,7 @@ imprenta.usar_contenido_secundario = false
 
 # El pie, como adivinará, es lo que aparecerá en la parte inferior de todas las páginas
 imprenta.pie_html = <<FIN_PIE_HTML
-<p style="font-size: smaller;">Copyright (c) 2008 Guillermo Valdez Lozano. Se otorga permiso para copiar, distribuir y/o modificar este documento<br />
+<p style="font-size: smaller;">Copyright (c) 2013 Guillermo Valdes Lozano. Se otorga permiso para copiar, distribuir y/o modificar este documento<br />
 El programa está protegido por la licencia <a href="/licencias/gpl-2.html">GPL versión 2</a><br />
 La documentación está protegida por la licencia <a href="/licencias/gfdl.html">GFDL</a></p>
 FIN_PIE_HTML
