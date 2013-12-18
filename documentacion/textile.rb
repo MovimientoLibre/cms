@@ -9,7 +9,7 @@ def publicacion(dir)
     p.fecha       = "2008-05-13 08:00"
     p.categorias  = ['Textile']
     p.contenido   = <<FIN_CONTENIDO
-h3. A cerca de Textile
+h4. A cerca de Textile
 
 "Textile":http://en.wikipedia.org/wiki/Textile_%28markup_language%29 es un lenguaje de marcado ligero originalmente desarrollado por Dean Allen como "generador de texto web humano".
 
@@ -19,11 +19,11 @@ Textile es distribuido bajo la "Licencia BSD":http://en.wikipedia.org/wiki/BSD_l
 
 <!-- break -->
 
-h3. Textile en este CMS
+h4. Textile en este CMS
 
 Este script espera que el contenido de cada publicación esté hecho en Textile.
 
-h3. Referencia de Textile
+h4. Referencia de Textile
 
 Le recomiendo la página "A Textile Reference":http://hobix.com/textile/ es muy útil.
 

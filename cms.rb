@@ -55,10 +55,10 @@ imprenta.url_sitio = 'http://cms.movimientolibre.com'
 imprenta.titulo_sitio = 'CMS de Movimiento Libre'
 
 # Frase del sitio web
-imprenta.frase_sitio = 'Script en Ruby para elaborar un sitio web'
+imprenta.frase_sitio = 'Script hecho en Ruby para elaborar un sitio web, con ayuda de Twitter Bootstrap.'
 
 # Descripción del sitio web
-DESCRIPCION_SITIO = 'Script en Ruby para elaborar un sitio web.'
+DESCRIPCION_SITIO = 'Script hecho en Ruby para elaborar un sitio web, con ayuda de Twitter Bootstrap.'
 
 # El anuncio sirve para mostrar un evento, reunión o acontecimiento próximo
 # en la parte superior de la página inicial, por defecto está vacio
@@ -82,14 +82,14 @@ ARCHIVO_RSS = 'rss.xml'
 # No necesariamente tienen que ser los mismos que defina en publicaciones_directorios
 # Puede agregar sus propios vínculos a otros sitios u omitir los directorios que prefiera
 menu_principal = Menu.new
-menu_principal.agregar('Página inicial', '/' + PAGINA_INICIAL)
+#menu_principal.agregar('Página inicial', '/' + PAGINA_INICIAL)
 menu_principal.agregar('A cerca',        '/a_cerca/')
-menu_principal.agregar('Descargar',      '/descargar/')
 menu_principal.agregar('Screenshots',    '/screenshots/')
+menu_principal.agregar('Descargar',      '/descargar/')
 menu_principal.agregar('Documentación',  '/documentacion/')
 menu_principal.agregar('Licencias',      '/licencias/')
 menu_principal.agregar('Contacto',       '/contacto/')
-imprenta.menu_principal = menu_principal.to_html
+imprenta.menu_principal = menu_principal.to_primario_html
 
 # Opcionalmente puede mostrar la descripción en la tercer columna
 # imprenta.contenido_secundario = '<p style="background: #CCC; padding: 4px; border: solid 1px gray; font-style: italic;">' + DESCRIPCION_SITIO + '</p>'
@@ -120,9 +120,9 @@ imprenta.usar_contenido_secundario = false
 
 # El pie, como adivinará, es lo que aparecerá en la parte inferior de todas las páginas
 imprenta.pie_html = <<FIN_PIE_HTML
-<p style="font-size: smaller;">Copyright (c) 2013 Guillermo Valdes Lozano. Se otorga permiso para copiar, distribuir y/o modificar este documento<br />
-El programa está protegido por la licencia <a href="/licencias/gpl-2.html">GPL versión 2</a><br />
-La documentación está protegida por la licencia <a href="/licencias/gfdl.html">GFDL</a></p>
+Copyright (c) 2013 Guillermo Valdés Lozano. Se otorga permiso para copiar, distribuir y/o modificar este documento<br>
+El programa está protegido por la licencia <a href="/licencias/gpl-2.html">GPL versión 2</a><br>
+La documentación está protegida por la licencia <a href="/licencias/gfdl.html">GFDL</a>
 FIN_PIE_HTML
 
 # ----------------------------------------------------------

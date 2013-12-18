@@ -1,0 +1,41 @@
+/*
+ * cms.css
+ */
+
+/*
+ * GENERAL
+ */
+body {
+    min-height: 2000px;
+    padding-top: 70px;
+    background-color: #DFDFDF;
+}
+a, a:hover, a:focus { color: #A52A2A; }
+a:active, a:visited { color: #C51111; }
+
+/*
+ * MENU PRINCIPAL
+ */
+.navbar-default {
+    background-color: #CCA451;
+}
+.navbar-default .navbar-brand {
+    color: #FFFFFF;
+}
+.navbar-default .navbar-nav li a {
+    color: #000000;
+}
+
+/*
+ * MENU SECUNDARIO
+ */
+.menu-secundario {
+    background-color: #E6D7B8;
+}
+
+/*
+ * CONTENIDO
+ */
+.jumbotron {
+    background-color: white;
+}

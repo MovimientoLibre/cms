@@ -125,7 +125,7 @@ class Imprenta
             break if c >= @publicaciones_por_pagina_maximo
         end
         # Entregamos el HTML del menú
-        menu.to_html
+        menu.to_secundario_html
     end
 
     #
@@ -150,7 +150,7 @@ class Imprenta
         # Enviamos los vínculos de las categorías a todas las publicaciones
         @publicaciones.each { |pub| pub.vincular_categorias(menu.urls) }
         # Entregamos el HTML del menú
-        menu.to_html
+        menu.to_secundario_html
     end
 
     #
@@ -171,7 +171,7 @@ class Imprenta
             end
         end
         # Entregamos el HTML del menú
-        menu.to_html
+        menu.to_secundario_html
     end
 
     #
