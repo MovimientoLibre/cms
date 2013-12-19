@@ -11,11 +11,11 @@ def publicacion(dir)
     p.contenido                 = <<FIN_CONTENIDO
 La autora de esta traducción es: Palmira Granados, Licenciada en Derecho por la Escuela libre de derecho (México).
 
+<!-- break -->
+
 h4. NOTA IMPORTANTE:
 
 Esta es una traducción no oficial al español de la GNU General Public License. No ha sido publicada por la Free Software Foundation, y no establece legalmente las condiciones de distribución para el software que usa la GNU GPL. Estas condiciones se establecen solamente por el texto original, en inglés, de la GNU GPL. Sin embargo, esperamos que esta traducción ayude a los hispanoparlantes a entender mejor la GNU GPL.
-
-<!-- break -->
 
 h4. IMPORTANT NOTICE:
 

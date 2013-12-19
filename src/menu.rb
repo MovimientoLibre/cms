@@ -23,92 +23,135 @@
 #
 class Menu
 
-	#
-	# Valores por defecto de las propiedades
-	#
-	def initialize
-		@elementos         = Array.new
-		@encabezados       = Array.new
-		@encabezado_actual = ''
-	end
+    #
+    # Propiedades modificables
+    #
+    attr_writer :panel_clase, :encabezado_clase, :lista_clase, :opcion_clase
 
-	#
-	# Encabezado del menu
-	#
-	public
-	def encabezado(etiqueta, url='')
-		@encabezados.push({'etiqueta' => etiqueta, 'url' => url})
-		@encabezado_actual = etiqueta
-	end
+    #
+    # Valores por defecto de las propiedades
+    #
+    def initialize
+        @panel_clase       = ''
+        @encabezado_clase  = ''
+        @lista_clase       = ''
+        @opcion_clase      = ''
+        @elementos         = Array.new
+        @encabezados       = Array.new
+        @encabezado_actual = ''
+    end
 
-	#
-	# Agregar un elemento al menu
-	#
-	def agregar(etiqueta, url='')
-		@elementos.push({'etiqueta' => etiqueta, 'url' => url, 'encabezado' => @encabezado_actual})
-	end
+    #
+    # Encabezado del menu
+    #
+    public
+    def encabezado(etiqueta, url='')
+        @encabezados.push({'etiqueta' => etiqueta, 'url' => url})
+        @encabezado_actual = etiqueta
+    end
 
-	#
-	# Entrega el menu en HTML
-	#
-	# Para XHTML strict debemos de respetar el correcto encestamiento...
-	# <ul>
-	# <li>Coffee</li>
-	# <li>Tea
-	#   <ul>
-	#     <li>Black tea</li>
-	#     <li>Green tea</li>
-	#   </ul>
-	# </li>
-	# <li>Milk</li>
-	# </ul>
-	#
-	def to_html
-		if @encabezado_actual == ''
-			a = Array.new
-			a << '<ul>'
-			@elementos.each do |e|
-				if e['url'] == ''
-					a << "	<li>#{e['etiqueta']}</li>"
-				else
-					a << "	<li><a href=\"#{e['url']}\">#{e['etiqueta']}</a></li>"
-				end
-			end
-			a << '</ul>'
-			a.join("\n")
-		else
-			a = Array.new
-			a << '<ul>'
-			@encabezados.each do |encabezado|
-				b = Array.new
-				@elementos.each do |e|
-					if e['encabezado'] == encabezado['etiqueta']
-						if e['url'] == ''
-							b << "		<li>#{e['etiqueta']}</li>"
-						else
-							b << "		<li><a href=\"#{e['url']}\">#{e['etiqueta']}</a></li>"
-						end
-					end
-				end
-				if b.length > 0
-					if encabezado['url'] == ''
-						a << "	<li>#{encabezado['etiqueta']}"
-					else
-						a << "	<li><a href=\"#{encabezado['url']}\">#{encabezado['etiqueta']}</a>"
-					end
-					a << '	<ul>'
-					b.each { |c| a << c }
-					a << '	</ul>'
-					a << '	</li>'
-				elsif encabezado['url'] == ''
-					a << "	<li>#{encabezado['etiqueta']}</li>"
-				else
-					a << "	<li><a href=\"#{encabezado['url']}\">#{encabezado['etiqueta']}</a></li>"
-				end
-			end
-			a << '</ul>'
-			a.join("\n")
-		end
-	end
+    #
+    # Agregar un elemento al menu
+    #
+    def agregar(etiqueta, url='')
+        @elementos.push({'etiqueta' => etiqueta, 'url' => url, 'encabezado' => @encabezado_actual})
+    end
+
+    #
+    # Entrega el menu en HTML
+    #
+    def to_html
+        if @lista_clase != ''
+            ul = "<ul class=\"#@lista_clase\">"
+        else
+            ul = '<ul>'
+        end
+        if @opcion_clase != ''
+            li = "<li class=\"#@opcion_clase\">"
+        else
+            li = "<li>"
+        end
+        a =  Array.new
+        a << "<div class=\"#@panel_clase\">" if @panel_clase != ''
+        if @encabezado_actual == ''
+            a << ul
+            @elementos.each do |e|
+                if e['url'] == ''
+                    a << "  #{li}#{e['etiqueta']}</li>"
+                else
+                    a << "  #{li}<a href=\"#{e['url']}\">#{e['etiqueta']}</a></li>"
+                end
+            end
+            a << '</ul>'
+        else
+            @encabezados.each do |encabezado|
+                a << "  <div class=\"#@encabezado_clase\">#@encabezado_actual</div>" if @encabezado_clase != ''
+                a << ul
+                b = Array.new
+                @elementos.each do |e|
+                    if e['encabezado'] == encabezado['etiqueta']
+                        if e['url'] == ''
+                            b << "      #{li}#{e['etiqueta']}</li>"
+                        else
+                            b << "      #{li}<a href=\"#{e['url']}\">#{e['etiqueta']}</a></li>"
+                        end
+                    end
+                end
+                if b.length > 0
+                    #~ if encabezado['url'] == ''
+                        #~ if @encabezado_clase != ''
+                            #~ a << "  <div class=\"#@encabezado_clase\">#{encabezado['etiqueta']}</div>"
+                        #~ else
+                            #~ a << "  #{li}#{encabezado['etiqueta']}"
+                        #~ end
+                    #~ else
+                        #~ if @encabezado_clase != ''
+                            #~ a << "  <div class=\"#@encabezado_clase\"><a href=\"#{encabezado['url']}\">#{encabezado['etiqueta']}</a></div>"
+                        #~ else
+                            #~ a << "  #{li}<a href=\"#{encabezado['url']}\">#{encabezado['etiqueta']}</a>"
+                        #~ end
+                    #~ end
+                    #~ a << "    #{ul}"
+                    b.each { |c| a << c }
+                    #~ a << '    </ul>'
+                    #~ a << '  </li>' if @encabezado_clase == ''
+                elsif encabezado['url'] == ''
+                    #~ if @encabezado_clase != ''
+                        #~ a << "  <div class=\"#@encabezado_clase\">#{encabezado['etiqueta']}</div>"
+                    #~ else
+                        a << "  #{li}#{encabezado['etiqueta']}</li>"
+                    #~ end
+                else
+                    #~ if @encabezado_clase != ''
+                        #~ a << "  <div class=\"#@encabezado_clase\"><a href=\"#{encabezado['url']}\">#{encabezado['etiqueta']}</a></div>"
+                    #~ else
+                        a << "  #{li}<a href=\"#{encabezado['url']}\">#{encabezado['etiqueta']}</a></li>"
+                    #~ end
+                end
+                a << '</ul>'
+            end
+        end
+        a << "</div>" if @panel_clase != ''
+        a.join("\n")
+    end
+
+    #
+    # Menu primario, usa Twitter Bootstrap
+    #
+    def to_primario_html
+        @lista_clase = 'nav navbar-nav'
+        to_html
+    end
+
+    #
+    # Menu secundario, usa Twitter Bootstrap
+    #
+    def to_secundario_html
+        @panel_clase      = 'panel panel-default col-md-4 menu-secundario'
+        @encabezado_clase = 'panel-heading'
+        @lista_clase      = 'list-group'
+        @opcion_clase     = 'list-group-item'
+        to_html
+    end
 
 end

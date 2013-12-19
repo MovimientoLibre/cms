@@ -23,42 +23,54 @@
 #
 class Menu_Cantidades < Menu
 
-	#
-	# Propiedad leible
-	#
-	attr_reader :urls
+    #
+    # Propiedad leible
+    #
+    attr_reader :urls
 
-	#
-	# Valores por defecto de las propiedades
-	#
-	def initialize
-		super
-		@urls       = Hash.new
-		@cantidades = Hash.new
-	end
+    #
+    # Valores por defecto de las propiedades
+    #
+    def initialize
+        super
+        @urls       = Hash.new
+        @cantidades = Hash.new
+    end
 
-	#
-	# Agregar un elemento e ir contando la cantidad de elementos
-	#
-	def agregar(etiqueta, url)
-		if @urls[etiqueta] == nil
-			@urls[etiqueta]       = url
-			@cantidades[etiqueta] = 1
-		else
-			@cantidades[etiqueta] += 1
-		end
-	end
+    #
+    # Agregar un elemento e ir contando la cantidad de elementos
+    #
+    def agregar(etiqueta, url)
+        if @urls[etiqueta] == nil
+            @urls[etiqueta]       = url
+            @cantidades[etiqueta] = 1
+        else
+            @cantidades[etiqueta] += 1
+        end
+    end
 
-	#
-	# Entrega el menu en HTML
-	#
-	def to_html
-		arreglo = Array.new
-		@cantidades.each do | etiqueta, cantidad |
-			arreglo.push({'etiqueta' => "#{etiqueta} (#{cantidad})", 'url' => @urls[etiqueta], 'encabezado' => @encabezado_actual})
-		end
-		@elementos = arreglo.sort_by { |i| i['etiqueta'] }
-		super
-	end
+    #
+    # Entrega el menu en HTML
+    #
+    def to_html
+        arreglo = Array.new
+        @cantidades.each do | etiqueta, cantidad |
+            arreglo.push({'etiqueta' => "#{etiqueta} (#{cantidad})", 'url' => @urls[etiqueta], 'encabezado' => @encabezado_actual})
+        end
+        @elementos = arreglo.sort_by { |i| i['etiqueta'] }
+        super
+    end
+
+    #
+    # List group de Twitter Bootstrap
+    #
+    def to_list_group_html
+        arreglo = Array.new
+        @cantidades.each do | etiqueta, cantidad |
+            arreglo.push({'etiqueta' => "#{etiqueta} (#{cantidad})", 'url' => @urls[etiqueta], 'encabezado' => @encabezado_actual})
+        end
+        @elementos = arreglo.sort_by { |i| i['etiqueta'] }
+        super
+    end
 
 end

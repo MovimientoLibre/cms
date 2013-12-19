@@ -9,7 +9,7 @@ def publicacion(dir)
     p.fecha                     = "2006-08-01 00:00"
     p.aparece_en_pagina_inicial = false
     p.contenido                 = <<FIN_CONTENIDO
-Este programa fue elaborado por *Guillermo Valdez Lozano*. Visite el sitio personal del autor en "Movimiento Libre":http://movimientolibre.com.
+Este programa fue elaborado por *Guillermo Valdés Lozano*. Visite el sitio personal del autor en "Movimiento Libre":http://movimientolibre.com.
 
 Puede contactarme vía correo electrónico en *guivaloz( en )movimientolibre.com*, por supuesto, sustituya "( en )" por una arroba.
 

@@ -14,7 +14,7 @@ Este sitio web es elaborado con este script. Al descargar el archivo comprimido 
 |=. !/imagenes/icono-tgz.png(Descargar la versión 1.3)!:http://cms.movimientolibre.com/descargar/cms-ml-1.3-2008-05-16.tar.gz |
 |=. "Descargar la versión 1.3 al 16/mayo/2008":http://cms.movimientolibre.com/descargar/cms-ml-1.3-2008-05-16.tar.gz |
 
-h3. Novedades de esta versión
+h4. Novedades de esta versión
 
 * Nuevo _framework_ para los CSS. Elaborado por "WYMstyle":http://www.wymstyle.org/en/ el cual da más versatilidad en el diseño y claridad el archivo CSS.
 * Numeración de páginas. Cuando la cantidad de publicaciones excede el máximo configurado, las publicaciones son distribuidas en dos o más páginas y aparecen vínculos (con los números de página) a las páginas en la parte inferior.
@@ -24,7 +24,7 @@ h3. Novedades de esta versión
 * Configuración en un único archivo. Las librerías se mantienen iguales para varios sitios.
 * Muchas mejoras más que podrá ver en la configuración, dentro del script ejecutable.
 
-h3. Cambios que debe hacer si va a migrar de una versión anterior
+h4. Cambios que debe hacer si va a migrar de una versión anterior
 
 * Debe adaptar su diseño (archivo CSS) al nuevo _framework_.
 * Debe cambiar los menús personalizados al nuevo formato de instrucciones.
