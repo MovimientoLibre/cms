@@ -5,37 +5,57 @@
 /*
  * GENERAL
  */
-body {
-    min-height: 2000px;
-    padding-top: 70px;
-    background-color: #DFDFDF;
-}
-a, a:hover, a:focus { color: #A52A2A; }
-a:active, a:visited { color: #C51111; }
+body { min-height:2000px; padding-top:60px; background-color:#DFDFDF; }
+a,
+a:hover,
+a:focus   { color:#A52A2A; }
+a:active,
+a:visited { color:#C51111; }
 
 /*
  * MENU PRINCIPAL
  */
-.navbar-default {
-    background-color: #CCA451;
-}
-.navbar-default .navbar-brand {
-    color: #FFFFFF;
-}
-.navbar-default .navbar-nav li a {
-    color: #000000;
-}
+.menu-principal { background-color:#A52A2A; }
 
-/*
- * MENU SECUNDARIO
- */
-.menu-secundario {
-    background-color: #E6D7B8;
-}
+/* NOMBRE DEL SITIO */
+.menu-principal a.navbar-brand,
+.menu-principal a.navbar-brand:active,
+.menu-principal a.navbar-brand:visited { color:white; }
+.menu-principal a.navbar-brand:hover,
+.menu-principal a.navbar-brand:focus   { background-color:#701313; color:white; }
+
+/* OPCIONES */
+.menu-principal .navbar-nav li a,
+.menu-principal .navbar-nav li a:active,
+.menu-principal .navbar-nav li a:visited { color:#FFFFFF; }
+.menu-principal .navbar-nav li a:hover,
+.menu-principal .navbar-nav li a:focus   { background-color:#701313; color:white; }
 
 /*
  * CONTENIDO
  */
-.jumbotron {
-    background-color: white;
-}
+
+/* EN EL JUMBOTRON PONER LA IMAGEN DE RUBY */
+.jumbotron    { background-color:white; background-image:url('/imagenes/ruby.png'); background-repeat:no-repeat; background-position:left center; }
+.jumbotron h2,
+.jumbotron p  { padding-left:130px; }
+
+/* BOTONES  */
+.publicacion-completa,
+.publicacion-completa:active,
+.publicacion-completa:visited { background-color:#A52A2A; border-color:#A52A2A; } /* #D9534F */
+.publicacion-completa:hover,
+.publicacion-completa:focus   { background-color:#701313; border-color:#701313; }
+
+/* SCREENSHOTS */
+.screenshots img { padding:10px; }
+
+/* PAGINACION */
+.pagination > .active > a,
+.pagination > .active > a:hover,
+.pagination > .active > a:focus { background-color:gray; border-color:gray; color:white; }
+
+/*
+ * MENU SECUNDARIO
+ */
+.menu-secundario { background-color:#808080; border-color:#808080; line-height:0.5; font-size:9pt; }

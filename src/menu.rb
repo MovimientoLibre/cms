@@ -147,7 +147,7 @@ class Menu
     # Menu secundario, usa Twitter Bootstrap
     #
     def to_secundario_html
-        @panel_clase      = 'panel panel-default col-md-4'
+        @panel_clase      = 'panel panel-default col-md-4 menu-secundario'
         @encabezado_clase = 'panel-heading'
         @lista_clase      = 'list-group'
         @opcion_clase     = 'list-group-item'

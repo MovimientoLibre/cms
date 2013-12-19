@@ -25,7 +25,7 @@
 # --------------------------
 
 # Directorio base donde están los archivos del sitio, NO debe tener diagonal (/) al final
-Dir.chdir('/home/guivaloz/Documentos/MovimientoLibre/GitHub/cms')
+# Dir.chdir('/home/guivaloz/Documentos/MovimientoLibre/GitHub/cms')
 
 # -----------------------
 # NO MODIFIQUE ESTA PARTE
@@ -48,17 +48,16 @@ imprenta = Imprenta.new
 # CONTINUE AJUSTANDO LOS SIGUIENTES PARAMETROS
 # --------------------------------------------
 
-# URL del sitio, necesario para la sindicalización, NO debe tener al final /
+# URL del sitio, necesario para la sindicalización, NO debe tener diagonal al final
 imprenta.url_sitio = 'http://cms.movimientolibre.com'
 
 # Nombre del sitio web
-imprenta.titulo_sitio = 'CMS de Movimiento Libre'
-
-# Frase del sitio web
-imprenta.frase_sitio = 'Script hecho en Ruby para elaborar un sitio web, con ayuda de Twitter Bootstrap.'
+TITULO_SITIO          = 'CMS de Movimiento Libre'
+imprenta.titulo_sitio = TITULO_SITIO
 
 # Descripción del sitio web
-DESCRIPCION_SITIO = 'Script hecho en Ruby para elaborar un sitio web, con ayuda de Twitter Bootstrap.'
+DESCRIPCION_SITIO    = 'Un administrador de contenidos programado en Ruby. Ahora usa Twitter Bootstrap.'
+imprenta.frase_sitio = DESCRIPCION_SITIO
 
 # El anuncio sirve para mostrar un evento, reunión o acontecimiento próximo
 # en la parte superior de la página inicial, por defecto está vacio
@@ -72,10 +71,10 @@ imprenta.publicaciones_directorios = %w{ a_cerca descargar screenshots documenta
 # No hay necesidad de definir una etiqueta si el nombre del directorio es igual a la etiqueta
 imprenta.publicaciones_etiquetas = { 'a_cerca' => 'A cerca', 'documentacion' => "Documentación" }
 
-# Nombre del archivo para la página incial
+# Nombre del archivo para la página incial, sin diagonal al principio
 PAGINA_INICIAL = 'index.html'
 
-# Nombre del archivo para la sindicalización
+# Nombre del archivo para la sindicalización, sin diagonal al principio
 ARCHIVO_RSS = 'rss.xml'
 
 # El menu principal, use URLs absolutos
@@ -114,15 +113,21 @@ imprenta.usar_contenido_secundario = false
 
 # Le recomiendo ampliamente que el diseño del encabezado sea un gráfico controlable en el CSS
 # esto junto con el nombre (imprenta.titulo_sitio) y la frase del sitio (imprenta.frase_sitio).
-# Si necesita un gráfico más elaborado o una animación flash, entonces defínalo en la siguiente
+# Si necesita un gráfico o estructura más elaborado, entonces defínalo en la siguiente
 # propiedad, al hacer esto no aparecerán el nombre y frase del sitio en el HTML de las páginas.
-# imprenta.grafico_encabezado = ""
+#imprenta.grafico_encabezado = <<FINAL
+#<div class="jumbotron">
+#  <img src="/imagenes/ruby.png" class="pull-left" style="padding-right:10px;">
+#  <h2>#{TITULO_SITIO}</h2>
+#  <p>#{DESCRIPCION_SITIO}</p>
+#</div>
+#FINAL
 
 # El pie, como adivinará, es lo que aparecerá en la parte inferior de todas las páginas
 imprenta.pie_html = <<FIN_PIE_HTML
-Copyright (c) 2013 Guillermo Valdés Lozano. Se otorga permiso para copiar, distribuir y/o modificar este documento<br>
-El programa está protegido por la licencia <a href="/licencias/gpl-2.html">GPL versión 2</a><br>
-La documentación está protegida por la licencia <a href="/licencias/gfdl.html">GFDL</a>
+Copyright (c) 2013 Guillermo Valdés Lozano. Se otorga permiso para copiar, distribuir y/o modificar este documento.<br>
+El programa está protegido por la licencia <a href="/licencias/gpl-2.html">GPL versión 2</a>.<br>
+La documentación está protegida por la licencia <a href="/licencias/gfdl.html">GFDL</a>.
 FIN_PIE_HTML
 
 # ----------------------------------------------------------

@@ -111,7 +111,8 @@ class Publicacion
         a << '<blockquote>' if incompleto
         a << "  <p><small>#@fecha - #@autor</small></p>" if @aparece_en_pagina_inicial
         a << texto.to_html
-        a << "  <p class=\"text-right\"><a href=\"/#{self.url}\">Publicación completa...</a></p>" if incompleto
+      # a << "  <p class=\"text-right\"><a href=\"/#{self.url}\">Publicación completa...</a></p>" if incompleto
+        a << "  <p class=\"text-right\"><button type=\"button\" class=\"btn btn-primary publicacion-completa\" onclick=\"location.href='/#{self.url}'\">Publicación completa...</button></p>" if incompleto
         a << '</blockquote>' if incompleto
         a.join("\n")
     end

@@ -68,7 +68,7 @@ class Plantilla
         a << '<body>'
         a << '  <!-- MENU PRINCIPAL -->'
         if @menu_principal != nil
-            a << '  <div class="navbar navbar-default navbar-fixed-top" role="navigation">'
+            a << '  <div class="navbar navbar-default navbar-fixed-top menu-principal" role="navigation">'
             a << '    <div class="container">'
             a << '      <div class="navbar-header">'
             a << '        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">'
@@ -122,8 +122,8 @@ class Plantilla
         end
         a << '  </div>'
         a << '  <!-- CODIGO JAVASCRIPT DE BOOTSTRAP PUESTO AL FINAL PARA QUE SE CARGUE MAS RAPIDO LA PAGINA -->'
-        a << '  <script src="js/jquery-1.10.2.min.js"></script>'
-        a << '  <script src="js/bootstrap.min.js"></script>'
+        a << '  <script src="/js/jquery-1.10.2.min.js"></script>'
+        a << '  <script src="/js/bootstrap.min.js"></script>'
         a << '</body>'
         a << '</html>'
         a.join("\n")
