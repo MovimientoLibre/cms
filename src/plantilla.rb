@@ -49,13 +49,15 @@ class Plantilla
         a << '  <meta charset="utf-8">'
         a << '  <meta http-equiv="X-UA-Compatible" content="IE=edge">'
         a << '  <meta name="viewport" content="width=device-width, initial-scale=1.0">'
-        #~ a << '  <meta name="description" content="">'
-        #~ a << '  <meta name="author" content="">'
-        a << '  <link rel="shortcut icon" href="/favicon.ico">'
+     #~ a << '  <meta name="description" content="">'
+     #~ a << '  <meta name="author" content="">'
+        a << '  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">'
         a << "  <link rel=\"alternate\" type=\"application/rss+xml\" title=\"#@titulo_sitio\" href=\"/#@archivo_rss\" />" if @archivo_rss != nil
         a << "  <title>#@titulo_sitio - #{titulo}</title>"
         a << '  <!-- TWITTER BOOTSTRAP INICIA -->'
-        a << '  <link href="/css/bootstrap.min.css" rel="stylesheet">'
+     #~ a << '  <link href="/css/bootstrap.min.css" rel="stylesheet">'
+        a << '  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">'
+        a << '  <link href="//netdna.bootstrapcdn.com/bootswatch/3.0.0/journal/bootstrap.min.css" rel="stylesheet">'
         a << '  <!-- ESTILOS CSS PROPIOS DE ESTE CMS -->'
         a << '  <link href="/css/cms.css" rel="stylesheet">'
         a << '  <!-- SOPORTE PARA IE8 -->'
@@ -122,8 +124,11 @@ class Plantilla
         end
         a << '  </div>'
         a << '  <!-- CODIGO JAVASCRIPT DE BOOTSTRAP PUESTO AL FINAL PARA QUE SE CARGUE MAS RAPIDO LA PAGINA -->'
-        a << '  <script src="/js/jquery-1.10.2.min.js"></script>'
-        a << '  <script src="/js/bootstrap.min.js"></script>'
+     #~ a << '  <script src="/js/jquery.min.js"></script>'
+        a << '  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>'
+     #~ a << '  <script src="/js/bootstrap.min.js"></script>'
+        a << '  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>'
+        a << '  '
         a << '</body>'
         a << '</html>'
         a.join("\n")

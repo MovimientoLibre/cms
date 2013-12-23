@@ -4,8 +4,8 @@ def publicacion(dir)
     p             = Publicacion.new
     p.directorio  = dir
     p.archivo     = 'a_cerca'
-    p.nombre      = 'A cerca del CMS de Movimiento Libre'
-    p.nombre_menu = 'A cerca'
+    p.nombre      = 'Acerca del CMS de Movimiento Libre'
+    p.nombre_menu = 'Acerca'
     p.fecha       = "2008-05-16 18:00"
     p.categorias  = ['FAQ']
     p.contenido   = <<FIN_CONTENIDO
