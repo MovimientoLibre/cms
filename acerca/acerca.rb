@@ -3,7 +3,7 @@ def publicacion(dir)
 
     p             = Publicacion.new
     p.directorio  = dir
-    p.archivo     = 'a_cerca'
+    p.archivo     = 'acerca'
     p.nombre      = 'Acerca del CMS de Movimiento Libre'
     p.nombre_menu = 'Acerca'
     p.fecha       = "2008-05-16 18:00"

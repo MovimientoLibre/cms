@@ -23,39 +23,41 @@
 #
 class Clasificado
 
-	#
-	# Propiedades modificables
-	#
-	attr_writer :nombre, :url
+    #
+    # Propiedades modificables
+    #
+    attr_writer :nombre, :url
 
-	#
-	# Propiedades leibles
-	#
-	attr_reader :nombre, :url, :publicaciones, :cantidad
+    #
+    # Propiedades leibles
+    #
+    attr_reader :nombre, :url, :publicaciones, :cantidad
 
-	#
-	# Valores por defecto
-	#
-	def initialize(nombre, url)
-		@nombre        = nombre
-		@url           = url
-		@publicaciones = Array.new
-		@cantidad      = 0
-	end
+    #
+    # Valores por defecto
+    #
+    def initialize(nombre, url)
+        # Propiedades modificables
+        @nombre        = nombre
+        @url           = url
+        # Propiedades no modificables
+        @publicaciones = Array.new
+        @cantidad      = 0
+    end
 
-	#
-	# Agregar publicación
-	#
-	def agregar_publicacion(pub)
-		@publicaciones.push(pub)
-		@cantidad += 1
-	end
+    #
+    # Agregar publicación
+    #
+    def agregar_publicacion(pub)
+        @publicaciones.push(pub)
+        @cantidad += 1
+    end
 
-	#
-	# Sencillo entrega sólo una línea de texto para mostrar en la terminal
-	#
-	#def sencillo
-	#	@nombre + ' (' + @cantidad + ') - ' + @url
-	#end
+    #
+    # Sencillo entrega sólo una línea de texto para mostrar en la terminal
+    #
+    #def sencillo
+    #   @nombre + ' (' + @cantidad + ') - ' + @url
+    #end
 
 end

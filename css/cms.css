@@ -36,7 +36,7 @@ a:visited { color:#C51111; }
  */
 
 /* EN EL JUMBOTRON PONER LA IMAGEN DE RUBY */
-.jumbotron    { background-color:white; background-image:url('/imagenes/ruby.png'); background-repeat:no-repeat; background-position:left center; }
+.jumbotron    { background-color:white; background-image:url('../imagenes/ruby.png'); background-repeat:no-repeat; background-position:left center; }
 .jumbotron h2,
 .jumbotron p  { padding-left:130px; }
 

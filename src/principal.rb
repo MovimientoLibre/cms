@@ -23,56 +23,62 @@
 #
 class Principal
 
-	#
-	# Recibir los parametros
-	#
-	def initialize(imprenta, pagina_inicial, archivo_rss)
-		@imprenta       = imprenta
-		@pagina_inicial = pagina_inicial
-		@archivo_rss    = archivo_rss
-	end
+    #
+    # Recibir los parametros
+    #
+    def initialize(imprenta, pagina_inicial, archivo_rss)
+        @imprenta       = imprenta
+        @pagina_inicial = pagina_inicial
+        @archivo_rss    = archivo_rss
+    end
 
-	#
-	# Funcion para crear los archivos
-	#
-	# Si existe previamente el archivo lo elimina
-	# Por cada archivo creado se manda una mensaje a la terminal
-	#
-	def crear_archivo(archivo, contenido)
-		File.delete(archivo) if File.file?(archivo)
-		f = File.new(archivo, "w")
-		f.puts contenido
-		f.close
-		puts "Listo #{archivo}"
-	end
+    #
+    # Funcion para crear los archivos
+    #
+    # Si existe previamente el archivo lo elimina
+    # Por cada archivo creado se manda una mensaje a la terminal
+    #
+    def crear_archivo(archivo, contenido)
+        File.delete(archivo) if File.file?(archivo)
+        f = File.new(archivo, "w")
+        f.puts contenido
+        f.close
+        puts "Listo #{archivo}"
+    end
 
-	#
-	# Elaborar todo el sitio, enviando mensajes a la terminal
-	#
-	def elaborar
-		puts 'Elaborando el reporte de las publicaciones encontradas...'
-		puts @imprenta.reporte
-		puts
-		puts 'Elaborando página inicial...'
-		crear_archivo(@pagina_inicial, @imprenta.pagina_inicial)
-		puts
-		puts 'Elaborando las páginas de cada publicación...'
-		@imprenta.paginas_publicaciones.each { |archivo, contenido| crear_archivo(archivo, contenido) }
-		puts
-		puts 'Elaborando los índices de cada uno de los directorios...'
-		puts 'ERROR: No hay' if @imprenta.paginas_directorios.length == 0
-		@imprenta.paginas_directorios.each { |archivo, contenido| crear_archivo(archivo, contenido) }
-		puts
-		puts 'Elaborando las páginas de las categorías...'
-		@imprenta.paginas_categorias.each { |archivo, contenido| crear_archivo(archivo, contenido) }
-		puts
-		puts 'Elaborando las páginas de los autores...'
-		@imprenta.paginas_autores.each { |archivo, contenido| crear_archivo(archivo, contenido) }
-		puts
-		puts 'Elaborando el archivo XML para la sindicalización...'
-		crear_archivo(@archivo_rss, @imprenta.sindicalizacion)
-		puts
-		puts "Script terminado."
-	end
+    #
+    # Elaborar todo el sitio, enviando mensajes a la terminal
+    #
+    def elaborar
+        puts 'Alimentándose...'
+        puts @imprenta.alimentarse
+        puts
+        puts 'Elaborando el reporte de las publicaciones encontradas...'
+        puts @imprenta.reporte
+        puts
+        puts 'Elaborando las páginas de cada publicación...'
+        @imprenta.paginas_publicaciones.each { |archivo, contenido| crear_archivo(archivo, contenido) }
+        puts
+        puts 'Elaborando los índices de cada uno de los directorios...'
+        puts 'ERROR: No hay' if @imprenta.paginas_directorios.length == 0
+        @imprenta.paginas_directorios.each { |archivo, contenido| crear_archivo(archivo, contenido) }
+        puts
+        puts 'Elaborando las páginas de las categorías...'
+        @imprenta.paginas_categorias.each { |archivo, contenido| crear_archivo(archivo, contenido) }
+        puts
+        puts 'Elaborando las páginas de los autores...'
+        @imprenta.paginas_autores.each { |archivo, contenido| crear_archivo(archivo, contenido) }
+        puts
+        puts 'Elaborando el archivo XML para la sindicalización...'
+        crear_archivo(@archivo_rss, @imprenta.sindicalizacion)
+        puts
+        puts 'Elaborando página inicial...'
+        crear_archivo(@pagina_inicial, @imprenta.pagina_inicial)
+        puts
+        puts 'Elaborando el reporte de las publicaciones encontradas...'
+        puts @imprenta.reporte
+        puts
+        puts "Script terminado."
+    end
 
 end

@@ -24,8 +24,10 @@
 # INDIQUE EL DIRECTORIO BASE
 # --------------------------
 
-# Directorio base donde están los archivos del sitio, NO debe tener diagonal (/) al final
-# Dir.chdir('/home/guivaloz/Documentos/MovimientoLibre/GitHub/cms')
+# Se recomienda ejecutar este script en el directorio donde se encuentre
+# De lo contrario, deshabilite el siguiente comando para hacer el cambio de directorio
+# NO debe tener diagonal (/) al final
+# Dir.chdir('/home/usuario/Documentos/SuRepositorio/GitHub/SuProyecto')
 
 # -----------------------
 # NO MODIFIQUE ESTA PARTE
@@ -56,7 +58,7 @@ TITULO_SITIO          = 'CMS de Movimiento Libre'
 imprenta.titulo_sitio = TITULO_SITIO
 
 # Descripción del sitio web
-DESCRIPCION_SITIO    = 'Un administrador de contenidos programado en Ruby. Ahora usa Twitter Bootstrap.'
+DESCRIPCION_SITIO    = 'Administrador de contenidos programado en Ruby. Ahora con Twitter Bootstrap.'
 imprenta.frase_sitio = DESCRIPCION_SITIO
 
 # El anuncio sirve para mostrar un evento, reunión o acontecimiento próximo
@@ -64,12 +66,12 @@ imprenta.frase_sitio = DESCRIPCION_SITIO
 # imprenta.anuncio = ''
 
 # Arreglo con los nombres de los directorios donde se encuentran las publicaciones
-imprenta.publicaciones_directorios = %w{ a_cerca descargar screenshots documentacion licencias contacto }
+imprenta.publicaciones_directorios = %w{ acerca descargar screenshots documentacion licencias contacto }
 
 # Arreglo con las etiquetas de los directorios donde se encuentran las publicaciones
-# Por ejemplo, un directorio llamado guia_inicio debe aparecer como "Guía de inicio"
+# Por ejemplo, un directorio llamado guia_inicio puede aparecer como "Guía de inicio"
 # No hay necesidad de definir una etiqueta si el nombre del directorio es igual a la etiqueta
-imprenta.publicaciones_etiquetas = { 'a_cerca' => 'A cerca', 'documentacion' => "Documentación" }
+imprenta.publicaciones_etiquetas = { 'documentacion' => "Documentación" }
 
 # Nombre del archivo para la página incial, sin diagonal al principio
 PAGINA_INICIAL = 'index.html'
@@ -77,18 +79,17 @@ PAGINA_INICIAL = 'index.html'
 # Nombre del archivo para la sindicalización, sin diagonal al principio
 ARCHIVO_RSS = 'rss.xml'
 
-# El menu principal, use URLs absolutos
+# Para el menu principal (el que va en la parte superior), use URLs relativos
 # No necesariamente tienen que ser los mismos que defina en publicaciones_directorios
 # Puede agregar sus propios vínculos a otros sitios u omitir los directorios que prefiera
 menu_principal = Menu.new
-#menu_principal.agregar('Página inicial', '/' + PAGINA_INICIAL)
-menu_principal.agregar('A cerca',        '/a_cerca/')
-menu_principal.agregar('Screenshots',    '/screenshots/')
-menu_principal.agregar('Descargar',      '/descargar/')
-menu_principal.agregar('Documentación',  '/documentacion/')
-menu_principal.agregar('Licencias',      '/licencias/')
-menu_principal.agregar('Contacto',       '/contacto/')
-imprenta.menu_principal = menu_principal.to_primario_html
+#menu_principal.agregar('Página inicial', PAGINA_INICIAL)
+menu_principal.agregar('Acerca',         'acerca/')
+menu_principal.agregar('Screenshots',    'screenshots/')
+menu_principal.agregar('Descargar',      'descargar/')
+menu_principal.agregar('Documentación',  'documentacion/')
+menu_principal.agregar('Licencias',      'licencias/')
+menu_principal.agregar('Contacto',       'contacto/')
 
 # Opcionalmente puede mostrar la descripción en la tercer columna
 # imprenta.contenido_secundario = '<p style="background: #CCC; padding: 4px; border: solid 1px gray; font-style: italic;">' + DESCRIPCION_SITIO + '</p>'
@@ -117,28 +118,32 @@ imprenta.usar_contenido_secundario = false
 # propiedad, al hacer esto no aparecerán el nombre y frase del sitio en el HTML de las páginas.
 #imprenta.grafico_encabezado = <<FINAL
 #<div class="jumbotron">
-#  <img src="/imagenes/ruby.png" class="pull-left" style="padding-right:10px;">
 #  <h2>#{TITULO_SITIO}</h2>
 #  <p>#{DESCRIPCION_SITIO}</p>
 #</div>
 #FINAL
 
-# El pie, como adivinará, es lo que aparecerá en la parte inferior de todas las páginas
+# El pie es lo que aparecerá en la parte inferior de todas las páginas
 imprenta.pie_html = <<FIN_PIE_HTML
-Copyright (c) 2013 Guillermo Valdés Lozano. Se otorga permiso para copiar, distribuir y/o modificar este documento.<br>
-El programa está protegido por la licencia <a href="/licencias/gpl-2.html">GPL versión 2</a>.<br>
-La documentación está protegida por la licencia <a href="/licencias/gfdl.html">GFDL</a>.
+  Copyright (c) 2013 Guillermo Valdés Lozano. Se otorga permiso para copiar, distribuir y/o modificar este documento.<br>
+  El programa está protegido por la licencia <a href="licencias/gpl-2.html">GPL versión 2</a>.<br>
+  La documentación está protegida por la licencia <a href="licencias/gfdl.html">GFDL</a>.
 FIN_PIE_HTML
 
 # ----------------------------------------------------------
 # FIN DE LA CONFIGURACION, NO MODIFIQUE NADA DE LO QUE SIGUE
 # ----------------------------------------------------------
 
-# Pasamos estas constantes a la imprenta
-imprenta.descripcion_sitio = DESCRIPCION_SITIO
-imprenta.archivo_rss       = ARCHIVO_RSS
+# La imprenta se encarga de la elaboración de los archivos
+imprenta.descripcion_sitio      = DESCRIPCION_SITIO
+imprenta.archivo_rss            = ARCHIVO_RSS
+imprenta.menu_principal         = menu_principal.to_primario_html
 
-# La clase principal dirige todos el trabajo para elaborar el sitio
+# Para el menú principal de la página inicial ponemos en verdadero el flag de que va a la raiz del sitio web
+menu_principal.en_raiz          = true
+imprenta.menu_principal_en_raiz = menu_principal.to_primario_html
+
+# La clase principal dirige la elaboración del sitio, recibe la imprenta como parámetro
 principal = Principal.new(imprenta, PAGINA_INICIAL, ARCHIVO_RSS)
 principal.elaborar
 

@@ -26,7 +26,7 @@ class Imprenta
     #
     # Propiedades modificables
     #
-    attr_writer :titulo_sitio, :frase_sitio, :anuncio, :grafico_encabezado, :publicaciones_directorios, :publicaciones_etiquetas, :menu_principal, :contenido_secundario, :publicaciones_por_pagina_maximo, :autor_por_defecto, :categorias_directorio, :autores_directorio, :menus_directorio, :usar_contenido_secundario, :url_sitio, :descripcion_sitio, :pie_html, :archivo_rss
+    attr_writer :titulo_sitio, :frase_sitio, :anuncio, :grafico_encabezado, :publicaciones_directorios, :publicaciones_etiquetas, :menu_principal, :menu_principal_en_raiz, :contenido_secundario, :publicaciones_por_pagina_maximo, :autor_por_defecto, :categorias_directorio, :autores_directorio, :menus_directorio, :usar_contenido_secundario, :url_sitio, :descripcion_sitio, :pie_html, :archivo_rss
 
     #
     # Valores por defecto de las propiedades
@@ -45,11 +45,11 @@ class Imprenta
         @menus_directorio                = 'menus'
         @usar_contenido_secundario       = true
         # Propiedades no modificables
-        @cantidad         = 0
-        @se_ha_alimentado = false
-        @publicaciones    = Array.new
-        @categorias       = Hash.new
-        @autores          = Hash.new
+        @cantidad      = 0
+        @publicaciones = Array.new
+        @categorias    = Hash.new
+        @autores       = Hash.new
+        @en_raiz       = false     # Este flag debe ser verdadero cuando se crean archivos para la raiz
     end
 
     #
@@ -116,11 +116,13 @@ class Imprenta
     # Menu últimas publicaciones
     #
     def menu_ultimas_publicaciones
-        menu = Menu.new
+        menu         = Menu.new # Nueva instancia de menú
+        menu.en_raiz = @en_raiz # Pasamos el flag si la página es para la raíz o no
         menu.encabezado('Últimas publicaciones')
         c = 0
         @publicaciones.each do |pub|
-            menu.agregar(pub.nombre_menu, '/' + pub.url) if pub.aparece_en_pagina_inicial
+            pub.en_raiz = @en_raiz
+            menu.agregar(pub.nombre_menu, pub.ruta) if pub.aparece_en_pagina_inicial
             c += 1
             break if c >= @publicaciones_por_pagina_maximo
         end
@@ -132,15 +134,18 @@ class Imprenta
     # Menu categorias
     #
     def menu_categorias
-        menu = Menu_Cantidades.new
+        @categorias  = Hash.new            # Empezar con un hash vacío de categorías
+        menu         = Menu_Cantidades.new # Nueva instancia de menú con cantidades
+        menu.en_raiz = @en_raiz            # Pasamos el flag si la página es para la raíz o no
         menu.encabezado('Categorías')
         # Procesamos sólo las publicaciones que pueden aparecer en la página principal
         @publicaciones.each do |pub|
+            pub.en_raiz = @en_raiz
             if pub.aparece_en_pagina_inicial
                 # Cada publicación puede tener una o más categorías
                 pub.categorias.each do |nombre|
                     url = @categorias_directorio + '/' + sustituir_caracteres(nombre) + '.html'
-                    menu.agregar(nombre, '/' + url)
+                    menu.agregar(nombre, url)
                     # Almacenamos las publicaciones de cada categoría, para hacer más adelante las páginas de las categorías
                     @categorias[nombre] = Clasificado.new(nombre, url) if @categorias[nombre] == nil
                     @categorias[nombre].agregar_publicacion(pub)
@@ -157,14 +162,17 @@ class Imprenta
     # Menu autores
     #
     def menu_autores
-        menu = Menu_Cantidades.new
+        @autores     = Hash.new            # Empezar con un hash vacío de autores
+        menu         = Menu_Cantidades.new # Nueva instancia de menú con cantidades
+        menu.en_raiz = @en_raiz            # Pasamos el flag si la página es para la raíz o no
         menu.encabezado('Autores')
         # Procesamos sólo las publicaciones que pueden aparecer en la página principal
         @publicaciones.each do |pub|
+            pub.en_raiz = @en_raiz
             if pub.aparece_en_pagina_inicial
                 nombre = pub.autor
                 url    = @autores_directorio + '/' + sustituir_caracteres(nombre) + '.html'
-                menu.agregar(nombre, '/' + url)
+                menu.agregar(nombre, url)
                 # Almacenamos las publicaciones de cada autor, para hacer más adelante las páginas de los autores
                 @autores[nombre] = Clasificado.new(nombre, url) if @autores[nombre] == nil
                 @autores[nombre].agregar_publicacion(pub)
@@ -190,12 +198,13 @@ class Imprenta
     #
     # Alimentarse
     #
+    public
     def alimentarse
-        # No volver a alimentar si ya se ha hecho
-        return if @se_ha_alimentado
+        # La @plantilla será para los archivos que NO están en la raiz
+        @en_raiz = false
         # Cargar las publicaciones
         self.cargar_publicaciones
-        # Inicializar la plantilla
+        # Inicializar la plantilla de todas las publicaciones, excepto de la página inicial
         @plantilla                    = Plantilla.new
         @plantilla.titulo_sitio       = @titulo_sitio
         @plantilla.frase_sitio        = @frase_sitio
@@ -209,58 +218,94 @@ class Imprenta
         end
         @plantilla.pie_html    = @pie_html
         @plantilla.archivo_rss = @archivo_rss
-        # Al término pone en verdadero el flag @se_ha_alimentado
-        @se_ha_alimentado = true
+        # Entregar mensaje
+        "Han ingresado #{@publicaciones.length} publicaciones."
     end
 
     #
-    # Reporte. Genera un informe en texto de las publicaciones
+    # Reporte
     #
-    public
     def reporte
-        self.alimentarse  # Para asegurarnos que se alimentado
-        listado = Array.new
-        @publicaciones.each { |pub| listado.push(pub.sencillo) }
-        "Hay #{@cantidad} publicaciones...\n#{listado.join("\n")}"
+        # Juntaremos el reporte en este arreglo
+        salida = Array.new
+        # Las publicaciones encontradas
+        salida.push("Hay #{@cantidad} publicaciones...}")
+        @publicaciones.each { |pub| salida.push("  #{pub.sencillo}") }
+        # Los autores y sus publicaciones
+        @autores.each do |nombre, clasificado|
+            salida.push("Para el autor #{nombre} hay estas publicaciones...")
+            clasificado.publicaciones.each { |pub| salida.push("  #{pub.nombre}") }
+        end
+        # Las categorias y sus publicaciones
+        @categorias.each do |nombre, clasificado|
+            salida.push("Para la categoría #{nombre} hay estas publicaciones...")
+            clasificado.publicaciones.each { |pub| salida.push("  #{pub.nombre}") }
+        end
+        # Entregar reporte para la terminal
+        salida.join("\n")
     end
 
     #
-    # Pagina inicial. Entrega el HTML de la pagina inicial
+    # Pagina inicial
     #
     def pagina_inicial
-        self.alimentarse  # Para asegurarnos que se alimentado
-        contador  = 0
+        @en_raiz = true # La página inicial está en la raiz
+        # Esta plantilla es sólo para la página inicial
+        plantilla                    = Plantilla.new
+        plantilla.titulo_sitio       = @titulo_sitio
+        plantilla.frase_sitio        = @frase_sitio
+        plantilla.grafico_encabezado = @grafico_encabezado
+        plantilla.menu_principal     = @menu_principal_en_raiz # Note que usa el menú para la raíz
+        if @usar_contenido_secundario
+            plantilla.menu_secundario      = self.menu_ultimas_publicaciones + self.menu_categorias + self.menu_autores
+            plantilla.contenido_secundario = @contenido_secundario + self.menus_adicionales
+        else
+            plantilla.menu_secundario = self.menu_ultimas_publicaciones + self.menu_categorias + self.menu_autores + @contenido_secundario + self.menus_adicionales
+        end
+        plantilla.pie_html    = @pie_html
+        plantilla.archivo_rss = @archivo_rss
+        # Juntar contenido para la página de inicio
+        c         = 0
         contenido = Array.new
         contenido.push(@anuncio) if @anuncio != ''
         @publicaciones.each do |pub|
             if pub.aparece_en_pagina_inicial
+                pub.en_raiz = @en_raiz
                 contenido.push(pub.breve)
-                contador += 1
-                break if contador >= @publicaciones_por_pagina_maximo
+                c += 1
+                break if c >= @publicaciones_por_pagina_maximo
             end
         end
-        @plantilla.to_html('Página inicial', contenido.join("\n"))
+        # Entregar el HTML de la pagina inicial
+        plantilla.to_html('Página inicial', contenido.join("\n"), true) # Como va en la raiz tiene true
     end
 
     #
-    # Páginas publicaciones. Entrega un hash con los nombres de los archivos y el contenido HTML de cada publicación
+    # Páginas publicaciones
     #
     def paginas_publicaciones
-        self.alimentarse  # Para asegurarnos que se alimentado
-        paginas = Hash.new
-        @publicaciones.each { |pub| paginas[pub.url] = @plantilla.to_html(pub.nombre, pub.completo) }
+        @en_raiz = false    # Las páginas de las publicaciones están en sus directorios correspondientes
+        paginas  = Hash.new
+        @publicaciones.each do |pub|
+            pub.en_raiz       = @en_raiz
+            paginas[pub.ruta] = @plantilla.to_html(pub.nombre, pub.completo)
+        end
+        # Entregar un hash con los nombres de los archivos y el contenido HTML de cada publicación
         paginas
     end
 
     #
-    # Páginas directorios. Entrega un hash con la ruta y el contenido HTML de cada índice
+    # Páginas directorios
     #
     def paginas_directorios
-        self.alimentarse  # Para asegurarnos que se alimentado
-        paginas = Hash.new
+        @en_raiz = false    # Las páginas de los directorios están en sus directorios correspondientes
+        paginas  = Hash.new
         @publicaciones_directorios.each do |dir|
             multipagina = Multipagina.new(dir, 'index')
-            @publicaciones.each { |pub| multipagina.agregar(pub) if pub.directorio == dir }
+            @publicaciones.each do |pub|
+                pub.en_raiz = @en_raiz
+                multipagina.agregar(pub) if pub.directorio == dir
+            end
             multipagina.paginas.each do |ruta, contenido|
                 if @publicaciones_etiquetas.class == Hash and @publicaciones_etiquetas[dir] != nil
                     etiqueta = @publicaciones_etiquetas[dir]
@@ -270,20 +315,25 @@ class Imprenta
                 paginas[ruta] = @plantilla.to_html(etiqueta, contenido)
             end
         end
+        # Entregar un hash con la ruta y el contenido HTML de cada índice
         paginas
     end
 
     #
-    # Páginas categorias. Entrega un hash con la ruta y el contenido HTML de cada página
+    # Páginas categorias
     #
     def paginas_categorias
-        self.alimentarse  # Para asegurarnos que se alimentado
-        paginas = Hash.new
-        @categorias.each do |nombre, cat|
-            multipagina = Multipagina.new(@categorias_directorio, sustituir_caracteres(cat.nombre))
-            cat.publicaciones.each { |pub| multipagina.agregar(pub) }
+        @en_raiz = false    # Las páginas de las categorías están en sus directorios correspondientes
+        paginas  = Hash.new
+        @categorias.each do |nombre, clasificado|
+            multipagina = Multipagina.new(@categorias_directorio, sustituir_caracteres(clasificado.nombre))
+            clasificado.publicaciones.each do |pub|
+                pub.en_raiz = @en_raiz
+                multipagina.agregar(pub)
+            end
             multipagina.paginas.each { |ruta, contenido| paginas[ruta] = @plantilla.to_html(nombre, contenido) }
         end
+        # Entregar un hash con la ruta y el contenido HTML de cada página
         paginas
     end
 
@@ -291,21 +341,24 @@ class Imprenta
     # Páginas autores
     #
     def paginas_autores
-        self.alimentarse  # Para asegurarnos que se alimentado
-        paginas = Hash.new
-        @autores.each do |nombre, obj|
+        @en_raiz = false    # Las páginas de los autores están en sus directorios correspondientes
+        paginas  = Hash.new
+        @autores.each do |nombre, clasificado|
             multipagina = Multipagina.new(@autores_directorio, sustituir_caracteres(nombre))
-            obj.publicaciones.each { |pub| multipagina.agregar(pub) }
+            clasificado.publicaciones.each do |pub|
+                pub.en_raiz = @en_raiz
+                multipagina.agregar(pub)
+            end
             multipagina.paginas.each { |ruta, contenido| paginas[ruta] = @plantilla.to_html("Publicaciones escritas por #{nombre}", contenido) }
         end
+        # Entregar un hash con la ruta y el contenido HTML de cada página
         paginas
     end
 
     #
-    # Sindicalización. Entrega el XML para el archivo de sindicalización
+    # Sindicalización
     #
     def sindicalizacion
-        self.alimentarse  # Para asegurarnos que se alimentado
         require 'rss/maker'
         contenido = RSS::Maker.make("2.0") do |m|
             m.channel.title       = @titulo_sitio
@@ -314,11 +367,12 @@ class Imprenta
             m.items.do_sort       = true
             contador              = 0
             @publicaciones.each do |pub|
+                pub.en_raiz = true
                 if pub.aparece_en_pagina_inicial
                     i             = m.items.new_item
                     i.title       = pub.nombre
                     i.author      = pub.autor
-                    i.link        = @url_sitio + '/' + pub.url
+                    i.link        = @url_sitio + '/' + pub.ruta
                     i.description = pub.rss
                     i.date        = Time.parse(pub.fecha)
                     contador     += 1
@@ -326,6 +380,7 @@ class Imprenta
                 end
             end
         end
+        # Entregar el XML para el archivo de sindicalización
         contenido
     end
 

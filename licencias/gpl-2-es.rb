@@ -7,6 +7,7 @@ def publicacion(dir)
     p.nombre                    = 'Licencia Pública General GNU v2'
     p.nombre_menu               = 'Licencia GPL v2 español'
     p.fecha                     = "2007-08-06 10:40"
+    p.categorias                = ['Licencias']
     p.aparece_en_pagina_inicial = false
     p.contenido                 = <<FIN_CONTENIDO
 La autora de esta traducción es: Palmira Granados, Licenciada en Derecho por la Escuela libre de derecho (México).

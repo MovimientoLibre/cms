@@ -18,8 +18,8 @@ Para usar el CMS de Movimiento Libre necesita tener instalado:
 
 En las instrucciones de instalación se explica cómo instalar Ruby y RedCloth:
 
-* Para "Debian Linux":/documentacion/instalacion-debian.html
-* Para "Gentoo Linux":/documentacion/instalacion-gentoo.html
+* Para "Debian Linux":instalacion-debian.html
+* Para "Gentoo Linux":instalacion-gentoo.html
 
 FIN_CONTENIDO
 

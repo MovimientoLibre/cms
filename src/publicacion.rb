@@ -32,7 +32,7 @@ class Publicacion
     #
     # Propiedades modificables
     #
-    attr_writer :nombre, :nombre_menu, :directorio, :archivo, :fecha, :autor, :contenido, :categorias, :aparece_en_pagina_inicial
+    attr_writer :nombre, :nombre_menu, :directorio, :archivo, :fecha, :autor, :contenido, :categorias, :aparece_en_pagina_inicial, :en_raiz
 
     #
     # Propiedades leibles
@@ -44,24 +44,50 @@ class Publicacion
     #
     def initialize
         # Propiedades modificables
-        @nombre      = ''
-        @nombre_menu = ''
-        @directorio  = ''
-        @archivo     = ''
-        @fecha       = ''
-        @autor       = ''
-        @contenido   = ''
-        @categorias  = Array.new
-        # Propiedades no modificables
+        @nombre                    = ''
+        @nombre_menu               = ''
+        @directorio                = ''
+        @archivo                   = ''
+        @fecha                     = ''
+        @autor                     = ''
+        @contenido                 = ''
+        @categorias                = Array.new
         @aparece_en_pagina_inicial = true
+        @en_raiz                   = false
+        # Propiedades no modificables
         @vinculos_categorias       = Hash.new
     end
 
     #
-    # URL relativo del archivo de la publicacion
+    # <a href="
+    # <img src="
+    #
+    protected
+    def urls_en_raiz(html)
+        t = html.dup
+        t.gsub!(/href="(\w+:\/\/|\w+)/i) {
+            s = $1.dup
+            case s
+                when /\w+:\/\//i then "href=\"#{s}"
+                when /\w+/i      then "href=\"#@directorio/#{s}"
+            end
+        }
+        t.gsub!(/src="(\.\.\/\w+|\w+:\/\/|\w+)/i) {
+            s = $1.dup
+            case s
+                when /\.\.\/(\w+)/ then "src=\"" + $1
+                when /\w+:\/\//i   then "src=\"#{s}"
+                when /\w+/i        then "src=\"#@directorio/#{s}"
+            end
+        }
+        t
+    end
+
+    #
+    # Ruta donde crear el archivo
     #
     public
-    def url
+    def ruta
         @directorio + '/' + @archivo + '.html'
     end
 
@@ -85,13 +111,15 @@ class Publicacion
             mostrar = @contenido
         end
         texto = RedCloth.new(mostrar)
-        a     = Array.new
-        # El titulo de la página tendrá el nombre de la publicación
+        # El titulo de la página tendrá el nombre de la publicación, por eso no va aquí
+        a = Array.new
         a << "  <p><small>#@fecha - #@autor</small></p>" if @aparece_en_pagina_inicial
         a << texto.to_html
-        c = Array.new
-        @vinculos_categorias.each { |etiqueta, url| c.push("<a href=\"#{url}\">#{etiqueta}</a>") }
-        a << "  <p class=\"text-right\"><em>Categorías: #{c.join(', ')}</em></p>"
+        # Categorías de la publicación
+#       c = Array.new
+#       @vinculos_categorias.each { |etiqueta, url| c.push("<a href=\"#{url}\">#{etiqueta}</a>") }
+#       a << "  <p class=\"text-right\"><em>Categorías: #{c.join(', ')}</em></p>" if c.length > 0
+        # Entregar
         a.join("\n")
     end
 
@@ -101,19 +129,38 @@ class Publicacion
     def breve
         if @contenido =~ /<!-- break -->/
             texto      = RedCloth.new($`)
-            incompleto = true;
+            incompleto = true
         else
             texto      = RedCloth.new(@contenido)
-            incompleto = false;
+            incompleto = false
         end
         a = Array.new
-        a << "<h3><a href=\"/#{self.url}\">#@nombre</a></h3>"
-        a << '<blockquote>' if incompleto
-        a << "  <p><small>#@fecha - #@autor</small></p>" if @aparece_en_pagina_inicial
-        a << texto.to_html
-      # a << "  <p class=\"text-right\"><a href=\"/#{self.url}\">Publicación completa...</a></p>" if incompleto
-        a << "  <p class=\"text-right\"><button type=\"button\" class=\"btn btn-primary publicacion-completa\" onclick=\"location.href='/#{self.url}'\">Publicación completa...</button></p>" if incompleto
-        a << '</blockquote>' if incompleto
+        if @en_raiz
+            vinculo = @directorio + '/' + @archivo + '.html'
+        else
+            vinculo = '../' + @directorio + '/' + @archivo + '.html'
+        end
+        a << "<h3><a href=\"#{vinculo}\">#@nombre</a></h3>"
+        # Si no es toda la publicacion se usan los blockquote y el boton Ver publicación completa...
+        if incompleto
+            a << '<blockquote>'
+            a << "  <p><small>#@fecha - #@autor</small></p>" if @aparece_en_pagina_inicial
+            if @en_raiz
+                a << urls_en_raiz(texto.to_html)
+            else
+                a << texto.to_html
+            end
+            a << "  <p class=\"text-right\"><button type=\"button\" class=\"btn btn-primary publicacion-completa\" onclick=\"location.href='#{vinculo}'\">Publicación completa...</button></p>"
+            a << '</blockquote>'
+        else
+            a << "  <p><small>#@fecha - #@autor</small></p>" if @aparece_en_pagina_inicial
+            if @en_raiz
+                a << urls_en_raiz(texto.to_html)
+            else
+                a << texto.to_html
+            end
+        end
+        # Entregar
         a.join("\n")
     end
 
@@ -123,10 +170,10 @@ class Publicacion
     def rss
         if @contenido =~ /<!-- break -->/
             texto      = RedCloth.new($`)
-            incompleto = true;
+            incompleto = true
         else
             texto      = RedCloth.new(@contenido)
-            incompleto = false;
+            incompleto = false
         end
         texto.to_html
     end
@@ -136,9 +183,9 @@ class Publicacion
     #
     def sencillo
         if @aparece_en_pagina_inicial
-            "#@fecha - #{self.url}"
+            "#@fecha - #{self.ruta}"
         else
-            "#@fecha X #{self.url}"
+            "#@fecha X #{self.ruta}"
         end
     end
 

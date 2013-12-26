@@ -32,10 +32,12 @@ class Multipagina
     # Valores por defecto de las propiedades
     #
     def initialize(directorio, nombre)
-        @directorio                      = directorio
-        @nombre                          = nombre
-        @publicaciones                   = Array.new
+        # Propiedades modificables
         @publicaciones_por_pagina_maximo = 5
+        # Propiedades no modificables
+        @directorio    = directorio
+        @nombre        = nombre
+        @publicaciones = Array.new
     end
 
     #
@@ -66,12 +68,13 @@ class Multipagina
                 # Almacenamos la página
                 num_pag += 1
                 if num_pag == 1
-                    ruta = "#{@directorio}/#{@nombre}.html"
+                    vinculo = "#{@nombre}.html"                # Es el vínculo relativo para los números de páginas
                 else
-                    ruta = "#{@directorio}/#{@nombre}-#{num_pag}.html"
+                    vinculo = "#{@nombre}-#{num_pag}.html"     # Es el vínculo relativo para los números de páginas
                 end
-                paginas[num_pag] = { 'ruta' => ruta, 'contenido' => contenido.join("\n")}
-                # Comenzamos una nueva
+                ruta             = "#{@directorio}/#{vinculo}" # Es donde este script va crear el archivo HTML
+                paginas[num_pag] = { 'ruta' => ruta, 'contenido' => contenido.join("\n"), 'vinculo' => vinculo}
+                # Comenzamos una nueva paǵina
                 contenido = Array.new
             end
         end
@@ -79,36 +82,36 @@ class Multipagina
         if contenido.length > 0
             num_pag += 1
             if num_pag == 1
-                ruta = "#{@directorio}/#{@nombre}.html"
+                vinculo = "#{@nombre}.html"                # Es el vínculo relativo para los números de páginas
             else
-                ruta = "#{@directorio}/#{@nombre}-#{num_pag}.html"
+                vinculo = "#{@nombre}-#{num_pag}.html"     # Es el vínculo relativo para los números de páginas
             end
-            paginas[num_pag] = { 'ruta' => ruta, 'contenido' => contenido.join("\n")}
+            ruta             = "#{@directorio}/#{vinculo}" # Es donde este script va crear el archivo HTML
+            paginas[num_pag] = { 'ruta' => ruta, 'contenido' => contenido.join("\n"), 'vinculo' => vinculo}
         end
         # Necesitamos entregar un hash de la forma Ruta => Contenido
         resultado = Hash.new
         # Al final de cada página, pondremos los vínculos a las páginas
         if num_pag > 1
             (1..num_pag).each do |i|
-                vinculos = Array.new
-                vinculos.push('<ul class="pagination">')
-                vinculos.push("  <li><a href=\"/#{paginas[i-1]['ruta']}\">&laquo;</a></li>") if i > 1
-                # vinculos.push("<a href=\"/#{paginas[i-1]['ruta']}\">Anterior</a>") if i > 1
+                # Hay dos o más paginas. Elaboramos los vínculos a las páginas
+                paginador = Array.new
+                paginador.push('<ul class="pagination">')
+                paginador.push("  <li><a href=\"#{paginas[i-1]['vinculo']}\">&laquo;</a></li>") if i > 1
                 (1..num_pag).each do |j|
                     if i == j
-                        vinculos.push("  <li class=\"active\"><a href=\"#\">#{j} <span class=\"sr-only\">(current)</span></a></li>")
-                        #vinculos.push(j)
+                        paginador.push("  <li class=\"active\"><a href=\"#\">#{j} <span class=\"sr-only\">(current)</span></a></li>") # Pagina actual, no tiene vinculo
                     else
-                        vinculos.push("  <li><a href=\"/#{paginas[j]['ruta']}\">#{j}</a></li>")
-                        #vinculos.push("<a href=\"/#{paginas[j]['ruta']}\">#{j}</a>")
+                        paginador.push("  <li><a href=\"#{paginas[j]['vinculo']}\">#{j}</a></li>") # Vínculos a las otras páginas, están en el mismo directorio
                     end
                 end
-                vinculos.push("  <li><a href=\"/#{paginas[i+1]['ruta']}\">&raquo;</a></li>") if i < num_pag
-                # vinculos.push("<a href=\"/#{paginas[i+1]['ruta']}\">Siguiente</a>") if i < num_pag
-                vinculos.push('</ul>')
-                resultado[paginas[i]['ruta']] = "#{paginas[i]['contenido']}\n#{vinculos.join("\n")}"
+                paginador.push("  <li><a href=\"#{paginas[i+1]['vinculo']}\">&raquo;</a></li>") if i < num_pag
+                paginador.push('</ul>')
+                # Agregamos los vínculos de las páginas después del contenido
+                resultado[paginas[i]['ruta']] = "#{paginas[i]['contenido']}\n#{paginador.join("\n")}"
             end
         else
+            # Solo hay una página
             resultado[paginas[1]['ruta']] = paginas[1]['contenido']
         end
         # Entregamos
@@ -116,15 +119,3 @@ class Multipagina
     end
 
 end
-
-=begin
-<ul class="pagination">
-  <li><a href="#">&laquo;</a></li>
-  <li><a href="#">1</a></li>
-  <li><a href="#">2</a></li>
-  <li><a href="#">3</a></li>
-  <li><a href="#">4</a></li>
-  <li><a href="#">5</a></li>
-  <li><a href="#">&raquo;</a></li>
-</ul>
-=end

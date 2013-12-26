@@ -40,8 +40,12 @@ class Plantilla
     #
     # Entrega el HTML de la página web
     #
+    # titulo    es cadena de texto que se agrega al title
+    # contenido es el contenido de la página en HTML
+    # en_raiz   es boleano, verdadero si el archivo va a la raiz del sitio
+    #
     public
-    def to_html(titulo, contenido)
+    def to_html(titulo, contenido, en_raiz=false)
         a = Array.new
         a << '<!DOCTYPE html>'
         a << '<html lang="en">'
@@ -51,15 +55,26 @@ class Plantilla
         a << '  <meta name="viewport" content="width=device-width, initial-scale=1.0">'
      #~ a << '  <meta name="description" content="">'
      #~ a << '  <meta name="author" content="">'
-        a << '  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">'
-        a << "  <link rel=\"alternate\" type=\"application/rss+xml\" title=\"#@titulo_sitio\" href=\"/#@archivo_rss\" />" if @archivo_rss != nil
-        a << "  <title>#@titulo_sitio - #{titulo}</title>"
+        if en_raiz
+            a << '  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">'
+            a << "  <link rel=\"alternate\" type=\"application/rss+xml\" title=\"#@titulo_sitio\" href=\"#@archivo_rss\" />" if @archivo_rss != nil
+        else
+            a << '  <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">'
+            a << "  <link rel=\"alternate\" type=\"application/rss+xml\" title=\"#@titulo_sitio\" href=\"../#@archivo_rss\" />" if @archivo_rss != nil
+        end
+        a << "  <title>#@titulo_sitio | #{titulo}</title>"
         a << '  <!-- TWITTER BOOTSTRAP INICIA -->'
+        # Si prefiere ofrecer Twitter Bootstrap en su servidor
      #~ a << '  <link href="/css/bootstrap.min.css" rel="stylesheet">'
+        # O para tomarlo desde servidores en Internet
         a << '  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">'
         a << '  <link href="//netdna.bootstrapcdn.com/bootswatch/3.0.0/journal/bootstrap.min.css" rel="stylesheet">'
         a << '  <!-- ESTILOS CSS PROPIOS DE ESTE CMS -->'
-        a << '  <link href="/css/cms.css" rel="stylesheet">'
+        if en_raiz
+            a << '  <link href="css/cms.css" rel="stylesheet">'
+        else
+            a << '  <link href="../css/cms.css" rel="stylesheet">'
+        end
         a << '  <!-- SOPORTE PARA IE8 -->'
         a << '  <!--[if lt IE 9]>'
         a << '  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>'
@@ -79,7 +94,11 @@ class Plantilla
             a << '          <span class="icon-bar"></span>'
             a << '          <span class="icon-bar"></span>'
             a << '        </button>'
-            a << "        <a class=\"navbar-brand\" href=\"/index.html\">#@titulo_sitio</a>"
+            if en_raiz
+                a << "        <a class=\"navbar-brand\" href=\"index.html\">#@titulo_sitio</a>"
+            else
+                a << "        <a class=\"navbar-brand\" href=\"../index.html\">#@titulo_sitio</a>"
+            end
             a << '      </div>'
             a << '    <div class="navbar-collapse collapse">'
             a << @menu_principal
@@ -124,9 +143,11 @@ class Plantilla
         end
         a << '  </div>'
         a << '  <!-- CODIGO JAVASCRIPT DE BOOTSTRAP PUESTO AL FINAL PARA QUE SE CARGUE MAS RAPIDO LA PAGINA -->'
+        # Si prefiere ofrecer Twitter Bootstrap en su servidor
      #~ a << '  <script src="/js/jquery.min.js"></script>'
-        a << '  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>'
      #~ a << '  <script src="/js/bootstrap.min.js"></script>'
+        # O para tomarlo desde servidores en Internet
+        a << '  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>'
         a << '  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>'
         a << '  '
         a << '</body>'

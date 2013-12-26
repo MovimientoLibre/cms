@@ -7,6 +7,7 @@ def publicacion(dir)
     p.nombre                    = 'GNU Free Documentation License v1.2'
     p.nombre_menu               = 'Licencia GFDL inglés'
     p.fecha                     = "2007-08-06 10:20"
+    p.categorias                = ['Licencias']
     p.aparece_en_pagina_inicial = false
     p.contenido                 = <<FIN_CONTENIDO
 Version 1.2, November 2002

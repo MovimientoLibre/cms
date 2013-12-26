@@ -12,14 +12,6 @@ def publicacion(dir)
 Este programa fue elaborado por *Guillermo Valdés Lozano*. Visite el sitio personal del autor en "Movimiento Libre":http://movimientolibre.com.
 
 Puede contactarme vía correo electrónico en *guivaloz( en )movimientolibre.com*, por supuesto, sustituya "( en )" por una arroba.
-
-Los mensajes que reciba de parte mía por correo electónico pueden estar firmados por GnuPG. Si su cliente de correo soporta la firma de mensajes (como Mozilla Thunderbird con Enigmail) podrá validar que los mensajes sean realmente enviados por mí.
-
-Si usa GNU/Linux y tiene instalado _GnuPG_ puede bajar mi *llave pública* de los servidores de llaves por medio del comando:
-
-<pre>
-gpg --keyserver pgp.mit.edu --recv-keys 6D37A115
-</pre>
 FIN_CONTENIDO
 
     # Entregar la publicacion

@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
-  xmlns:dc="http://purl.org/dc/elements/1.1/"
+<rss version="2.0"
+  xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
   xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
   xmlns:content="http://purl.org/rss/1.0/modules/content/"
-  version="2.0">
+  xmlns:dc="http://purl.org/dc/elements/1.1/">
   <channel>
     <title>CMS de Movimiento Libre</title>
     <link>http://cms.movimientolibre.com</link>
-    <description>Un administrador de contenidos programado en Ruby. Ahora usa Twitter Bootstrap.</description>
+    <description>Administrador de contenidos programado en Ruby. Ahora con Twitter Bootstrap.</description>
     <item>
       <title>Descargar la versión 1.3</title>
       <link>http://cms.movimientolibre.com/descargar/ml-cms-1.3.html</link>
       <description>&lt;p&gt;Este sitio web es elaborado con este script. Al descargar el archivo comprimido estará bajando todo el contenido de este sitio; esto le ayudará a comprender mejor su funcionamiento.&lt;/p&gt;
 &lt;table&gt;
 	&lt;tr&gt;
-		&lt;td style=&quot;text-align:center;&quot;&gt;&lt;a href=&quot;http://cms.movimientolibre.com/descargar/cms-ml-1.3-2008-05-16.tar.gz&quot;&gt;&lt;img src=&quot;/imagenes/icono-tgz.png&quot; title=&quot;Descargar la versión 1.3&quot; alt=&quot;Descargar la versión 1.3&quot; /&gt;&lt;/a&gt; &lt;/td&gt;
+		&lt;td style=&quot;text-align:center;&quot;&gt;&lt;a href=&quot;https://github.com/MovimientoLibre/cms/releases/tag/1.3&quot;&gt;&lt;img src=&quot;../imagenes/icono-tgz.png&quot; title=&quot;Descargar la versión 1.3&quot; alt=&quot;Descargar la versión 1.3&quot; /&gt;&lt;/a&gt; &lt;/td&gt;
 	&lt;/tr&gt;
 	&lt;tr&gt;
-		&lt;td style=&quot;text-align:center;&quot;&gt;&lt;a href=&quot;http://cms.movimientolibre.com/descargar/cms-ml-1.3-2008-05-16.tar.gz&quot;&gt;Descargar la versión 1.3 al 16/mayo/2008&lt;/a&gt; &lt;/td&gt;
+		&lt;td style=&quot;text-align:center;&quot;&gt;&lt;a href=&quot;https://github.com/MovimientoLibre/cms/releases/tag/1.3&quot;&gt;Descargar la versión 1.3 al 16/mayo/2008&lt;/a&gt; &lt;/td&gt;
 	&lt;/tr&gt;
 &lt;/table&gt;
 &lt;h4&gt;Novedades de esta versión&lt;/h4&gt;
@@ -43,14 +43,14 @@
     <item>
       <title>Screenshots</title>
       <link>http://cms.movimientolibre.com/screenshots/screenshots.html</link>
-      <description>&lt;div class=&quot;screenshots&quot;&gt; &lt;a href=&quot;/screenshots/screenshots/gulag.jpg&quot;&gt;&lt;img src=&quot;/screenshots/screenshots/gulag-small.jpg&quot; title=&quot;GULAG&quot; alt=&quot;GULAG&quot; /&gt;&lt;/a&gt; &lt;a href=&quot;/screenshots/screenshots/institutodeciencia.jpg&quot;&gt;&lt;img src=&quot;/screenshots/screenshots/institutodeciencia-small.jpg&quot; title=&quot;Instituto de Ciencia&quot; alt=&quot;Instituto de Ciencia&quot; /&gt;&lt;/a&gt; &lt;a href=&quot;/screenshots/screenshots/movimientolibre.jpg&quot;&gt;&lt;img src=&quot;/screenshots/screenshots/movimientolibre-small.jpg&quot; title=&quot;Movimiento Libre&quot; alt=&quot;Movimiento Libre&quot; /&gt;&lt;/a&gt; &lt;a href=&quot;/screenshots/screenshots/rayasyrayas.jpg&quot;&gt;&lt;img src=&quot;/screenshots/screenshots/rayasyrayas-small.jpg&quot; title=&quot;Rayas y Rayas&quot; alt=&quot;Rayas y Rayas&quot; /&gt;&lt;/a&gt; &lt;/div&gt;</description>
+      <description>&lt;div class=&quot;screenshots&quot;&gt; &lt;a href=&quot;screenshots/gulag.jpg&quot;&gt;&lt;img src=&quot;screenshots/gulag-small.jpg&quot; title=&quot;GULAG&quot; alt=&quot;GULAG&quot; /&gt;&lt;/a&gt; &lt;a href=&quot;screenshots/institutodeciencia.jpg&quot;&gt;&lt;img src=&quot;screenshots/institutodeciencia-small.jpg&quot; title=&quot;Instituto de Ciencia&quot; alt=&quot;Instituto de Ciencia&quot; /&gt;&lt;/a&gt; &lt;a href=&quot;screenshots/movimientolibre.jpg&quot;&gt;&lt;img src=&quot;screenshots/movimientolibre-small.jpg&quot; title=&quot;Movimiento Libre&quot; alt=&quot;Movimiento Libre&quot; /&gt;&lt;/a&gt; &lt;a href=&quot;screenshots/rayasyrayas.jpg&quot;&gt;&lt;img src=&quot;screenshots/rayasyrayas-small.jpg&quot; title=&quot;Rayas y Rayas&quot; alt=&quot;Rayas y Rayas&quot; /&gt;&lt;/a&gt; &lt;/div&gt;</description>
       <author>guivaloz</author>
       <pubDate>Fri, 16 May 2008 18:15:00 -0500</pubDate>
       <dc:date>2008-05-16T18:15:00-05:00</dc:date>
     </item>
     <item>
       <title>Acerca del CMS de Movimiento Libre</title>
-      <link>http://cms.movimientolibre.com/a_cerca/a_cerca.html</link>
+      <link>http://cms.movimientolibre.com/acerca/acerca.html</link>
       <description>&lt;p&gt;El &lt;span class=&quot;caps&quot;&gt;CMS&lt;/span&gt; de Movimiento Libre es un sencillo sistema de gestión de contenidos (Content Management System en inglés, abreviado &lt;a href=&quot;http://es.wikipedia.org/wiki/Cms&quot;&gt;&lt;span class=&quot;caps&quot;&gt;CMS&lt;/span&gt;&lt;/a&gt;). Es un programa que permite crear una estructura de soporte para la creación y administración de contenidos de un sitio web.&lt;/p&gt;
 &lt;p&gt;Nace con la intensión de llevar a la práctica algunos conceptos básicos de programación en &lt;a href=&quot;http://es.wikipedia.org/wiki/Ruby&quot;&gt;Ruby&lt;/a&gt; para administrar los contenidos de &lt;a href=&quot;http://movimientolibre.com&quot;&gt;Movimiento Libre&lt;/a&gt; y es liberado bajo la &lt;a href=&quot;/licencias/gpl-2.html&quot;&gt;Licencia &lt;span class=&quot;caps&quot;&gt;GPL&lt;/span&gt; v2&lt;/a&gt;. Ha sido para su servidor un buen ejercicio para aprender este lenguaje de programación.&lt;/p&gt;
 &lt;h4&gt;¿Por qué hacer un &lt;span class=&quot;caps&quot;&gt;CMS&lt;/span&gt; que genere páginas estáticas?&lt;/h4&gt;
@@ -109,8 +109,8 @@
 &lt;/ul&gt;
 &lt;p&gt;En las instrucciones de instalación se explica cómo instalar Ruby y RedCloth:&lt;/p&gt;
 &lt;ul&gt;
-	&lt;li&gt;Para &lt;a href=&quot;/documentacion/instalacion-debian.html&quot;&gt;Debian Linux&lt;/a&gt;&lt;/li&gt;
-	&lt;li&gt;Para &lt;a href=&quot;/documentacion/instalacion-gentoo.html&quot;&gt;Gentoo Linux&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;Para &lt;a href=&quot;instalacion-debian.html&quot;&gt;Debian Linux&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;Para &lt;a href=&quot;instalacion-gentoo.html&quot;&gt;Gentoo Linux&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</description>
       <author>guivaloz</author>
       <pubDate>Fri, 16 May 2008 17:50:00 -0500</pubDate>

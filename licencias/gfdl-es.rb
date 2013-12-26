@@ -7,6 +7,7 @@ def publicacion(dir)
     p.nombre                    = 'Licencia de Documentación Libre de GNU v1.2'
     p.nombre_menu               = 'Licencia GFDL'
     p.fecha                     = "2007-07-30 00:00"
+    p.categorias                = ['Licencias']
     p.aparece_en_pagina_inicial = false
     p.contenido                 = <<FIN_CONTENIDO
 Ésta es una traducción no oficial de la GNU Free Document License (GFDL), versión 1.2 a Español (Castellano). No ha sido publicada por la Free Software Foundation y no establece legalmente los términos de distribución para trabajos que usen la GFDL (sólo el texto de la versión original en Inglés de la GFDL lo hace). Sin embargo, esperamos que esta traducción ayude los hispanohablantes a entender mejor la GFDL. La versión original de la GFDL esta disponible en la "Free Software Foundation":http://www.gnu.org/copyleft/fdl.html. Esta traducción está basada en una de la versión 1.1 de Igor Támara y Pablo Reyes. Sin embargo la responsabilidad de su interpretación es de Joaquín Seoane.

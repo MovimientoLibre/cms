@@ -9,7 +9,7 @@ def publicacion(dir)
     p.fecha       = "2008-05-16 18:15"
     p.categorias  = ['Screenshots']
     p.contenido   = <<FIN_CONTENIDO
-<div class="screenshots"> !/screenshots/screenshots/gulag-small.jpg(GULAG)!:/screenshots/screenshots/gulag.jpg !/screenshots/screenshots/institutodeciencia-small.jpg(Instituto de Ciencia)!:/screenshots/screenshots/institutodeciencia.jpg !/screenshots/screenshots/movimientolibre-small.jpg(Movimiento Libre)!:/screenshots/screenshots/movimientolibre.jpg !/screenshots/screenshots/rayasyrayas-small.jpg(Rayas y Rayas)!:/screenshots/screenshots/rayasyrayas.jpg </div>
+<div class="screenshots"> !screenshots/gulag-small.jpg(GULAG)!:screenshots/gulag.jpg !screenshots/institutodeciencia-small.jpg(Instituto de Ciencia)!:screenshots/institutodeciencia.jpg !screenshots/movimientolibre-small.jpg(Movimiento Libre)!:screenshots/movimientolibre.jpg !screenshots/rayasyrayas-small.jpg(Rayas y Rayas)!:screenshots/rayasyrayas.jpg </div>
 FIN_CONTENIDO
 
     # Entregar la publicacion
@@ -18,6 +18,9 @@ FIN_CONTENIDO
 end
 
 =begin
+
+<div class="screenshots"> !/screenshots/screenshots/gulag-small.jpg(GULAG)!:/screenshots/screenshots/gulag.jpg !/screenshots/screenshots/institutodeciencia-small.jpg(Instituto de Ciencia)!:/screenshots/screenshots/institutodeciencia.jpg !/screenshots/screenshots/movimientolibre-small.jpg(Movimiento Libre)!:/screenshots/screenshots/movimientolibre.jpg !/screenshots/screenshots/rayasyrayas-small.jpg(Rayas y Rayas)!:/screenshots/screenshots/rayasyrayas.jpg </div>
+
 <div class="row">
   <div class="col-md-6">
     <img src="/screenshots/screenshots/gulag-small.jpg" alt="GULAG" class="img-rounded" style="margin:4px;">

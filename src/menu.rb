@@ -26,16 +26,19 @@ class Menu
     #
     # Propiedades modificables
     #
-    attr_writer :panel_clase, :encabezado_clase, :lista_clase, :opcion_clase
+    attr_writer :panel_clase, :encabezado_clase, :lista_clase, :opcion_clase, :en_raiz
 
     #
     # Valores por defecto de las propiedades
     #
     def initialize
+        # Propiedades modificables
         @panel_clase       = ''
         @encabezado_clase  = ''
         @lista_clase       = ''
         @opcion_clase      = ''
+        @en_raiz           = false
+        # Propiedades no modificables
         @elementos         = Array.new
         @encabezados       = Array.new
         @encabezado_actual = ''
@@ -79,7 +82,11 @@ class Menu
                 if e['url'] == ''
                     a << "  #{li}#{e['etiqueta']}</li>"
                 else
-                    a << "  #{li}<a href=\"#{e['url']}\">#{e['etiqueta']}</a></li>"
+                    if @en_raiz
+                        a << "  #{li}<a href=\"#{e['url']}\">#{e['etiqueta']}</a></li>"
+                    else
+                        a << "  #{li}<a href=\"../#{e['url']}\">#{e['etiqueta']}</a></li>"
+                    end
                 end
             end
             a << '</ul>'
@@ -93,40 +100,24 @@ class Menu
                         if e['url'] == ''
                             b << "      #{li}#{e['etiqueta']}</li>"
                         else
-                            b << "      #{li}<a href=\"#{e['url']}\">#{e['etiqueta']}</a></li>"
+                            if @en_raiz
+                                b << "      #{li}<a href=\"#{e['url']}\">#{e['etiqueta']}</a></li>"
+                            else
+                                b << "      #{li}<a href=\"../#{e['url']}\">#{e['etiqueta']}</a></li>"
+                            end
                         end
                     end
                 end
                 if b.length > 0
-                    #~ if encabezado['url'] == ''
-                        #~ if @encabezado_clase != ''
-                            #~ a << "  <div class=\"#@encabezado_clase\">#{encabezado['etiqueta']}</div>"
-                        #~ else
-                            #~ a << "  #{li}#{encabezado['etiqueta']}"
-                        #~ end
-                    #~ else
-                        #~ if @encabezado_clase != ''
-                            #~ a << "  <div class=\"#@encabezado_clase\"><a href=\"#{encabezado['url']}\">#{encabezado['etiqueta']}</a></div>"
-                        #~ else
-                            #~ a << "  #{li}<a href=\"#{encabezado['url']}\">#{encabezado['etiqueta']}</a>"
-                        #~ end
-                    #~ end
-                    #~ a << "    #{ul}"
                     b.each { |c| a << c }
-                    #~ a << '    </ul>'
-                    #~ a << '  </li>' if @encabezado_clase == ''
                 elsif encabezado['url'] == ''
-                    #~ if @encabezado_clase != ''
-                        #~ a << "  <div class=\"#@encabezado_clase\">#{encabezado['etiqueta']}</div>"
-                    #~ else
-                        a << "  #{li}#{encabezado['etiqueta']}</li>"
-                    #~ end
+                    a << "  #{li}#{encabezado['etiqueta']}</li>"
                 else
-                    #~ if @encabezado_clase != ''
-                        #~ a << "  <div class=\"#@encabezado_clase\"><a href=\"#{encabezado['url']}\">#{encabezado['etiqueta']}</a></div>"
-                    #~ else
+                    if @en_raiz
                         a << "  #{li}<a href=\"#{encabezado['url']}\">#{encabezado['etiqueta']}</a></li>"
-                    #~ end
+                    else
+                        a << "  #{li}<a href=\"../#{encabezado['url']}\">#{encabezado['etiqueta']}</a></li>"
+                    end
                 end
                 a << '</ul>'
             end
