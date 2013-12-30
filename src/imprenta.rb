@@ -49,7 +49,8 @@ class Imprenta
         @publicaciones = Array.new
         @categorias    = Hash.new
         @autores       = Hash.new
-        @en_raiz       = false     # Este flag debe ser verdadero cuando se crean archivos para la raiz
+        @en_raiz       = false     # Bandera, debe ser verdadero cuando se crean archivos para la raiz
+        @en_otro       = false     # Bandera, debe ser verdadero cuando las publicaciones son para otros directorios, como autores o categorias
     end
 
     #
@@ -121,7 +122,7 @@ class Imprenta
         menu.encabezado('Últimas publicaciones')
         c = 0
         @publicaciones.each do |pub|
-            pub.en_raiz = @en_raiz
+            #pub.en_raiz = @en_raiz
             menu.agregar(pub.nombre_menu, pub.ruta) if pub.aparece_en_pagina_inicial
             c += 1
             break if c >= @publicaciones_por_pagina_maximo
@@ -140,7 +141,7 @@ class Imprenta
         menu.encabezado('Categorías')
         # Procesamos sólo las publicaciones que pueden aparecer en la página principal
         @publicaciones.each do |pub|
-            pub.en_raiz = @en_raiz
+            #pub.en_raiz = @en_raiz
             if pub.aparece_en_pagina_inicial
                 # Cada publicación puede tener una o más categorías
                 pub.categorias.each do |nombre|
@@ -168,7 +169,7 @@ class Imprenta
         menu.encabezado('Autores')
         # Procesamos sólo las publicaciones que pueden aparecer en la página principal
         @publicaciones.each do |pub|
-            pub.en_raiz = @en_raiz
+            #pub.en_raiz = @en_raiz
             if pub.aparece_en_pagina_inicial
                 nombre = pub.autor
                 url    = @autores_directorio + '/' + sustituir_caracteres(nombre) + '.html'
@@ -202,6 +203,7 @@ class Imprenta
     def alimentarse
         # La @plantilla será para los archivos que NO están en la raiz
         @en_raiz = false
+        @en_otro = false
         # Cargar las publicaciones
         self.cargar_publicaciones
         # Inicializar la plantilla de todas las publicaciones, excepto de la página inicial
@@ -249,7 +251,9 @@ class Imprenta
     # Pagina inicial
     #
     def pagina_inicial
-        @en_raiz = true # La página inicial está en la raiz
+        # Para los menús son necesarias estas banderas
+        @en_raiz = true
+        @en_otro = false
         # Esta plantilla es sólo para la página inicial
         plantilla                    = Plantilla.new
         plantilla.titulo_sitio       = @titulo_sitio
@@ -270,8 +274,9 @@ class Imprenta
         contenido.push(@anuncio) if @anuncio != ''
         @publicaciones.each do |pub|
             if pub.aparece_en_pagina_inicial
-                pub.en_raiz = @en_raiz
-                contenido.push(pub.breve)
+                #pub.en_raiz = @en_raiz
+                #pub.en_otro = @en_otro
+                contenido.push(pub.breve_en_raiz)
                 c += 1
                 break if c >= @publicaciones_por_pagina_maximo
             end
@@ -284,10 +289,12 @@ class Imprenta
     # Páginas publicaciones
     #
     def paginas_publicaciones
-        @en_raiz = false    # Las páginas de las publicaciones están en sus directorios correspondientes
+        #@en_raiz = false    # Las páginas de las publicaciones están en sus directorios correspondientes
+        #@en_otro = false
         paginas  = Hash.new
         @publicaciones.each do |pub|
-            pub.en_raiz       = @en_raiz
+            #pub.en_raiz       = @en_raiz
+            #pub.en_otro       = @en_otro
             paginas[pub.ruta] = @plantilla.to_html(pub.nombre, pub.completo)
         end
         # Entregar un hash con los nombres de los archivos y el contenido HTML de cada publicación
@@ -299,11 +306,13 @@ class Imprenta
     #
     def paginas_directorios
         @en_raiz = false    # Las páginas de los directorios están en sus directorios correspondientes
+        @en_otro = false
         paginas  = Hash.new
         @publicaciones_directorios.each do |dir|
             multipagina = Multipagina.new(dir, 'index')
             @publicaciones.each do |pub|
                 pub.en_raiz = @en_raiz
+                pub.en_otro = @en_otro
                 multipagina.agregar(pub) if pub.directorio == dir
             end
             multipagina.paginas.each do |ruta, contenido|
@@ -324,11 +333,13 @@ class Imprenta
     #
     def paginas_categorias
         @en_raiz = false    # Las páginas de las categorías están en sus directorios correspondientes
+        @en_otro = true
         paginas  = Hash.new
         @categorias.each do |nombre, clasificado|
             multipagina = Multipagina.new(@categorias_directorio, sustituir_caracteres(clasificado.nombre))
             clasificado.publicaciones.each do |pub|
                 pub.en_raiz = @en_raiz
+                pub.en_otro = @en_otro
                 multipagina.agregar(pub)
             end
             multipagina.paginas.each { |ruta, contenido| paginas[ruta] = @plantilla.to_html(nombre, contenido) }
@@ -342,11 +353,13 @@ class Imprenta
     #
     def paginas_autores
         @en_raiz = false    # Las páginas de los autores están en sus directorios correspondientes
+        @en_otro = true
         paginas  = Hash.new
         @autores.each do |nombre, clasificado|
             multipagina = Multipagina.new(@autores_directorio, sustituir_caracteres(nombre))
             clasificado.publicaciones.each do |pub|
                 pub.en_raiz = @en_raiz
+                pub.en_otro = @en_otro
                 multipagina.agregar(pub)
             end
             multipagina.paginas.each { |ruta, contenido| paginas[ruta] = @plantilla.to_html("Publicaciones escritas por #{nombre}", contenido) }

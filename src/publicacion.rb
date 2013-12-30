@@ -32,7 +32,7 @@ class Publicacion
     #
     # Propiedades modificables
     #
-    attr_writer :nombre, :nombre_menu, :directorio, :archivo, :fecha, :autor, :contenido, :categorias, :aparece_en_pagina_inicial, :en_raiz
+    attr_writer :nombre, :nombre_menu, :directorio, :archivo, :fecha, :autor, :contenido, :categorias, :aparece_en_pagina_inicial, :en_raiz, :en_otro
 
     #
     # Propiedades leibles
@@ -53,18 +53,19 @@ class Publicacion
         @contenido                 = ''
         @categorias                = Array.new
         @aparece_en_pagina_inicial = true
-        @en_raiz                   = false
+        @en_raiz                   = false     # Verdadero cuando la publicación va para la página inicial
+        @en_otro                   = false     # Verdadero cuando la publicación va para el directorio autores o categorias
         # Propiedades no modificables
         @vinculos_categorias       = Hash.new
     end
 
     #
-    # <a href="
-    # <img src="
+    # URLs en Raiz
     #
     protected
     def urls_en_raiz(html)
         t = html.dup
+        # Buscar <a href="algo:// o <a href="algo
         t.gsub!(/href="(\w+:\/\/|\w+)/i) {
             s = $1.dup
             case s
@@ -72,6 +73,7 @@ class Publicacion
                 when /\w+/i      then "href=\"#@directorio/#{s}"
             end
         }
+        # Buscar <img src="../algo o <img src="algo:// o <img src="algo
         t.gsub!(/src="(\.\.\/\w+|\w+:\/\/|\w+)/i) {
             s = $1.dup
             case s
@@ -80,6 +82,32 @@ class Publicacion
                 when /\w+/i        then "src=\"#@directorio/#{s}"
             end
         }
+        # Entregar
+        t
+    end
+
+    #
+    # URLs en otro directorio
+    #
+    def urls_en_otro(html)
+        t = html.dup
+        # Buscar href="algo:// o href="algo
+        t.gsub!(/href="(\w+:\/\/|\w+)/i) {
+            s = $1.dup
+            case s
+                when /\w+:\/\//i then "href=\"#{s}"
+                when /\w+/i      then "href=\"../#@directorio/#{s}"
+            end
+        }
+        # Buscar src="algo:// o src="algo
+        t.gsub!(/src="(\w+:\/\/|\w+)/i) {
+            s = $1.dup
+            case s
+                when /\w+:\/\//i   then "src=\"#{s}"
+                when /\w+/i        then "src=\"../#@directorio/#{s}"
+            end
+        }
+        # Entregar
         t
     end
 
@@ -147,6 +175,8 @@ class Publicacion
             a << "  <p><small>#@fecha - #@autor</small></p>" if @aparece_en_pagina_inicial
             if @en_raiz
                 a << urls_en_raiz(texto.to_html)
+            elsif @en_otro
+                a << urls_en_otro(texto.to_html)
             else
                 a << texto.to_html
             end
@@ -156,12 +186,32 @@ class Publicacion
             a << "  <p><small>#@fecha - #@autor</small></p>" if @aparece_en_pagina_inicial
             if @en_raiz
                 a << urls_en_raiz(texto.to_html)
+            elsif @en_otro
+                a << urls_en_otro(texto.to_html)
             else
                 a << texto.to_html
             end
         end
         # Entregar
         a.join("\n")
+    end
+
+    #
+    # Breve para archivo en la raiz
+    #
+    def breve_en_raiz
+        @en_raiz = true
+        @en_otro = false
+        breve
+    end
+
+    #
+    # Breve para archivo en otro directorio, como autores o categorias
+    #
+    def breve_en_otro
+        @en_raiz = false
+        @en_otro = true
+        breve
     end
 
     #
