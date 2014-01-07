@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-
+# encoding: utf-8
 ############################################################################
 #    Copyright (C) 2013 by Guillermo Valdes Lozano                         #
 #    guivaloz@movimientolibre.com                                          #
@@ -34,14 +34,14 @@
 # -----------------------
 
 # Cargamos las librerías, NO MODIFIQUE ESTA PARTE
-require 'src/clasificado.rb'
-require 'src/imprenta.rb'
-require 'src/menu.rb'
-require 'src/menu_cantidades.rb'
-require 'src/multipagina.rb'
-require 'src/plantilla.rb'
-require 'src/publicacion.rb'
-require 'src/principal.rb'
+require './src/clasificado.rb'
+require './src/imprenta.rb'
+require './src/menu.rb'
+require './src/menu_cantidades.rb'
+require './src/multipagina.rb'
+require './src/plantilla.rb'
+require './src/publicacion.rb'
+require './src/principal.rb'
 
 # Inicializamos la imprenta, NO MODIFIQUE ESTE COMANDO
 imprenta = Imprenta.new

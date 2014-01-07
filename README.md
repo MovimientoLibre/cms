@@ -1,7 +1,7 @@
 CMS de Movimiento Libre
 ===
 
-Es un script hecho en Ruby para que con apoyo de TwitterBootstrap se contruya el sitio web de movimientolibre.com sin necesidad de una base de datos ni páginas dinámicas.
+Es un script hecho en Ruby para que con apoyo de TwitterBootstrap se construya el sitio web de movimientolibre.com sin necesidad de una base de datos ni páginas dinámicas.
 
 Instrucciones:
 

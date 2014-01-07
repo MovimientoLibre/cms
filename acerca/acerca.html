@@ -44,7 +44,7 @@
     </div>
     </div>
   </div>
-  <div class="container">
+  <div class="container contenido">
     <!-- JUMBOTRON -->
     <div class="jumbotron">
       <h2>CMS de Movimiento Libre</h2>
@@ -53,80 +53,90 @@
     <!-- CONTENIDO -->
     <h1>Acerca del CMS de Movimiento Libre</h1>
   <p><small>2008-05-16 18:00 - guivaloz</small></p>
-<p>El <span class="caps">CMS</span> de Movimiento Libre es un sencillo sistema de gestión de contenidos (Content Management System en inglés, abreviado <a href="http://es.wikipedia.org/wiki/Cms"><span class="caps">CMS</span></a>). Es un programa que permite crear una estructura de soporte para la creación y administración de contenidos de un sitio web.</p>
-<p>Nace con la intensión de llevar a la práctica algunos conceptos básicos de programación en <a href="http://es.wikipedia.org/wiki/Ruby">Ruby</a> para administrar los contenidos de <a href="http://movimientolibre.com">Movimiento Libre</a> y es liberado bajo la <a href="/licencias/gpl-2.html">Licencia <span class="caps">GPL</span> v2</a>. Ha sido para su servidor un buen ejercicio para aprender este lenguaje de programación.</p>
-<h4>¿Por qué hacer un <span class="caps">CMS</span> que genere páginas estáticas?</h4>
+
+<p>El CMS de Movimiento Libre es un sencillo sistema de gestión de contenidos, <em>Content Management System</em> en inglés, abreviado <a href="http://es.wikipedia.org/wiki/Cms">CMS</a>. Es un programa que permite crear una estructura de soporte para la creación y administración de contenidos de un sitio web.</p>
+
+<p>Nace con la intensión de llevar a la práctica algunos conceptos básicos de programación en <a href="http://es.wikipedia.org/wiki/Ruby">Ruby</a> para administrar los contenidos de <a href="http://movimientolibre.com">Movimiento Libre</a> y es liberado bajo la <a href="licencias/gpl-2.html">Licencia GPL v2</a>. Ha sido para su servidor un buen ejercicio para aprender este lenguaje de programación.</p>
+
+<h4 id="por-qu-hacer-un-cms-que-genere-pginas-estticas">¿Por qué hacer un CMS que genere páginas estáticas?</h4>
+
 <ul>
-	<li>Pretende seguir la <a href="http://en.wikipedia.org/wiki/Unix_philosophy">Filosofía Unix</a>, en concreto tratando de ser <strong>un programa que hace una cosa y la hace bien</strong> y también con la idea de que en Unix <strong>todo es un archivo</strong>. En este <span class="caps">CMS</span> cada publicación es un archivo de texto plano.</li>
-	<li>Si piensa que un <span class="caps">CMS</span> debería usar una base de datos, reflexione esto: <strong>una base de datos debería usarse cuando la totalidad de los registros no puedan ser cargados en la memoria</strong>. Si consideramos que un blog personal se incrementa de 50 a 150 publicaciones por año, entonces en un lapso de 5 años habrá acumulado 750 publicaciones a lo mucho. Si ponemos las 750 publicaciones en archivos de texto plano, serán algunos kilobytes de información, muy poco para los varios gigabytes de mememoria <span class="caps">RAM</span> de un equipo actual. Por lo que podemos deducir que una base de datos es <em>mucha maquinara</em> para 750 registros.</li>
-	<li>Este script genera páginas estáticas en <span class="caps">HTML</span>. No son páginas dinámicas las cuales requieren procesamiento en el momento de ser solicitadas. Con lo que se libera de carga al procesador del servidor web.</li>
-	<li>Hay procesos que no se pueden hacer en páginas estáticas, como las búsquedas; pero le aseguro que Usted mismo hace más búsquedas en buscadores como <a href="http://www.google.com.mx">Google</a> que búsquedas en cada sitio web que lo tenga.</li>
-	<li>Los buscadores como <a href="http://www.google.com.mx">Google</a> encuentran <em>muy atractivo</em> indexar páginas <span class="caps">HTML</span> estáticas con los <a href="http://es.wikipedia.org/wiki/URL"><span class="caps">URL</span></a> muy descriptivos. Por ejemplo, no nos dice mucho http://www.sitioweb.com/?q=node/18 si lo comparamos con http://www.sitioweb.com/presentaciones/software-libre.html</li>
+  <li>Pretende seguir la <a href="http://en.wikipedia.org/wiki/Unix_philosophy">Filosofía Unix</a>, en concreto tratando de ser <em>un programa que hace una cosa y la hace bien</em> y también con la idea de que en Unix <em>todo es un archivo</em>. En este CMS cada publicación es un archivo de texto plano.</li>
+  <li>Si piensa que un CMS debería usar una base de datos, reflexione esto: <em>una base de datos debería usarse cuando la totalidad de los registros no puedan ser cargados en la memoria</em>. Si consideramos que un blog personal se incrementa de 50 a 150 publicaciones por año, entonces en un lapso de 5 años habrá acumulado 750 publicaciones a lo mucho. Si ponemos las 750 publicaciones en archivos de texto plano, serán algunos kilobytes de información, muy poco para los varios gigabytes de mememoria RAM de un equipo actual. Por lo que podemos deducir que una base de datos es <em>mucha maquinara</em> para 750 registros.</li>
+  <li>Este script genera páginas estáticas en HTML. No son páginas dinámicas las cuales requieren procesamiento en el momento de ser solicitadas. Con lo que se libera de carga al procesador del servidor web.</li>
+  <li>Hay procesos que no se pueden hacer en páginas estáticas, como las búsquedas; pero le aseguro que Usted mismo hace más búsquedas en buscadores como <a href="http://www.google.com.mx">Google</a> que búsquedas en cada sitio web que lo tenga.</li>
+  <li>Los buscadores como <a href="http://www.google.com.mx">Google</a> encuentran <em>muy atractivo</em> indexar páginas HTML estáticas con los <a href="http://es.wikipedia.org/wiki/URL">URL</a> muy descriptivos. Por ejemplo, no nos dice mucho <a href="http://www.sitioweb.com/?q=node/18">http://www.sitioweb.com/?q=node/18</a> si lo comparamos con <a href="http://www.sitioweb.com/presentaciones/software-libre.html">http://www.sitioweb.com/presentaciones/software-libre.html</a></li>
 </ul>
-<h4>¿Qué es lo que hace este <span class="caps">CMS</span>?</h4>
+
+<h4 id="qu-es-lo-que-hace-este-cms">¿Qué es lo que hace este CMS?</h4>
+
 <ul>
-	<li>Mantiene el mismo diseño en las páginas que hacen el sitio web, por medio de <span class="caps">CSS</span>.</li>
-	<li>Toma las publicaciones de uno o más directorios definidos en la configuración. Esto permite la adecuada organización de las publicaciones, por ejemplo en &#8216;manuales&#8217;, &#8216;programas&#8217;, &#8216;presentaciones&#8217;, etc.</li>
-	<li>Cada publicación tiene una fecha, la cual es usada para ordenar cronológicamente las publicaciones de la más reciente a la más antigua.</li>
-	<li>Cada publicación tiene una o más categorías, con lo cual se crea un menú de categorías para acceder a las publicaciones de cada categoría.</li>
-	<li>Cada publicación tiene un autor, con lo que se mantiene un menú de autores.</li>
-	<li>Crea la sindicalización del sitio, es decir un archivo <span class="caps">XML</span> para lectores de orígenes <span class="caps">RSS</span>.</li>
-	<li>Pueden agregarse menús personalizados con vínculos, gráficos o mensajes.</li>
+  <li>Mantiene el mismo diseño en las páginas que hacen el sitio web, por medio de CSS.</li>
+  <li>Toma las publicaciones de uno o más directorios definidos en la configuración. Esto permite la adecuada organización de las publicaciones, por ejemplo en ‘manuales’, ‘programas’, ‘presentaciones’, etc.</li>
+  <li>Cada publicación tiene una fecha, la cual es usada para ordenar cronológicamente las publicaciones de la más reciente a la más antigua.</li>
+  <li>Cada publicación tiene una o más categorías, con lo cual se crea un menú de categorías para acceder a las publicaciones de cada categoría.</li>
+  <li>Cada publicación tiene un autor, con lo que se mantiene un menú de autores.</li>
+  <li>Crea la sindicalización del sitio, es decir un archivo XML para lectores de orígenes RSS.</li>
+  <li>Pueden agregarse menús personalizados con vínculos, gráficos o mensajes.</li>
 </ul>
-<h4>¿Qué hace el script cuando se ejecuta?</h4>
+
+<h4 id="qu-hace-el-script-cuando-se-ejecuta">¿Qué hace el script cuando se ejecuta?</h4>
+
 <ul>
-	<li>Carga todas las publicaciones (archivos rb) que encuentra en los directorios configurados.</li>
-	<li>Los ordena por fecha, los más recientes primero, los más antiguos al final.</li>
-	<li>Elabora los menús de categorías, autores y publicaciones recientes.</li>
-	<li>Carga los menús personalizados.</li>
-	<li>Crea un archivo <span class="caps">HTML</span> por cada publicación.</li>
-	<li>Crea los archivos <span class="caps">HTML</span> para cada categoría y autor.</li>
-	<li>Crea la página de inicio en <span class="caps">HTML</span>.</li>
+  <li>Carga todas las publicaciones (archivos rb) que encuentra en los directorios configurados.</li>
+  <li>Los ordena por fecha, los más recientes primero, los más antiguos al final.</li>
+  <li>Elabora los menús de categorías, autores y publicaciones recientes.</li>
+  <li>Carga los menús personalizados.</li>
+  <li>Crea un archivo HTML por cada publicación.</li>
+  <li>Crea los archivos HTML para cada categoría y autor.</li>
+  <li>Crea la página de inicio en HTML.</li>
 </ul>
-<h4>¿Qué ventajas tiene?</h4>
+
+<h4 id="qu-ventajas-tiene">¿Qué ventajas tiene?</h4>
+
 <ul>
-	<li>Es relativamente sencillo de montar y mantener.</li>
-	<li>Pocos requerimientos (Ruby, RedCoth, Apache y un procesador de textos).</li>
-	<li>Bajo consumo del procesador (por que no son páginas dinámicas, como <span class="caps">PHP</span>, ni requiere base de datos).</li>
-	<li>Es seguro (por que puede ejecutarse via OpenSSH).</li>
+  <li>Es relativamente sencillo de montar y mantener.</li>
+  <li>Pocos requerimientos (Ruby, RedCoth, Apache y un procesador de textos).</li>
+  <li>Bajo consumo del procesador (por que no son páginas dinámicas, como PHP, ni requiere base de datos).</li>
+  <li>Es seguro (por que puede ejecutarse via OpenSSH).</li>
 </ul>
-<h4>¿Qué es lo que NO hace?</h4>
+
+<h4 id="qu-es-lo-que-no-hace">¿Qué es lo que NO hace?</h4>
+
 <ul>
-	<li>No hay una intefaz web, ni aplicación para escribir los contenidos (ya que puede usar cualquier procesador de texto plano para ello).</li>
-	<li>No tiene capacidad para recibir, ni para mostrar comentarios de los visitantes.</li>
+  <li>No hay una intefaz web, ni aplicación para escribir los contenidos (ya que puede usar cualquier procesador de texto plano para ello).</li>
+  <li>No tiene capacidad para recibir, ni para mostrar comentarios de los visitantes.</li>
 </ul>
+
+  </div>
+  <!-- PIE -->
+  <footer>
+    <div class="container">
     <!-- MENU SECUNDARIO -->
-    <div class="panel panel-default menu-secundario">
+    <div class="panel panel-default panel-menu-secundario">
       <div class="panel-body">
 <div class="panel panel-default col-md-4 menu-secundario">
   <div class="panel-heading">Últimas publicaciones</div>
 <ul class="list-group">
-      <li class="list-group-item"><a href="../descargar/ml-cms-1.3.html">Descargar Ver. 1.3</a></li>
+      <li class="list-group-item"><a href="../descargar/ml-cms-1.3.html">Descargar V. 1.3</a></li>
       <li class="list-group-item"><a href="../screenshots/screenshots.html">Screenshots</a></li>
       <li class="list-group-item"><a href="../acerca/acerca.html">Acerca</a></li>
       <li class="list-group-item"><a href="../documentacion/requerimientos.html">Requerimientos</a></li>
-      <li class="list-group-item"><a href="../documentacion/configuracion-del-cms.html">Configuración del CMS</a></li>
+      <li class="list-group-item"><a href="../documentacion/openssh.html">Uso del OpenSSH para este CMS</a></li>
 </ul>
 </div><div class="panel panel-default col-md-4 menu-secundario">
   <div class="panel-heading">Categorías</div>
 <ul class="list-group">
-      <li class="list-group-item"><a href="../categorias/apache.html">Apache (3)</a></li>
-      <li class="list-group-item"><a href="../categorias/css.html">CSS (1)</a></li>
-      <li class="list-group-item"><a href="../categorias/configuracion.html">Configuración (2)</a></li>
-      <li class="list-group-item"><a href="../categorias/debian.html">Debian (1)</a></li>
-      <li class="list-group-item"><a href="../categorias/faq.html">FAQ (1)</a></li>
-      <li class="list-group-item"><a href="../categorias/gentoo.html">Gentoo (1)</a></li>
-      <li class="list-group-item"><a href="../categorias/instalacion.html">Instalación (3)</a></li>
+      <li class="list-group-item"><a href="../categorias/descargas.html">Descargas (1)</a></li>
+      <li class="list-group-item"><a href="../categorias/faq.html">FAQ (2)</a></li>
+      <li class="list-group-item"><a href="../categorias/instalacion.html">Instalación (2)</a></li>
       <li class="list-group-item"><a href="../categorias/openssh.html">OpenSSH (1)</a></li>
-      <li class="list-group-item"><a href="../categorias/publicaciones.html">Publicaciones (2)</a></li>
       <li class="list-group-item"><a href="../categorias/screenshots.html">Screenshots (1)</a></li>
-      <li class="list-group-item"><a href="../categorias/textile.html">Textile (1)</a></li>
-      <li class="list-group-item"><a href="../categorias/versiones.html">Versiones (1)</a></li>
 </ul>
 </div><div class="panel panel-default col-md-4 menu-secundario">
   <div class="panel-heading">Autores</div>
 <ul class="list-group">
-      <li class="list-group-item"><a href="../autores/guivaloz.html">guivaloz (16)</a></li>
+      <li class="list-group-item"><a href="../autores/guivaloz.html">guivaloz (7)</a></li>
 </ul>
 </div><div class="panel panel-default col-md-4 menu-secundario">
   <div class="panel-heading">Sindicalización</div>
@@ -136,14 +146,12 @@
 </div>
       </div>
     </div>
-    <!-- PIE -->
-    <div class="well">
   Copyright (c) 2013 Guillermo Valdés Lozano. Se otorga permiso para copiar, distribuir y/o modificar este documento.<br>
   El programa está protegido por la licencia <a href="licencias/gpl-2.html">GPL versión 2</a>.<br>
   La documentación está protegida por la licencia <a href="licencias/gfdl.html">GFDL</a>.
 
     </div>
-  </div>
+  </footer>
   <!-- CODIGO JAVASCRIPT DE BOOTSTRAP PUESTO AL FINAL PARA QUE SE CARGUE MAS RAPIDO LA PAGINA -->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>

@@ -1,3 +1,4 @@
+# encoding: utf-8
 ############################################################################
 #    Copyright (C) 2013 by Guillermo Valdes Lozano                         #
 #    guivaloz@movimientolibre.com                                          #
@@ -91,9 +92,9 @@ class Imprenta
     end
 
     #
-    # Cargar publicaciones
+    # Cargar publicaciones guardadas como archivos ruby *.rb
     #
-    def cargar_publicaciones
+    def cargar_publicaciones_rb
         # Cargar los archivos .rb de los directorios de las publicaciones
         pubs = Array.new
         @publicaciones_directorios.each do |dir|
@@ -107,10 +108,55 @@ class Imprenta
         end
         # Asignar el autor por defecto en las publicaciones que no lo tengan
         pubs.each { |pub| pub.autor = @autor_por_defecto if pub.autor == '' }
-        # Ordenar las publicaciones por fecha, los más recientes primero
-        ordenadas = pubs.sort_by { |pub| pub.fecha }
-        # Almacenar en @publicaciones un arreglo de objetos con las publicaciones
-        @publicaciones = ordenadas.reverse
+        # Almacenar en @publicaciones
+        @publicaciones.concat(pubs)
+    end
+
+    #
+    # Cargar publicaciones guardadas como archivos markdown *.md
+    #
+    def cargar_publicaciones_md
+        pubs = Array.new
+        # Bucle para cada directorio
+        @publicaciones_directorios.each do |dir|
+            archivos = Dir.glob(dir + '/*.md')  # Obtener los archivos *.md en el directorio
+            next if archivos.size == 0          # Si no hay archivos, brincarse al siguiente directorio
+            # Bucle para cada archivo
+            archivos.sort.each do |arch|
+                p            = Publicacion.new           # Nueva publicación
+                p.tipo       = 'md'                      # Tipo de contenido: md = markdown
+                p.directorio = dir                       # Pasamos el directorio en el que vamos
+                p.archivo    = arch[/([\w._-]+)\.md/,1]  # Como arch viene como directorio/archivo.md nos quedamos con el nombre del archivo
+                renglon      = 0                         # Para saber en qué renglón andamos
+                contenido = String.new                   # No se puede acumular en una propiedad, así que juntaremos el contenido en esta variable local
+                # Bucle para abrir, leer linea por linea y cerrar
+                IO.foreach(arch) do |linea|
+                    renglon += 1
+                    if renglon == 1
+                        p.nombre      = linea.chomp  # Se espera que el primer renglón sea el título de la publicación
+                        p.nombre_menu = linea.chomp  # Por defecto igual al nombre
+                    elsif renglon == 2 and linea =~ /[=]+/
+                        next                         # Se espera que el segundo renglón sea el subrayado del título
+                    elsif linea.chomp =~ /Corto: /
+                        p.nombre_menu = $'           # Sobreescribe al nombre si está definido Corto
+                    elsif linea.chomp =~ /Autor: /
+                        p.autor = $'
+                    elsif linea.chomp =~ /Fecha: /
+                        p.fecha = $'
+                    elsif linea.chomp =~ /Categorías: /
+                        p.categorias = $'.split(/, /)
+                    else
+                        contenido += linea
+                    end
+                end
+                p.contenido = contenido                        # Pasamos el contenido a la propiedad respactiva en la publicación
+                p.autor = @autor_por_defecto if p.autor == ''  # Si no hay autor en el archivo markdown, le asignamos el autor por defecto
+                pubs.push(p)                                   # Agregar la publicación e
+                @cantidad += 1                                 # Incrementar la cantidad de las mismas
+            end
+        end
+        # Almacenar en @publicaciones
+        @publicaciones.concat(pubs)
     end
 
     #
@@ -205,7 +251,11 @@ class Imprenta
         @en_raiz = false
         @en_otro = false
         # Cargar las publicaciones
-        self.cargar_publicaciones
+        self.cargar_publicaciones_rb
+        self.cargar_publicaciones_md
+        # Ordenar las publicaciones por fecha, los más recientes primero
+        ordenadas      = @publicaciones.sort_by { |pub| pub.fecha }
+        @publicaciones = ordenadas.reverse
         # Inicializar la plantilla de todas las publicaciones, excepto de la página inicial
         @plantilla                    = Plantilla.new
         @plantilla.titulo_sitio       = @titulo_sitio

@@ -1,3 +1,4 @@
+# encoding: utf-8
 ############################################################################
 #    Copyright (C) 2013 by Guillermo Valdes Lozano                         #
 #    guivaloz@movimientolibre.com                                          #
@@ -83,8 +84,8 @@ class Plantilla
         a << '  <!-- TWITTER BOOTSTRAP TERMINA -->'
         a << '</head>'
         a << '<body>'
-        a << '  <!-- MENU PRINCIPAL -->'
         if @menu_principal != nil
+            a << '  <!-- MENU PRINCIPAL -->'
             a << '  <div class="navbar navbar-default navbar-fixed-top menu-principal" role="navigation">'
             a << '    <div class="container">'
             a << '      <div class="navbar-header">'
@@ -106,11 +107,11 @@ class Plantilla
             a << '    </div>'
             a << '  </div>'
         end
-        a << '  <div class="container">'
-        a << '    <!-- JUMBOTRON -->'
+        a << '  <div class="container contenido">'
         if @grafico_encabezado != nil
             a << @grafico_encabezado
         else
+            a << '    <!-- JUMBOTRON -->'
             a << '    <div class="jumbotron">'
             a << "      <h2>#@titulo_sitio</h2>"
             a << "      <p>#@frase_sitio</p>"
@@ -127,21 +128,21 @@ class Plantilla
             a << '      </div>'
             a << '    </div>'
         end
+        a << '  </div>' # container contenido
+        a << '  <!-- PIE -->'
+        a << '  <footer>'
+        a << '    <div class="container">'
         if @menu_secundario != nil
             a << '    <!-- MENU SECUNDARIO -->'
-            a << '    <div class="panel panel-default menu-secundario">'
+            a << '    <div class="panel panel-default panel-menu-secundario">'
             a << '      <div class="panel-body">'
             a << @menu_secundario
             a << '      </div>'
             a << '    </div>'
         end
-        if @pie_html != nil
-            a << '    <!-- PIE -->'
-            a << '    <div class="well">'
-            a << @pie_html
-            a << '    </div>'
-        end
-        a << '  </div>'
+        a << @pie_html if @pie_html != nil
+        a << '    </div>'
+        a << '  </footer>'
         a << '  <!-- CODIGO JAVASCRIPT DE BOOTSTRAP PUESTO AL FINAL PARA QUE SE CARGUE MAS RAPIDO LA PAGINA -->'
         # Si prefiere ofrecer Twitter Bootstrap en su servidor
      #~ a << '  <script src="/js/jquery.min.js"></script>'
