@@ -49,7 +49,7 @@ class Plantilla
     def to_html(titulo, contenido, en_raiz=false)
         a = Array.new
         a << '<!DOCTYPE html>'
-        a << '<html lang="en">'
+        a << '<html lang="es">'
         a << '<head>'
         a << '  <meta charset="utf-8">'
         a << '  <meta http-equiv="X-UA-Compatible" content="IE=edge">'
