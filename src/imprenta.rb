@@ -27,7 +27,7 @@ class Imprenta
     #
     # Propiedades modificables
     #
-    attr_writer :titulo_sitio, :frase_sitio, :anuncio, :grafico_encabezado, :publicaciones_directorios, :publicaciones_etiquetas, :menu_principal, :menu_principal_en_raiz, :contenido_secundario, :publicaciones_por_pagina_maximo, :autor_por_defecto, :categorias_directorio, :autores_directorio, :menus_directorio, :usar_contenido_secundario, :url_sitio, :descripcion_sitio, :pie_html, :archivo_rss
+    attr_writer :titulo_sitio, :frase_sitio, :anuncio, :grafico_encabezado, :publicaciones_directorios, :publicaciones_etiquetas, :menu_principal, :menu_principal_en_raiz, :contenido_secundario, :publicaciones_por_pagina_maximo, :autor_por_defecto, :categorias_directorio, :autores_directorio, :menus_directorio, :usar_contenido_secundario, :url_sitio, :descripcion_sitio, :pie_html, :archivo_rss, :publicaciones_anexos
 
     #
     # Valores por defecto de las propiedades
@@ -45,6 +45,7 @@ class Imprenta
         @autores_directorio              = 'autores'
         @menus_directorio                = 'menus'
         @usar_contenido_secundario       = true
+        @publicaciones_anexos            = Hash.new
         # Propiedades no modificables
         @cantidad      = 0
         @publicaciones = Array.new
@@ -339,13 +340,17 @@ class Imprenta
     # Páginas publicaciones
     #
     def paginas_publicaciones
-        #@en_raiz = false    # Las páginas de las publicaciones están en sus directorios correspondientes
-        #@en_otro = false
-        paginas  = Hash.new
+        paginas = Hash.new
+        # Bluce para cada una de las publicaciones
         @publicaciones.each do |pub|
-            #pub.en_raiz       = @en_raiz
-            #pub.en_otro       = @en_otro
-            paginas[pub.ruta] = @plantilla.to_html(pub.nombre, pub.completo)
+            # Si NO hay anexo para la publicación, según el directorio donde se encuentre
+            if @publicaciones_anexos[pub.directorio] == nil
+                contenido = pub.completo + '<hr>'
+            else
+                contenido = pub.completo + @publicaciones_anexos[pub.directorio]  # SI hay anexo para esta publicacion
+            end
+            # Agregar la ruta con el contenido de la página
+            paginas[pub.ruta] = @plantilla.to_html(pub.nombre, contenido)
         end
         # Entregar un hash con los nombres de los archivos y el contenido HTML de cada publicación
         paginas

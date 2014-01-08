@@ -73,6 +73,10 @@ imprenta.publicaciones_directorios = %w{ acerca descargar screenshots documentac
 # No hay necesidad de definir una etiqueta si el nombre del directorio es igual a la etiqueta
 imprenta.publicaciones_etiquetas = { 'documentacion' => "Documentación" }
 
+# Los Anexos sirven para injertar código HTML y/o JavaScript al final de cada publicación completa
+# Aparecen en la página dedicada a cada publicación; pero NO en la página inicial, archivos index, categorias o autores.
+#imprenta.publicaciones_anexos = { 'licencias' => '<h4>Palabra de R.M.S.</h4>', 'contacto' => '<hr>'  }
+
 # Nombre del archivo para la página incial, sin diagonal al principio
 PAGINA_INICIAL = 'index.html'
 
