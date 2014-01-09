@@ -10,13 +10,13 @@ CMS de Movimiento Libre
  * Soporte para rutas relativas, esto ayuda al soporte del sitio en un subdirectorio dentro del servidor.
  ___________________________________________________
  
-Es un script hecho en Ruby para que con apoyo de TwitterBootstrap se construya el sitio web de movimientolibre.com sin necesidad de una base de datos ni páginas dinámicas.
+Es un script hecho en Ruby para que con apoyo de [TwitterBootstrap](http://getbootstrap.com) se construya el sitio web de [movimientolibre.com](http://movimientolibre.com) sin necesidad de una base de datos ni páginas dinámicas.
 
 Cabe destacar que el uso del CMS no se limita a el uso del framework de TwitterBootstrap, este puede ser acoplado con gran facilidad ante otros frameworks.
 
 **Instrucciones:**
 
-1) Deberá tener instalado y configurado el Apache HTTP, Ruby y RedCloth (es una gema de Ruby) para ejecutar este script.
+1) Deberá tener instalado y configurado el Apache HTTP, Ruby y  las gemas de RedCloth y Kramdown para ejecutar este script.
 
 2) Coloque los contenidos en la raíz de su sitio web. Por defecto en Apache es /var/www/localhost/htdocs/. Le recomiendo que configure Apache para colocarlos en un directorio dentro su carpeta personal, por ejemplo /home/usuario/www/
 
@@ -50,9 +50,10 @@ Cabe destacar que el uso del CMS no se limita a el uso del framework de TwitterB
 
 1) ¿Que tipo de etiquetas HTML admite Markdown?.
 
->*Aunque es cierto que Markdown permite la incorporación de HTML dentro de los archivos .md, tambien es cierto que no todas las etiquetas HTML     sirven dentro del mismo.*
->*Las etiquetas que acontinuación se muestran, son las etiquetas que se pueden utilizar dentro de los archivos .md*          
->*La etiqueta table aunque no es una etiqueta permitida por Markdown, Kramdown sutituye el uso de esta por  el uso de | (pipas) para delimitar el inicio y final de una columna. *
+>*Aunque es cierto que Markdown permite la incorporación de HTML dentro de los archivos .md, tambíen es cierto que no todas las etiquetas HTML sirven dentro del mismo.*
+
+>*Las etiquetas que a continuación se muestran, son las etiquetas que se pueden utilizar dentro de los archivos .md*    
+>*La etiqueta table aunque no es una etiqueta permitida por Markdown, Kramdown sutituye el uso de esta por  el uso de | (pipas) para delimitar el inicio y final de una columna.*
 
 >      <a>            
 >      <b>            
@@ -98,19 +99,21 @@ Cabe destacar que el uso del CMS no se limita a el uso del framework de TwitterB
 
 >*La etiqueta **img**  permite el uso de  los siguientes atributos:*
 
-* src=""
+>* src=""
 
-* width=""
+>* width=""
 
-* height=""
+>* height=""
 
-* alt=""
+>* alt=""
 
-* titile= ""
+>* titile= ""
 
 >*De igual manera la etiqueta **a** permite:*
 
-* href=""
+>* href=""
 
-* title="" 
+>* title="" 
  
+ 
+[**Como anexo final, se incluye un enlace a la pagina oficial de Markdown donde podras conocer mas sobre su sintaxis**](http://daringfireball.net/projects/markdown/syntax) 
