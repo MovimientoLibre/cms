@@ -1,9 +1,18 @@
 CMS de Movimiento Libre
 ===
+ #####Versión 2.0
+ ######Novedades de esta versión:
+ * Soporte para la creación de publicaciones por medio de Markdown.
+ * Integración a la capacidad de actualizacíon tanto por archivos .rb como archivos .md.
+ * Capacidad de inyectar codigo HTML y/o Javascript en las publicaciones.
+ * Soporte para rutas relativas, esto ayuda al soporte del sitio en un subdirectorio dentro del servidor.
+ ___________________________________________________
+ 
+Es un script hecho en Ruby para que con apoyo de TwitterBootstrap se construya el sitio web de movimientolibre.com sin necesidad de una base de datos ni páginas dinámicas.
 
-Es un script hecho en Ruby para que con apoyo de TwitterBootstrap se contruya el sitio web de movimientolibre.com sin necesidad de una base de datos ni páginas dinámicas.
+Cabe destacar que el uso del CMS no se limita a el uso del framework de TwitterBootstrap, este puede ser acoplado con gran facilidad ante otros frameworks.
 
-Instrucciones:
+**Instrucciones:**
 
 1) Deberá tener instalado y configurado el Apache HTTP, Ruby y RedCloth (es una gema de Ruby) para ejecutar este script.
 
@@ -27,10 +36,63 @@ Instrucciones:
 
 4) Edite la configuración, modificando el archivo cms.rb. Todo está explicado dentro de éste.
 
-5) Cree sus propios directorios para las publicaciones y agregue en éstos las publicaciones como archivos rb. Tome de base los existentes.
+5) Cree sus propios directorios para las publicaciones y agregue en éstos las publicaciones como archivos .rb o .md. Tome de base los existentes.
 
 6) Ejecute el script escribiendo ./cms.rb no deje de leer los mensajes en la consola.
 
 7) Verifique su sitio en su navegador.
 
 8) Si necesita cambiar o agregar algo, cambie el archivo .rb correspondiente y vuelva al paso 6.
+
+## Preguntas frecuentes.
+
+1. ¿Que tipo de etiquetas HTML admite Markdown?.
+
+   >*Aunque es cierto que Markdown permite la incorporación de HTML dentro de los archivos .md, tambien es cierto que no todas las etiquetas HTML     sirven dentro del mismo.
+    Las etiquetas que acontinuación se muestran, son las etiquetas que se pueden utilizar dentro de los archivos .md*
+       <a>            
+       <b>            
+       <blockquote>     
+       <code>           
+       <del>            
+       <dd>             
+       <dl>             
+       <dt>             
+       <em>             
+       <h1>, <h2>, <h3>, <h4>, <h5>, <h6> 
+       <i>              
+       <img>            
+       <kbd>            
+       <li>             
+       <ul>.
+       <ol>             
+       <p>              
+       <pre>            
+       <s>              
+       <sup>            
+       <sub>            
+       <strong>         
+       <strike>         
+       <del>
+       <ul>             
+       <br>             
+       <hr>             
+       
+    *La etiqueta table aunque no es una etiqueta permitida por Markdown, Kramdown sutituye el uso de esta por  el uso de | (pipas) para delimitar el inicio y final de una columna. *
+    
+    **Ejemplo:**
+    |Nombre  | Sexo |
+    |Javier |Hombre|
+    
+2.¿Que atributos son permitidos?
+   >*Debido  a que markdown busca conservar esa simplicidad y minimalismo a la hora de estructurar los archivos, los atributos aceptados a la hora de utilizar codigo HTML tambien es afectada.
+  La etiqueta **img**  permite el uso de  los siguientes atributos:<br>
+  * src=""
+  * width=""<br>
+  * height=""
+  * alt=""<br>
+  * titile= ""
+  De igual manera la etiqueta **a** permite:
+ * href=""<br>
+ * title="" 
+ 
