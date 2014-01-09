@@ -345,9 +345,9 @@ class Imprenta
         @publicaciones.each do |pub|
             # Si NO hay anexo para la publicación, según el directorio donde se encuentre
             if @publicaciones_anexos[pub.directorio] == nil
-                contenido = pub.completo + '<hr>'
+                contenido = pub.completo  # Solo la publicación completa
             else
-                contenido = pub.completo + @publicaciones_anexos[pub.directorio]  # SI hay anexo para esta publicacion
+                contenido = pub.completo + @publicaciones_anexos[pub.directorio]  # La publicación completa más el anexo respectivo
             end
             # Agregar la ruta con el contenido de la página
             paginas[pub.ruta] = @plantilla.to_html(pub.nombre, contenido)
