@@ -1,7 +1,9 @@
 CMS de Movimiento Libre
-===
- #####Versión 2.0
- ######Novedades de esta versión:
+=========================
+
+#### Versión 2.0
+ 
+#### Novedades de esta versión:
  * Soporte para la creación de publicaciones por medio de Markdown.
  * Integración a la capacidad de actualizacíon tanto por archivos .rb como archivos .md.
  * Capacidad de inyectar codigo HTML y/o Javascript en las publicaciones.
@@ -46,53 +48,69 @@ Cabe destacar que el uso del CMS no se limita a el uso del framework de TwitterB
 
 ## Preguntas frecuentes.
 
-1. ¿Que tipo de etiquetas HTML admite Markdown?.
+1) ¿Que tipo de etiquetas HTML admite Markdown?.
 
-   >*Aunque es cierto que Markdown permite la incorporación de HTML dentro de los archivos .md, tambien es cierto que no todas las etiquetas HTML     sirven dentro del mismo.
-    Las etiquetas que acontinuación se muestran, son las etiquetas que se pueden utilizar dentro de los archivos .md*
-       <a>            
-       <b>            
-       <blockquote>     
-       <code>           
-       <del>            
-       <dd>             
-       <dl>             
-       <dt>             
-       <em>             
-       <h1>, <h2>, <h3>, <h4>, <h5>, <h6> 
-       <i>              
-       <img>            
-       <kbd>            
-       <li>             
-       <ul>.
-       <ol>             
-       <p>              
-       <pre>            
-       <s>              
-       <sup>            
-       <sub>            
-       <strong>         
-       <strike>         
-       <del>
-       <ul>             
-       <br>             
-       <hr>             
-       
-    *La etiqueta table aunque no es una etiqueta permitida por Markdown, Kramdown sutituye el uso de esta por  el uso de | (pipas) para delimitar el inicio y final de una columna. *
+>*Aunque es cierto que Markdown permite la incorporación de HTML dentro de los archivos .md, tambien es cierto que no todas las etiquetas HTML     sirven dentro del mismo.*
+>*Las etiquetas que acontinuación se muestran, son las etiquetas que se pueden utilizar dentro de los archivos .md*          
+>*La etiqueta table aunque no es una etiqueta permitida por Markdown, Kramdown sutituye el uso de esta por  el uso de | (pipas) para delimitar el inicio y final de una columna. *
+
+>      <a>            
+>      <b>            
+>      <blockquote>     
+>      <code>           
+>      <del>            
+>      <dd>             
+>      <dl>             
+>      <dt>             
+>      <em>             
+>      <h1> 
+>      <h2> 
+>      <h3> 
+>      <h4> 
+>      <h5> 
+>      <h6> 
+>      <i>              
+>      <img>            
+>      <kbd>            
+>      <li>             
+>      <ul>
+>      <ol>             
+>      <p>              
+>      <pre>            
+>      <s>              
+>      <sup>            
+>      <sub>            
+>      <strong>         
+>      <strike>         
+>      <del>
+>      <ul>             
+>      <br>             
+>      <hr>             
+
+>**Ejemplo:**
+
+>|Nombre  | Sexo |
+ 
+>|Javier |Hombre| 
     
-    **Ejemplo:**
-    |Nombre  | Sexo |
-    |Javier |Hombre|
-    
-2.¿Que atributos son permitidos?
-   >*Debido  a que markdown busca conservar esa simplicidad y minimalismo a la hora de estructurar los archivos, los atributos aceptados a la hora de utilizar codigo HTML tambien es afectada.
-  La etiqueta **img**  permite el uso de  los siguientes atributos:<br>
-  * src=""
-  * width=""<br>
-  * height=""
-  * alt=""<br>
-  * titile= ""
-  De igual manera la etiqueta **a** permite:
- * href=""<br>
- * title="" 
+2) ¿Que atributos son permitidos?
+>*Debido  a que markdown busca conservar esa simplicidad y minimalismo a la hora de estructurar los archivos, los atributos aceptados a la hora de utilizar codigo HTML tambien es afectada.*
+
+>*La etiqueta **img**  permite el uso de  los siguientes atributos:*
+
+* src=""
+
+* width=""
+
+* height=""
+
+* alt=""
+
+* titile= ""
+
+>*De igual manera la etiqueta **a** permite:*
+
+* href=""
+
+* title="" 
  
