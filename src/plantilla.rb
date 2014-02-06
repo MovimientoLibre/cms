@@ -64,16 +64,16 @@ class Plantilla
             a << "  <link rel=\"alternate\" type=\"application/rss+xml\" title=\"#@titulo_sitio\" href=\"../#@archivo_rss\" />" if @archivo_rss != nil
         end
         a << "  <title>#@titulo_sitio | #{titulo}</title>"
-        a << '  <!-- TWITTER BOOTSTRAP INICIA -->'
-        # Si prefiere ofrecer Twitter Bootstrap en su servidor
-     #~ a << '  <link href="/css/bootstrap.min.css" rel="stylesheet">'
-        # O para tomarlo desde servidores en Internet
+        # Si prefiere tomar bootstrap desde servidores en Internet
         a << '  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">'
         a << '  <link href="//netdna.bootstrapcdn.com/bootswatch/3.0.0/journal/bootstrap.min.css" rel="stylesheet">'
-        a << '  <!-- ESTILOS CSS PROPIOS DE ESTE CMS -->'
         if en_raiz
+            # Si prefiere ofrecer Twitter Bootstrap en su servidor
+         #~ a << '  <link href="/css/bootstrap.min.css" rel="stylesheet">'
             a << '  <link href="css/cms.css" rel="stylesheet">'
         else
+            # Si prefiere ofrecer Twitter Bootstrap en su servidor
+         #~ a << '  <link href="../css/bootstrap.min.css" rel="stylesheet">'
             a << '  <link href="../css/cms.css" rel="stylesheet">'
         end
         a << '  <!-- SOPORTE PARA IE8 -->'
@@ -144,13 +144,18 @@ class Plantilla
         a << '    </div>'
         a << '  </footer>'
         a << '  <!-- CODIGO JAVASCRIPT DE BOOTSTRAP PUESTO AL FINAL PARA QUE SE CARGUE MAS RAPIDO LA PAGINA -->'
-        # Si prefiere ofrecer Twitter Bootstrap en su servidor
-     #~ a << '  <script src="/js/jquery.min.js"></script>'
-     #~ a << '  <script src="/js/bootstrap.min.js"></script>'
+     #~ if en_raiz
+            # Si prefiere ofrecer Twitter Bootstrap en su servidor
+         #~ a << '  <script src="js/jquery.min.js"></script>'
+         #~ a << '  <script src="js/bootstrap.min.js"></script>'
+     #~ else
+            # Si prefiere ofrecer Twitter Bootstrap en su servidor
+         #~ a << '  <script src="../js/jquery.min.js"></script>'
+         #~ a << '  <script src="../js/bootstrap.min.js"></script>'
+     #~ end
         # O para tomarlo desde servidores en Internet
         a << '  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>'
         a << '  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>'
-        a << '  '
         a << '</body>'
         a << '</html>'
         a.join("\n")
