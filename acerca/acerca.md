@@ -7,7 +7,7 @@ Categorías: FAQ
 
 El CMS de Movimiento Libre es un sencillo sistema de gestión de contenidos, _Content Management System_ en inglés, abreviado [CMS](http://es.wikipedia.org/wiki/Cms). Es un programa que permite crear una estructura de soporte para la creación y administración de contenidos de un sitio web.
 
-Nace con la intensión de llevar a la práctica algunos conceptos básicos de programación en [Ruby](http://es.wikipedia.org/wiki/Ruby) para administrar los contenidos de [Movimiento Libre](http://movimientolibre.com) y es liberado bajo la [Licencia GPL v2](licencias/gpl-2.html). Ha sido para su servidor un buen ejercicio para aprender este lenguaje de programación.
+Nace con la intensión de llevar a la práctica algunos conceptos básicos de programación en [Ruby](http://es.wikipedia.org/wiki/Ruby) para administrar los contenidos de [Movimiento Libre](http://movimientolibre.com) y es liberado bajo la [Licencia GPL v2](../licencias/gpl-2.html). Ha sido para su servidor un buen ejercicio para aprender este lenguaje de programación.
 
 <!-- break -->
 

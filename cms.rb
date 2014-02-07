@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 # encoding: utf-8
 ############################################################################
-#    Copyright (C) 2013 by Guillermo Valdes Lozano                         #
+#    Copyright (C) 2014 by Guillermo Valdes Lozano                         #
 #    guivaloz@movimientolibre.com                                          #
 #                                                                          #
 #    This program is free software; you can redistribute it and#or modify  #
@@ -66,7 +66,7 @@ imprenta.frase_sitio = DESCRIPCION_SITIO
 # imprenta.anuncio = ''
 
 # Arreglo con los nombres de los directorios donde se encuentran las publicaciones
-imprenta.publicaciones_directorios = %w{ acerca descargar screenshots documentacion licencias contacto }
+imprenta.publicaciones_directorios = %w{ acerca descargar documentacion licencias contacto }
 
 # Arreglo con las etiquetas de los directorios donde se encuentran las publicaciones
 # Por ejemplo, un directorio llamado guia_inicio puede aparecer como "Guía de inicio"
@@ -88,12 +88,11 @@ ARCHIVO_RSS = 'rss.xml'
 # Puede agregar sus propios vínculos a otros sitios u omitir los directorios que prefiera
 menu_principal = Menu.new
 #menu_principal.agregar('Página inicial', PAGINA_INICIAL)
-menu_principal.agregar('Acerca',         'acerca/')
-menu_principal.agregar('Screenshots',    'screenshots/')
-menu_principal.agregar('Descargar',      'descargar/')
-menu_principal.agregar('Documentación',  'documentacion/')
-menu_principal.agregar('Licencias',      'licencias/')
-menu_principal.agregar('Contacto',       'contacto/')
+menu_principal.agregar('Acerca',        'acerca/')
+menu_principal.agregar('Descargar',     'descargar/')
+menu_principal.agregar('Documentación', 'documentacion/')
+menu_principal.agregar('Licencias',     'licencias/')
+menu_principal.agregar('Contacto',      'contacto/')
 
 # Opcionalmente puede mostrar la descripción en la tercer columna
 # imprenta.contenido_secundario = '<p style="background: #CCC; padding: 4px; border: solid 1px gray; font-style: italic;">' + DESCRIPCION_SITIO + '</p>'
@@ -129,7 +128,7 @@ imprenta.usar_contenido_secundario = false
 
 # El pie es lo que aparecerá en la parte inferior de todas las páginas
 imprenta.pie_html = <<FIN_PIE_HTML
-  Copyright (c) 2013 Guillermo Valdés Lozano. Se otorga permiso para copiar, distribuir y/o modificar este documento.<br>
+  Copyright (c) 2006-2014 Guillermo Valdés Lozano. Se otorga permiso para copiar, distribuir y/o modificar este documento.<br>
   El programa está protegido por la licencia <a href="licencias/gpl-2.html">GPL versión 2</a>.<br>
   La documentación está protegida por la licencia <a href="licencias/gfdl.html">GFDL</a>.
 FIN_PIE_HTML

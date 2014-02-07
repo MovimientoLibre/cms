@@ -95,9 +95,64 @@ Un listado sin orden se declara usando asteriscos, signos de más o guines:
 
 Lo anterior es igual a:
 
+    + Rojo
+    + Verde
+    + Azul
+
+Y también a:
+
     - Rojo
     - Verde
     - Azul
+
+Para un listado numerado, use los números seguidos de un punto y espacio:
+
+    1. Primero
+    2. Segundo
+    3. Tercero
+
+Los listados pueden contener varios párrafos, sólo hay que indentarlos apropiadamente:
+
+    * Este es el primer párrafo de un punto.
+
+      Este es el segundo párrafo del mismo punto.
+
+    * Este es el siguiente punto.
+
+De igual forma para poner una cita dentro de una lista numerada:
+
+    * Este es el párrafo de un punto.
+
+      > Esta cita va dentro del primer punto;
+      > con este contenido.
+
+Y en el caso de código dentro de una lista; éste debe estar doblemente indentado, es decir tener ocho espacios antes o dos tabuladores:
+
+    * Este es el párrafo de un punto.
+
+            <echo "Hola mundo!";>
+
+Para que un número seguido de un punto NO sea considerado como un listado numerado:
+
+    1991\. Año en que nace Linux.
+
+#### Código fuente
+
+Bloques de código fuente los cuales son limitados por los _tags_ &gt;pre&lt; y &gt;code&lt; deben tener cuatro espacios o un tabulador al principio de cada línea:
+
+    Este es un párrafo común. Enseguida viene código fuente:
+
+        #!/usr/bin/env ruby
+        n = 3
+        print "Con #{n} lados, "
+        a = 360 / n
+        print "el ángulo central es #{a} "
+        t = 180 * (n - 2) / n
+        puts "y el ángulo interno es #{t}"
+
+    Y continuamos escribiendo.
+
+Una bondad del bloque _código fuente_ en markdown es que no hay necesidad de codificar los amperson, mayor que o menor que. Al convertir a HTML hace la conversión automática de éstos a las claves necesarias. Así que, para nosotros, sólo copiamos, pegamos e indentamos el código.
 
 #### Referencias
 

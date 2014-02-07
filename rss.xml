@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/"
+<rss version="2.0"
   xmlns:content="http://purl.org/rss/1.0/modules/content/"
-  xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
   xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
-  version="2.0">
+  xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
   <channel>
     <title>CMS de Movimiento Libre</title>
     <link>http://cms.movimientolibre.com</link>
@@ -22,12 +22,45 @@
       <dc:date>2014-02-07T00:00:00-06:00</dc:date>
     </item>
     <item>
-      <title>Descargar la versión 1.3</title>
-      <link>http://cms.movimientolibre.com/descargar/ml-cms-1.3.html</link>
+      <title>Descargar el CMS de Movimiento Libre</title>
+      <link>http://cms.movimientolibre.com/descargar/descargar.html</link>
       <description>
-&lt;p&gt;Este sitio web es elaborado con este script. Al descargar el archivo comprimido estará bajando todo el contenido de este sitio; esto le ayudará a comprender mejor su funcionamiento.&lt;/p&gt;
+&lt;p&gt;Descargue la versión más reciente del &lt;a href=&quot;https://github.com/MovimientoLibre/cms&quot;&gt;CMS de Movimiento Libre en GitHub&lt;/a&gt; por medio del comando &lt;strong&gt;git&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://github.com/MovimientoLibre/cms/releases/tag/1.3&quot;&gt;Descargar la versión 1.3 al 16/mayo/2008&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git clone git@github.com:MovimientoLibre/cms.git
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;O ingrese al repositorio público desde su navegador de internet:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;https://github.com/MovimientoLibre/cms
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;cualidades-de-la-versin-actual&quot;&gt;Cualidades de la versión actual:&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Basado en Twitter Bootstrap.&lt;/li&gt;
+  &lt;li&gt;Puede alimentarse de archivos &lt;em&gt;markdown&lt;/em&gt;. Busca los que tengan extensión &lt;strong&gt;md&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;Compatible con los archivos con extensión &lt;strong&gt;rb&lt;/strong&gt; que contienen objetos de Ruby y contenido en &lt;strong&gt;RedCloth&lt;/strong&gt;.&lt;/li&gt;
+  &lt;li&gt;Puede usar rutas relativas y absolutas. Identifica las rutas relativas para ajustar todos los vínculos.&lt;/li&gt;
+  &lt;li&gt;Y muchas novedades más…&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;por-hacer&quot;&gt;Por hacer&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Que la página de inicio elabore la paginación.&lt;/li&gt;
+  &lt;li&gt;Que identifique las imágenes y agregue código para escalar con &lt;em&gt;bootstrap&lt;/em&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <author>guivaloz</author>
+      <pubDate>Fri, 07 Feb 2014 00:00:00 -0600</pubDate>
+      <dc:date>2014-02-07T00:00:00-06:00</dc:date>
+    </item>
+    <item>
+      <title>Versión anterior</title>
+      <link>http://cms.movimientolibre.com/descargar/version-1.3.html</link>
+      <description>
+&lt;p&gt;Por el año de 2008 comenzó a escribirse este software. Para fines históricos, puede &lt;a href=&quot;https://github.com/MovimientoLibre/cms/releases/tag/1.3&quot;&gt;descargar la versión 1.3 al 16/mayo/2008&lt;/a&gt; si lo desea estudiar.&lt;/p&gt;
 
 </description>
       <author>guivaloz</author>
@@ -35,20 +68,12 @@
       <dc:date>2008-05-16T18:30:00-05:00</dc:date>
     </item>
     <item>
-      <title>Screenshots</title>
-      <link>http://cms.movimientolibre.com/screenshots/screenshots.html</link>
-      <description>&lt;div class=&quot;screenshots&quot;&gt; &lt;a href=&quot;screenshots/gulag.jpg&quot;&gt;&lt;img src=&quot;screenshots/gulag-small.jpg&quot; title=&quot;GULAG&quot; alt=&quot;GULAG&quot; /&gt;&lt;/a&gt; &lt;a href=&quot;screenshots/institutodeciencia.jpg&quot;&gt;&lt;img src=&quot;screenshots/institutodeciencia-small.jpg&quot; title=&quot;Instituto de Ciencia&quot; alt=&quot;Instituto de Ciencia&quot; /&gt;&lt;/a&gt; &lt;a href=&quot;screenshots/movimientolibre.jpg&quot;&gt;&lt;img src=&quot;screenshots/movimientolibre-small.jpg&quot; title=&quot;Movimiento Libre&quot; alt=&quot;Movimiento Libre&quot; /&gt;&lt;/a&gt; &lt;a href=&quot;screenshots/rayasyrayas.jpg&quot;&gt;&lt;img src=&quot;screenshots/rayasyrayas-small.jpg&quot; title=&quot;Rayas y Rayas&quot; alt=&quot;Rayas y Rayas&quot; /&gt;&lt;/a&gt; &lt;/div&gt;</description>
-      <author>guivaloz</author>
-      <pubDate>Fri, 16 May 2008 18:15:00 -0500</pubDate>
-      <dc:date>2008-05-16T18:15:00-05:00</dc:date>
-    </item>
-    <item>
       <title>Acerca del CMS de Movimiento Libre</title>
       <link>http://cms.movimientolibre.com/acerca/acerca.html</link>
       <description>
 &lt;p&gt;El CMS de Movimiento Libre es un sencillo sistema de gestión de contenidos, &lt;em&gt;Content Management System&lt;/em&gt; en inglés, abreviado &lt;a href=&quot;http://es.wikipedia.org/wiki/Cms&quot;&gt;CMS&lt;/a&gt;. Es un programa que permite crear una estructura de soporte para la creación y administración de contenidos de un sitio web.&lt;/p&gt;
 
-&lt;p&gt;Nace con la intensión de llevar a la práctica algunos conceptos básicos de programación en &lt;a href=&quot;http://es.wikipedia.org/wiki/Ruby&quot;&gt;Ruby&lt;/a&gt; para administrar los contenidos de &lt;a href=&quot;http://movimientolibre.com&quot;&gt;Movimiento Libre&lt;/a&gt; y es liberado bajo la &lt;a href=&quot;licencias/gpl-2.html&quot;&gt;Licencia GPL v2&lt;/a&gt;. Ha sido para su servidor un buen ejercicio para aprender este lenguaje de programación.&lt;/p&gt;
+&lt;p&gt;Nace con la intensión de llevar a la práctica algunos conceptos básicos de programación en &lt;a href=&quot;http://es.wikipedia.org/wiki/Ruby&quot;&gt;Ruby&lt;/a&gt; para administrar los contenidos de &lt;a href=&quot;http://movimientolibre.com&quot;&gt;Movimiento Libre&lt;/a&gt; y es liberado bajo la &lt;a href=&quot;../licencias/gpl-2.html&quot;&gt;Licencia GPL v2&lt;/a&gt;. Ha sido para su servidor un buen ejercicio para aprender este lenguaje de programación.&lt;/p&gt;
 
 </description>
       <author>guivaloz</author>
@@ -64,15 +89,9 @@
 &lt;ul&gt;
   &lt;li&gt;GNU/Linux&lt;/li&gt;
   &lt;li&gt;Servidor &lt;a href=&quot;http://httpd.apache.org/&quot;&gt;Apache HTTP&lt;/a&gt; previamente configurado y probado.&lt;/li&gt;
-  &lt;li&gt;Intérprete del leguaje &lt;a href=&quot;http://www.ruby-lang.org/&quot;&gt;Ruby&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.ruby-lang.org/&quot;&gt;Ruby&lt;/a&gt; versión 1.9.&lt;/li&gt;
   &lt;li&gt;La gema &lt;a href=&quot;http://whytheluckystiff.net/ruby/redcloth/&quot;&gt;RedCloth&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;En las instrucciones de instalación se explica cómo instalar Ruby y RedCloth:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Para Debian Linux.&lt;/li&gt;
-  &lt;li&gt;Para Gentoo Linux.&lt;/li&gt;
+  &lt;li&gt;La gema Kramdown.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
       <author>guivaloz</author>

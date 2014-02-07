@@ -33,7 +33,6 @@
     <div class="navbar-collapse collapse">
 <ul class="nav navbar-nav">
   <li><a href="../acerca/">Acerca</a></li>
-  <li><a href="../screenshots/">Screenshots</a></li>
   <li><a href="../descargar/">Descargar</a></li>
   <li><a href="../documentacion/">Documentación</a></li>
   <li><a href="../licencias/">Licencias</a></li>
@@ -150,10 +149,72 @@ algún palomino de añadidura los domingos, consumían las tres partes de su hac
 
 <p>Lo anterior es igual a:</p>
 
+<pre><code>+ Rojo
++ Verde
++ Azul
+</code></pre>
+
+<p>Y también a:</p>
+
 <pre><code>- Rojo
 - Verde
 - Azul
 </code></pre>
+
+<p>Para un listado numerado, use los números seguidos de un punto y espacio:</p>
+
+<pre><code>1. Primero
+2. Segundo
+3. Tercero
+</code></pre>
+
+<p>Los listados pueden contener varios párrafos, sólo hay que indentarlos apropiadamente:</p>
+
+<pre><code>* Este es el primer párrafo de un punto.
+
+  Este es el segundo párrafo del mismo punto.
+
+* Este es el siguiente punto.
+</code></pre>
+
+<p>De igual forma para poner una cita dentro de una lista numerada:</p>
+
+<pre><code>* Este es el párrafo de un punto.
+
+  &gt; Esta cita va dentro del primer punto;
+  &gt; con este contenido.
+</code></pre>
+
+<p>Y en el caso de código dentro de una lista; éste debe estar doblemente indentado, es decir tener ocho espacios antes o dos tabuladores:</p>
+
+<pre><code>* Este es el párrafo de un punto.
+
+        &lt;echo "Hola mundo!";&gt;
+</code></pre>
+
+<p>Para que un número seguido de un punto NO sea considerado como un listado numerado:</p>
+
+<pre><code>1991\. Año en que nace Linux.
+</code></pre>
+
+<h4 id="cdigo-fuente">Código fuente</h4>
+
+<p>Bloques de código fuente los cuales son limitados por los <em>tags</em> &gt;pre&lt; y &gt;code&lt; deben tener cuatro espacios o un tabulador al principio de cada línea:</p>
+
+<pre><code>Este es un párrafo común. Enseguida viene código fuente:
+
+    #!/usr/bin/env ruby
+    n = 3
+    print "Con #{n} lados, "
+    a = 360 / n
+    print "el ángulo central es #{a} "
+    t = 180 * (n - 2) / n
+    puts "y el ángulo interno es #{t}"
+
+Y continuamos escribiendo.
+</code></pre>
+
+<p>Una bondad del bloque <em>código fuente</em> en markdown es que no hay necesidad de codificar los amperson, mayor que o menor que. Al convertir a HTML hace la conversión automática de éstos a las claves necesarias. Así que, para nosotros, sólo copiamos, pegamos e indentamos el código.</p>
 
 <h4 id="referencias">Referencias</h4>
 
@@ -172,20 +233,21 @@ algún palomino de añadidura los domingos, consumían las tres partes de su hac
   <div class="panel-heading">Últimas publicaciones</div>
 <ul class="list-group">
       <li class="list-group-item"><a href="../documentacion/markdown.html">Markdown: la forma fácil de escribir para web</a></li>
-      <li class="list-group-item"><a href="../descargar/ml-cms-1.3.html">Descargar V. 1.3</a></li>
-      <li class="list-group-item"><a href="../screenshots/screenshots.html">Screenshots</a></li>
+      <li class="list-group-item"><a href="../descargar/descargar.html">Descargar el CMS de Movimiento Libre</a></li>
+      <li class="list-group-item"><a href="../descargar/version-1.3.html">Versión anterior</a></li>
       <li class="list-group-item"><a href="../acerca/acerca.html">Acerca</a></li>
       <li class="list-group-item"><a href="../documentacion/requerimientos.html">Requerimientos</a></li>
 </ul>
 </div><div class="panel panel-default col-md-4 menu-secundario">
   <div class="panel-heading">Categorías</div>
 <ul class="list-group">
+      <li class="list-group-item"><a href="../categorias/descargar.html">Descargar (1)</a></li>
       <li class="list-group-item"><a href="../categorias/descargas.html">Descargas (1)</a></li>
       <li class="list-group-item"><a href="../categorias/documentacion.html">Documentación (1)</a></li>
       <li class="list-group-item"><a href="../categorias/faq.html">FAQ (2)</a></li>
+      <li class="list-group-item"><a href="../categorias/github.html">GitHub (1)</a></li>
       <li class="list-group-item"><a href="../categorias/instalacion.html">Instalación (2)</a></li>
       <li class="list-group-item"><a href="../categorias/openssh.html">OpenSSH (1)</a></li>
-      <li class="list-group-item"><a href="../categorias/screenshots.html">Screenshots (1)</a></li>
 </ul>
 </div><div class="panel panel-default col-md-4 menu-secundario">
   <div class="panel-heading">Autores</div>
@@ -200,7 +262,7 @@ algún palomino de añadidura los domingos, consumían las tres partes de su hac
 </div>
       </div>
     </div>
-  Copyright (c) 2013 Guillermo Valdés Lozano. Se otorga permiso para copiar, distribuir y/o modificar este documento.<br>
+  Copyright (c) 2006-2014 Guillermo Valdés Lozano. Se otorga permiso para copiar, distribuir y/o modificar este documento.<br>
   El programa está protegido por la licencia <a href="licencias/gpl-2.html">GPL versión 2</a>.<br>
   La documentación está protegida por la licencia <a href="licencias/gfdl.html">GFDL</a>.
 

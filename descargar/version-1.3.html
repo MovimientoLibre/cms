@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
   <link rel="alternate" type="application/rss+xml" title="CMS de Movimiento Libre" href="../rss.xml" />
-  <title>CMS de Movimiento Libre | Screenshots</title>
+  <title>CMS de Movimiento Libre | Versión anterior</title>
   <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
   <link href="//netdna.bootstrapcdn.com/bootswatch/3.0.0/journal/bootstrap.min.css" rel="stylesheet">
   <link href="../css/cms.css" rel="stylesheet">
@@ -33,7 +33,6 @@
     <div class="navbar-collapse collapse">
 <ul class="nav navbar-nav">
   <li><a href="../acerca/">Acerca</a></li>
-  <li><a href="../screenshots/">Screenshots</a></li>
   <li><a href="../descargar/">Descargar</a></li>
   <li><a href="../documentacion/">Documentación</a></li>
   <li><a href="../licencias/">Licencias</a></li>
@@ -49,9 +48,49 @@
       <p>Administrador de contenidos programado en Ruby. Ahora con Twitter Bootstrap.</p>
     </div>
     <!-- CONTENIDO -->
-    <h1>Screenshots</h1>
-  <p><small>2008-05-16 18:15 - guivaloz</small></p>
-<div class="screenshots"> <a href="screenshots/gulag.jpg"><img src="screenshots/gulag-small.jpg" title="GULAG" alt="GULAG" /></a> <a href="screenshots/institutodeciencia.jpg"><img src="screenshots/institutodeciencia-small.jpg" title="Instituto de Ciencia" alt="Instituto de Ciencia" /></a> <a href="screenshots/movimientolibre.jpg"><img src="screenshots/movimientolibre-small.jpg" title="Movimiento Libre" alt="Movimiento Libre" /></a> <a href="screenshots/rayasyrayas.jpg"><img src="screenshots/rayasyrayas-small.jpg" title="Rayas y Rayas" alt="Rayas y Rayas" /></a> </div>
+    <h1>Versión anterior</h1>
+  <p><small>2008-05-16 18:30 - guivaloz</small></p>
+
+<p>Por el año de 2008 comenzó a escribirse este software. Para fines históricos, puede <a href="https://github.com/MovimientoLibre/cms/releases/tag/1.3">descargar la versión 1.3 al 16/mayo/2008</a> si lo desea estudiar.</p>
+
+<h4 id="requerimientos">Requerimientos</h4>
+
+<ul>
+  <li>Ruby 1.8</li>
+  <li>Redcloth</li>
+</ul>
+
+<h4 id="novedades-de-esta-versin">Novedades de esta versión</h4>
+
+<ul>
+  <li>Nuevo <em>framework</em> para los CSS. Elaborado por <a href="http://www.wymstyle.org/en/">WYMstyle</a> el cual da más versatilidad en el diseño y claridad el archivo CSS.</li>
+  <li>Numeración de páginas. Cuando la cantidad de publicaciones excede el máximo configurado, las publicaciones son distribuidas en dos o más páginas y aparecen vínculos (con los números de página) a las páginas en la parte inferior.</li>
+  <li>Menú de autores. Que junto con los menús “Últimas publicaciones” y “Categorías” forman el menú secundario.</li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>Contenido con dos o tres columnas. Gracias al <a href="http://www.wymstyle.org/en/">WYMstyle</a> puede configurar que el sitio muestre dos columnas (Menú</td>
+          <td>Principal) o tres (Menú</td>
+          <td>Principal</td>
+          <td>Menú).</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>Páginas web elaboradas bajo el estándar <a href="http://es.wikipedia.org/wiki/XHTML">XHTML</a> strict.</li>
+  <li>Configuración en un único archivo. Las librerías se mantienen iguales para varios sitios.</li>
+  <li>Muchas mejoras más que podrá ver en la configuración, dentro del script ejecutable.</li>
+</ul>
+
+<h4 id="cambios-que-debe-hacer-si-va-a-migrar-de-una-versin-anterior">Cambios que debe hacer si va a migrar de una versión anterior</h4>
+
+<ul>
+  <li>Debe adaptar su diseño (archivo CSS) al nuevo <em>framework</em>.</li>
+  <li>Debe cambiar los menús personalizados al nuevo formato de instrucciones.</li>
+  <li>No hay problemas de compatibilidad para las publicaciones, es decir que pueden usarse los mismos archivos.</li>
+</ul>
+
   </div>
   <!-- PIE -->
   <footer>
@@ -63,20 +102,21 @@
   <div class="panel-heading">Últimas publicaciones</div>
 <ul class="list-group">
       <li class="list-group-item"><a href="../documentacion/markdown.html">Markdown: la forma fácil de escribir para web</a></li>
-      <li class="list-group-item"><a href="../descargar/ml-cms-1.3.html">Descargar V. 1.3</a></li>
-      <li class="list-group-item"><a href="../screenshots/screenshots.html">Screenshots</a></li>
+      <li class="list-group-item"><a href="../descargar/descargar.html">Descargar el CMS de Movimiento Libre</a></li>
+      <li class="list-group-item"><a href="../descargar/version-1.3.html">Versión anterior</a></li>
       <li class="list-group-item"><a href="../acerca/acerca.html">Acerca</a></li>
       <li class="list-group-item"><a href="../documentacion/requerimientos.html">Requerimientos</a></li>
 </ul>
 </div><div class="panel panel-default col-md-4 menu-secundario">
   <div class="panel-heading">Categorías</div>
 <ul class="list-group">
+      <li class="list-group-item"><a href="../categorias/descargar.html">Descargar (1)</a></li>
       <li class="list-group-item"><a href="../categorias/descargas.html">Descargas (1)</a></li>
       <li class="list-group-item"><a href="../categorias/documentacion.html">Documentación (1)</a></li>
       <li class="list-group-item"><a href="../categorias/faq.html">FAQ (2)</a></li>
+      <li class="list-group-item"><a href="../categorias/github.html">GitHub (1)</a></li>
       <li class="list-group-item"><a href="../categorias/instalacion.html">Instalación (2)</a></li>
       <li class="list-group-item"><a href="../categorias/openssh.html">OpenSSH (1)</a></li>
-      <li class="list-group-item"><a href="../categorias/screenshots.html">Screenshots (1)</a></li>
 </ul>
 </div><div class="panel panel-default col-md-4 menu-secundario">
   <div class="panel-heading">Autores</div>
@@ -91,7 +131,7 @@
 </div>
       </div>
     </div>
-  Copyright (c) 2013 Guillermo Valdés Lozano. Se otorga permiso para copiar, distribuir y/o modificar este documento.<br>
+  Copyright (c) 2006-2014 Guillermo Valdés Lozano. Se otorga permiso para copiar, distribuir y/o modificar este documento.<br>
   El programa está protegido por la licencia <a href="licencias/gpl-2.html">GPL versión 2</a>.<br>
   La documentación está protegida por la licencia <a href="licencias/gfdl.html">GFDL</a>.
 
