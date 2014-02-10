@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0"
-  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
   xmlns:dc="http://purl.org/dc/elements/1.1/"
   xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
-  xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
+  xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>CMS de Movimiento Libre</title>
     <link>http://cms.movimientolibre.com</link>
@@ -18,8 +18,8 @@
 
 </description>
       <author>guivaloz</author>
-      <pubDate>Fri, 07 Feb 2014 00:00:00 -0600</pubDate>
-      <dc:date>2014-02-07T00:00:00-06:00</dc:date>
+      <pubDate>Sun, 09 Feb 2014 00:00:00 -0600</pubDate>
+      <dc:date>2014-02-09T00:00:00-06:00</dc:date>
     </item>
     <item>
       <title>Descargar el CMS de Movimiento Libre</title>
@@ -42,7 +42,7 @@
   &lt;li&gt;Puede alimentarse de archivos &lt;em&gt;markdown&lt;/em&gt;. Busca los que tengan extensión &lt;strong&gt;md&lt;/strong&gt;&lt;/li&gt;
   &lt;li&gt;Compatible con los archivos con extensión &lt;strong&gt;rb&lt;/strong&gt; que contienen objetos de Ruby y contenido en &lt;strong&gt;RedCloth&lt;/strong&gt;.&lt;/li&gt;
   &lt;li&gt;Puede usar rutas relativas y absolutas. Identifica las rutas relativas para ajustar todos los vínculos.&lt;/li&gt;
-  &lt;li&gt;Y muchas novedades más…&lt;/li&gt;
+  &lt;li&gt;Y muchas novedades más&amp;#8230;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h4 id=&quot;por-hacer&quot;&gt;Por hacer&lt;/h4&gt;

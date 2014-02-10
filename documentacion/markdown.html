@@ -49,7 +49,7 @@
     </div>
     <!-- CONTENIDO -->
     <h1>Markdown: la forma fácil de escribir para web</h1>
-  <p><small>2014-02-07 - guivaloz</small></p>
+  <p><small>2014-02-09 - guivaloz</small></p>
 
 <p>Este artículo es una traducción de <a href="http://daringfireball.net/projects/markdown/syntax">Markdown Syntax Documentation</a>.</p>
 
@@ -71,7 +71,7 @@
 
 <p>Un párrafo es simplemente una serie de caracteres y líneas de texto, que tienen una línea en blanco antes y otra después. También que no se encuentran <em>indentados</em> por espacios o tabulaciones.</p>
 
-<p>En los casos que requiera de un avance de línea, el que se da por el <em>tag</em> &lt; br &gt;, escriba dos o más espacios al final de la línea.</p>
+<p>En los casos que requiera de un avance de línea, el que se da por el <em>tag</em> <code>&lt;br&gt;</code>, escriba dos o más espacios al final de la línea.</p>
 
 <h4 id="encabezados">Encabezados</h4>
 
@@ -199,7 +199,7 @@ algún palomino de añadidura los domingos, consumían las tres partes de su hac
 
 <h4 id="cdigo-fuente">Código fuente</h4>
 
-<p>Bloques de código fuente los cuales son limitados por los <em>tags</em> &gt;pre&lt; y &gt;code&lt; deben tener cuatro espacios o un tabulador al principio de cada línea:</p>
+<p>Bloques de código fuente los cuales son limitados por los <em>tags</em> <code>&lt;pre&gt;</code> y <code>&lt;code&gt;</code> deben tener cuatro espacios o un tabulador al principio de cada línea:</p>
 
 <pre><code>Este es un párrafo común. Enseguida viene código fuente:
 
@@ -216,7 +216,175 @@ Y continuamos escribiendo.
 
 <p>Una bondad del bloque <em>código fuente</em> en markdown es que no hay necesidad de codificar los amperson, mayor que o menor que. Al convertir a HTML hace la conversión automática de éstos a las claves necesarias. Así que, para nosotros, sólo copiamos, pegamos e indentamos el código.</p>
 
-<h4 id="referencias">Referencias</h4>
+<h4 id="cdigo-fuente-dentro-de-texto-normal">Código fuente dentro de texto normal</h4>
+
+<p>Use el acento invertido para indicar que un fragmento de texto es código dentro de texto normal:</p>
+
+<pre><code>Use la función `exit` para salir.
+</code></pre>
+
+<p>En el remoto caso de necesitar un acento invertido dentro de un fragmento de código, deberá usar dos acentos invertidos para indicar el fragmento:</p>
+
+<pre><code>``Este es un fragmento de código con un ` acento invertido.``
+</code></pre>
+
+<h4 id="lineas-horizontales">Lineas horizontales</h4>
+
+<p>Para poner una línea horizontal <code>&lt;hr&gt;</code> colocando tres o más guines medios, asteriscos o guiones bajos.</p>
+
+<pre><code>* * *
+***
+*****
+- - -
+-----
+</code></pre>
+
+<h4 id="vnculos-inline">Vínculos <em>inline</em></h4>
+
+<p>En markdown hay dos tipos de vínculos: de tipo <em>inline</em> y <em>de referencia</em>. En ambos el texto que tendrá el vínculo va entre corchetes.</p>
+
+<p>Para un vínculo <em>inline</em> ponga el URL dentro de paréntesis, después del texto entre corchetes.</p>
+
+<pre><code>El buscador [DuckDuck Go](https://www.duckduckgo.com/) no lo rastrea.
+</code></pre>
+
+<p>Opcionalmente puede usar una etiqueta para el vínculo entre comillas dobles:</p>
+
+<pre><code>[Wikipedia](http://es.wikipedia.org "Wikipedia en español") es la enciclopedia libre.
+</code></pre>
+
+<p>Si el vínculo apunta a un destino local en el mismo servidor web, lo puede omitir:</p>
+
+<pre><code>Lea la [Licencia Pública General GNU v2](/cms/licencias/gpl-2-es.html)
+</code></pre>
+
+<h4 id="vnculos-de-referencia">Vínculos <em>de referencia</em></h4>
+
+<p>En cambio, un vínculo <em>de referencia</em> es el usa dos juegos de corchetes, el primero para el texto a mostrar y el segundo con el <em>id</em> del enlace:</p>
+
+<pre><code>Vea la sección de [Referencia][referencia] para ver más vínculos sobre el tema.
+</code></pre>
+
+<p>También es válido que un vínculo <em>de referencia</em> tenga un espacio entre los corchetes:</p>
+
+<pre><code>No deje de leer la guía de [Markdown] [markdown] para saber cómo redactar artículos.
+</code></pre>
+
+<p>Luego, debe indicar los destinos de los vínculos escribiendo en cualquier parte del documento la <strong>definición de vínculo</strong>:</p>
+
+<pre><code>[markdown]: http://movimientolibre.com/cms/documentacion/markdown.html "Markdown: la forma fácil de escribir para web"
+</code></pre>
+
+<p>Las <strong>definicioes de vínculos</strong> se usan para la elaboración de los enlaces en el contenido y <strong>NO aparecen</strong> en el archivo HTML creado. La sintaxis para éstos es la siguiente:</p>
+
+<ul>
+  <li>Entre corchetes va el identificador. Los identificadores pueden tener letras, números, espacios y signos de puntación. No son sensibles a las mayúsculas y minúsculas.</li>
+  <li>Dos puntos.</li>
+  <li>Un espacio.</li>
+  <li>El URL del vínculo.</li>
+  <li>Opcionalmente una etiqueta entre comillas dobles, comillas sencillas o paréntesis.</li>
+</ul>
+
+<p>También puede definir vínculos <em>de referencia</em> con el identificador implícito; de esta forma el texto a vincular y el identificador son iguales; por ejemplo:</p>
+
+<pre><code>[Reddit][] es una gran fuente popular de información y noticias.
+</code></pre>
+
+<p>Luego declare la <em>definición del vínculo</em> de la forma habitual:</p>
+
+<pre><code>[Reddit]: http://reddit.com/
+</code></pre>
+
+<p>Como se mencionó, el texto a vincular e identificador puede tener espacios:</p>
+
+<pre><code>El sitio web [Movimiento Libre][] trata sobre software y cultura libre.
+</code></pre>
+
+<p>La <em>definición del vínculo</em> debe coincidir:</p>
+
+<pre><code>[Movimiento Libre]: http://movimientolibre.com/
+</code></pre>
+
+<p>Una opción es usar los vínculos <em>inline</em> como si fueran notas al final de su documento:</p>
+
+<pre><code>Algunos buscadores populares son [Google][1], [Yahoo][2] y [Bing][3].
+
+[1]: http://google.com/
+[2]: http://yahoo.com/
+[3]: http://bing.com/
+</code></pre>
+
+<p>Esta alternativa le dará más claridad y una imagen más profesional a su archivo markdown.</p>
+
+<h4 id="nfasis">Énfasis</h4>
+
+<p>Encierre el texto entre asteriscos o guines bajos para indicar énfasis. Éstos se conventirán en el tag <code>&lt;em&gt;</code> en HTML.</p>
+
+<pre><code>*texto especial*
+_deja vu_
+</code></pre>
+
+<p>Doble asterisco o doble guión bajo serán el tag <code>&lt;strong&gt;</code> de HTML:</p>
+
+<pre><code>**Importante**
+__también es importante__
+</code></pre>
+
+<p>En caso de requerir un asterisco o guión bajo de forma literal, debe usar una diagonal inversa antes:</p>
+
+<pre><code>Este asterisco \* se conservará como tal.
+</code></pre>
+
+<h4 id="imgenes">Imágenes</h4>
+
+<p>Markdown define las imágenes de una forma bastante similiar a la forma en que se definen los vínculos. Del mismo modos, tiene dos sintaxis: <em>inline</em> y <em>de referencia</em>.</p>
+
+<p>Una imagen de la forma <em>inline</em> es como sigue:</p>
+
+<pre><code>![Texto alterno](/directorio/archivo.jpg)
+![Texto alterno](/directorio/archivo.jpg "Etiqueta opcional")
+</code></pre>
+
+<p>La sintaxis de las imágenes tiene estos elementos:</p>
+
+<ul>
+  <li>Un signo de admiración.</li>
+  <li>Entre corchetes va el texto <code>alt</code> del <em>tag</em> <code>img</code>.</li>
+  <li>Entre paréntesis va el URL al archivo de imagen; de manera opcional, puede incluir un <code>title</code> entre comillas dobles o sencillas.</li>
+</ul>
+
+<p>En cambio, de la forma <em>de referencia</em> escribirá los enlaces a las imágenes así:</p>
+
+<pre><code>![Texto alterno][identificador]
+</code></pre>
+
+<p>Y defina la ubicación de la imagen para el <em>identificador</em> en otra parte de su documento markdown:</p>
+
+<pre><code>[identificador]: /directorio/archivo.jpg "Etiqueta opcional"
+</code></pre>
+
+<p>Hay que aclarar que markdown <strong>NO</strong> define las dimensiones de las imágenes. Así que si necesita hacerlo, deberá recurrir a escribir <em>tags img</em> de HTML tradicional.</p>
+
+<h4 id="vnculos-automticos">Vínculos automáticos</h4>
+
+<p>Puede escribir una URL entre signos de <em>menor que</em> y <em>mayor que</em>, así markdown lo hará un vínculo. Por ejemplo:</p>
+
+<pre><code>&lt;http://twitter.com/&gt;
+</code></pre>
+
+<p>Ésto se convertirá en:</p>
+
+<pre><code>&lt;a href="http://twitter.com/"&gt;http://twitter.com/&lt;/a&gt;
+</code></pre>
+
+<p>También funciona con direcciones de correo electrónico, por ejemplo:</p>
+
+<pre><code>&lt;address@example.com&gt;
+</code></pre>
+
+<p>El cual aparece como un enlace a esa dirección de correo electrónico; aunque en el código HTML la verá codificada para hacer más difícil que los rastreadores de <em>spammers</em> la obtengan.</p>
+
+<h4 id="referencia">Referencia</h4>
 
 <ul>
   <li><a href="http://daringfireball.net/projects/markdown/syntax">Markdown Syntax Documentation</a></li>
@@ -247,6 +415,7 @@ Y continuamos escribiendo.
       <li class="list-group-item"><a href="../categorias/faq.html">FAQ (2)</a></li>
       <li class="list-group-item"><a href="../categorias/github.html">GitHub (1)</a></li>
       <li class="list-group-item"><a href="../categorias/instalacion.html">Instalación (2)</a></li>
+      <li class="list-group-item"><a href="../categorias/markdown.html">Markdown (1)</a></li>
       <li class="list-group-item"><a href="../categorias/openssh.html">OpenSSH (1)</a></li>
 </ul>
 </div><div class="panel panel-default col-md-4 menu-secundario">
