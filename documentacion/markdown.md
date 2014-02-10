@@ -28,7 +28,7 @@ En los casos que requiera de un avance de línea, el que se da por el _tag_ `<br
 
 #### Encabezados
 
-Hay dos formas de definir encabezados, escribiendo signos de igual o guines medios debajo de la línea que será encabezado.
+Hay dos formas de definir encabezados, escribiendo signos de igual o guiones medios debajo de la línea que será encabezado.
 
     Esto será un encabezado H1
     ==========================
@@ -166,7 +166,7 @@ En el remoto caso de necesitar un acento invertido dentro de un fragmento de có
 
 #### Lineas horizontales
 
-Para poner una línea horizontal `<hr>` coloque tres o más guines medios, asteriscos o guiones bajos.
+Para poner una línea horizontal `<hr>` coloque tres o más guiones medios, asteriscos o guiones bajos.
 
     * * *
     ***
@@ -240,7 +240,7 @@ Esta alternativa le dará más claridad y una imagen más profesional a su archi
 
 #### Énfasis
 
-Encierre el texto entre asteriscos o guines bajos para indicar énfasis (tipografía en itálicas). Éstos se conventirán en el tag `<em>` en HTML.
+Encierre el texto entre asteriscos o guiones bajos para indicar énfasis (tipografía en itálicas). Éstos se conventirán en el tag `<em>` en HTML.
 
     *texto especial*
     _deja vu_
