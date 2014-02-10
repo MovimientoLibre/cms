@@ -1,12 +1,12 @@
 Markdown: la forma fácil de escribir para web
 =============================================
 
-Fecha: 2014-02-09
+Fecha: 2014-02-09 23:30
 Categorías: Documentación, Markdown
 
 Este artículo es una traducción de [Markdown Syntax Documentation](http://daringfireball.net/projects/markdown/syntax).
 
-Markdown es una forma fácil de escribir y de leer para crear archivos HTML. Un archivo escrito en makdown es de texto plano, es to significa que puede ser elaborado en cualquier editor de texto. Cabe recalcar que mientras el HTML es un formato para _publicar_ en la web, el markdown es un formato para _escribir_ en la web. En ese concpeto, entonces markdown no pretende ser un sustituto del HTML, sino una forma cómoda para escribir contenidos.
+Markdown es una forma fácil de escribir y de leer para crear archivos HTML. Un archivo escrito en makdown es de texto plano, esto significa que puede ser elaborado en cualquier editor de texto. Cabe recalcar que mientras el HTML es un formato para _publicar_ en la web, el markdown es un formato para _escribir_ en la web. En ese concepto, entonces markdown no pretende ser un sustituto del HTML, sino una forma cómoda para escribir contenidos.
 
 <!-- break -->
 
@@ -16,7 +16,7 @@ Puede usar caracteres especiales en su contenido. Por ejemplo, para el signo de 
 
     &copy;
 
-El _menor que_ y _amperson_ son caracteres especiales que si quiere conservarlos en su contenido debe escribirlos codificados
+El _menor que_ y _amperson_ son caracteres especiales que si quiere conservarlos en su contenido debe escribirlos codificados:
 
     &lt; &amp;
 
@@ -66,7 +66,7 @@ Markdown también permite citar en un modo _perezoso_ sólo poniendo un &gt; al 
     duelos y quebrantos los sábados, lantejas los viernes,
     algún palomino de añadidura los domingos, consumían las tres partes de su hacienda.
 
-Es posible citar dentro de una cita
+Es posible citar dentro de una cita.
 
     > Esto está citado
     >
@@ -87,7 +87,7 @@ Además, son válidos los demás mecanismos de formato dentro de las citas:
 
 #### Listados
 
-Un listado sin orden se declara usando asteriscos, signos de más o guines:
+Un listado sin orden se declara usando asteriscos, signos de más o guiones:
 
     * Rojo
     * Verde
@@ -138,7 +138,7 @@ Para que un número seguido de un punto NO sea considerado como un listado numer
 
 #### Código fuente
 
-Bloques de código fuente los cuales son limitados por los _tags_ `<pre>` y `<code>` deben tener cuatro espacios o un tabulador al principio de cada línea:
+Bloques de _código fuente_ los cuales serán encerrados por _tags_ `<pre>` y `<code>` deben tener cuatro espacios o un tabulador al principio de cada línea:
 
     Este es un párrafo común. Enseguida viene código fuente:
 
@@ -152,7 +152,7 @@ Bloques de código fuente los cuales son limitados por los _tags_ `<pre>` y `<co
 
     Y continuamos escribiendo.
 
-Una bondad del bloque _código fuente_ en markdown es que no hay necesidad de codificar los amperson, mayor que o menor que. Al convertir a HTML hace la conversión automática de éstos a las claves necesarias. Así que, para nosotros, sólo copiamos, pegamos e indentamos el código.
+Una bondad del bloque _código fuente_ en markdown es que no hay necesidad de codificar los amperson, _mayor que_ o _menor que_. Al convertir a HTML hace la conversión automática de éstos a las claves necesarias. Así que, para nosotros, sólo copiamos, pegamos e indentamos el código.
 
 #### Código fuente dentro de texto normal
 
@@ -166,7 +166,7 @@ En el remoto caso de necesitar un acento invertido dentro de un fragmento de có
 
 #### Lineas horizontales
 
-Para poner una línea horizontal `<hr>` colocando tres o más guines medios, asteriscos o guiones bajos.
+Para poner una línea horizontal `<hr>` coloque tres o más guines medios, asteriscos o guiones bajos.
 
     * * *
     ***
@@ -186,7 +186,7 @@ Opcionalmente puede usar una etiqueta para el vínculo entre comillas dobles:
 
     [Wikipedia](http://es.wikipedia.org "Wikipedia en español") es la enciclopedia libre.
 
-Si el vínculo apunta a un destino local en el mismo servidor web, lo puede omitir:
+Si el vínculo apunta a un destino local en el mismo servidor web, puede omitir este último:
 
     Lea la [Licencia Pública General GNU v2](/cms/licencias/gpl-2-es.html)
 
@@ -204,7 +204,7 @@ Luego, debe indicar los destinos de los vínculos escribiendo en cualquier parte
 
     [markdown]: http://movimientolibre.com/cms/documentacion/markdown.html "Markdown: la forma fácil de escribir para web"
 
-Las **definicioes de vínculos** se usan para la elaboración de los enlaces en el contenido y **NO aparecen** en el archivo HTML creado. La sintaxis para éstos es la siguiente:
+Las **definiciones de vínculos** se usan para la elaboración de los enlaces en el contenido y **NO aparecen** en el archivo HTML creado. La sintaxis para éstos es la siguiente:
 
 + Entre corchetes va el identificador. Los identificadores pueden tener letras, números, espacios y signos de puntación. No son sensibles a las mayúsculas y minúsculas.
 + Dos puntos.
@@ -240,12 +240,12 @@ Esta alternativa le dará más claridad y una imagen más profesional a su archi
 
 #### Énfasis
 
-Encierre el texto entre asteriscos o guines bajos para indicar énfasis. Éstos se conventirán en el tag `<em>` en HTML.
+Encierre el texto entre asteriscos o guines bajos para indicar énfasis (tipografía en itálicas). Éstos se conventirán en el tag `<em>` en HTML.
 
     *texto especial*
     _deja vu_
 
-Doble asterisco o doble guión bajo serán el tag `<strong>` de HTML:
+Doble asterisco o doble guión bajo serán el tag `<strong>` de HTML (tipografía negrita):
 
     **Importante**
     __también es importante__

@@ -49,11 +49,11 @@
     </div>
     <!-- CONTENIDO -->
     <h1>Markdown: la forma fácil de escribir para web</h1>
-  <p><small>2014-02-09 - guivaloz</small></p>
+  <p><small>2014-02-09 23:30 - guivaloz</small></p>
 
 <p>Este artículo es una traducción de <a href="http://daringfireball.net/projects/markdown/syntax">Markdown Syntax Documentation</a>.</p>
 
-<p>Markdown es una forma fácil de escribir y de leer para crear archivos HTML. Un archivo escrito en makdown es de texto plano, es to significa que puede ser elaborado en cualquier editor de texto. Cabe recalcar que mientras el HTML es un formato para <em>publicar</em> en la web, el markdown es un formato para <em>escribir</em> en la web. En ese concpeto, entonces markdown no pretende ser un sustituto del HTML, sino una forma cómoda para escribir contenidos.</p>
+<p>Markdown es una forma fácil de escribir y de leer para crear archivos HTML. Un archivo escrito en makdown es de texto plano, esto significa que puede ser elaborado en cualquier editor de texto. Cabe recalcar que mientras el HTML es un formato para <em>publicar</em> en la web, el markdown es un formato para <em>escribir</em> en la web. En ese concepto, entonces markdown no pretende ser un sustituto del HTML, sino una forma cómoda para escribir contenidos.</p>
 
 <h4 id="caracteres-especiales">Caracteres especiales</h4>
 
@@ -62,7 +62,7 @@
 <pre><code>&amp;copy;
 </code></pre>
 
-<p>El <em>menor que</em> y <em>amperson</em> son caracteres especiales que si quiere conservarlos en su contenido debe escribirlos codificados</p>
+<p>El <em>menor que</em> y <em>amperson</em> son caracteres especiales que si quiere conservarlos en su contenido debe escribirlos codificados:</p>
 
 <pre><code>&amp;lt; &amp;amp;
 </code></pre>
@@ -117,7 +117,7 @@ duelos y quebrantos los sábados, lantejas los viernes,
 algún palomino de añadidura los domingos, consumían las tres partes de su hacienda.
 </code></pre>
 
-<p>Es posible citar dentro de una cita</p>
+<p>Es posible citar dentro de una cita.</p>
 
 <pre><code>&gt; Esto está citado
 &gt;
@@ -140,7 +140,7 @@ algún palomino de añadidura los domingos, consumían las tres partes de su hac
 
 <h4 id="listados">Listados</h4>
 
-<p>Un listado sin orden se declara usando asteriscos, signos de más o guines:</p>
+<p>Un listado sin orden se declara usando asteriscos, signos de más o guiones:</p>
 
 <pre><code>* Rojo
 * Verde
@@ -199,7 +199,7 @@ algún palomino de añadidura los domingos, consumían las tres partes de su hac
 
 <h4 id="cdigo-fuente">Código fuente</h4>
 
-<p>Bloques de código fuente los cuales son limitados por los <em>tags</em> <code>&lt;pre&gt;</code> y <code>&lt;code&gt;</code> deben tener cuatro espacios o un tabulador al principio de cada línea:</p>
+<p>Bloques de <em>código fuente</em> los cuales serán encerrados por <em>tags</em> <code>&lt;pre&gt;</code> y <code>&lt;code&gt;</code> deben tener cuatro espacios o un tabulador al principio de cada línea:</p>
 
 <pre><code>Este es un párrafo común. Enseguida viene código fuente:
 
@@ -214,7 +214,7 @@ algún palomino de añadidura los domingos, consumían las tres partes de su hac
 Y continuamos escribiendo.
 </code></pre>
 
-<p>Una bondad del bloque <em>código fuente</em> en markdown es que no hay necesidad de codificar los amperson, mayor que o menor que. Al convertir a HTML hace la conversión automática de éstos a las claves necesarias. Así que, para nosotros, sólo copiamos, pegamos e indentamos el código.</p>
+<p>Una bondad del bloque <em>código fuente</em> en markdown es que no hay necesidad de codificar los amperson, <em>mayor que</em> o <em>menor que</em>. Al convertir a HTML hace la conversión automática de éstos a las claves necesarias. Así que, para nosotros, sólo copiamos, pegamos e indentamos el código.</p>
 
 <h4 id="cdigo-fuente-dentro-de-texto-normal">Código fuente dentro de texto normal</h4>
 
@@ -230,7 +230,7 @@ Y continuamos escribiendo.
 
 <h4 id="lineas-horizontales">Lineas horizontales</h4>
 
-<p>Para poner una línea horizontal <code>&lt;hr&gt;</code> colocando tres o más guines medios, asteriscos o guiones bajos.</p>
+<p>Para poner una línea horizontal <code>&lt;hr&gt;</code> coloque tres o más guines medios, asteriscos o guiones bajos.</p>
 
 <pre><code>* * *
 ***
@@ -253,7 +253,7 @@ Y continuamos escribiendo.
 <pre><code>[Wikipedia](http://es.wikipedia.org "Wikipedia en español") es la enciclopedia libre.
 </code></pre>
 
-<p>Si el vínculo apunta a un destino local en el mismo servidor web, lo puede omitir:</p>
+<p>Si el vínculo apunta a un destino local en el mismo servidor web, puede omitir este último:</p>
 
 <pre><code>Lea la [Licencia Pública General GNU v2](/cms/licencias/gpl-2-es.html)
 </code></pre>
@@ -275,7 +275,7 @@ Y continuamos escribiendo.
 <pre><code>[markdown]: http://movimientolibre.com/cms/documentacion/markdown.html "Markdown: la forma fácil de escribir para web"
 </code></pre>
 
-<p>Las <strong>definicioes de vínculos</strong> se usan para la elaboración de los enlaces en el contenido y <strong>NO aparecen</strong> en el archivo HTML creado. La sintaxis para éstos es la siguiente:</p>
+<p>Las <strong>definiciones de vínculos</strong> se usan para la elaboración de los enlaces en el contenido y <strong>NO aparecen</strong> en el archivo HTML creado. La sintaxis para éstos es la siguiente:</p>
 
 <ul>
   <li>Entre corchetes va el identificador. Los identificadores pueden tener letras, números, espacios y signos de puntación. No son sensibles a las mayúsculas y minúsculas.</li>
@@ -318,13 +318,13 @@ Y continuamos escribiendo.
 
 <h4 id="nfasis">Énfasis</h4>
 
-<p>Encierre el texto entre asteriscos o guines bajos para indicar énfasis. Éstos se conventirán en el tag <code>&lt;em&gt;</code> en HTML.</p>
+<p>Encierre el texto entre asteriscos o guines bajos para indicar énfasis (tipografía en itálicas). Éstos se conventirán en el tag <code>&lt;em&gt;</code> en HTML.</p>
 
 <pre><code>*texto especial*
 _deja vu_
 </code></pre>
 
-<p>Doble asterisco o doble guión bajo serán el tag <code>&lt;strong&gt;</code> de HTML:</p>
+<p>Doble asterisco o doble guión bajo serán el tag <code>&lt;strong&gt;</code> de HTML (tipografía negrita):</p>
 
 <pre><code>**Importante**
 __también es importante__
