@@ -1,7 +1,8 @@
 Descargar el CMS de Movimiento Libre
 ====================================
 
-Fecha: 2014-02-07
+Corto: Descargar
+Fecha: 2014-02-07 00:00
 Categorías: Descargar, GitHub
 
 Descargue la versión más reciente del [CMS de Movimiento Libre en GitHub](https://github.com/MovimientoLibre/cms) por medio del comando **git**.

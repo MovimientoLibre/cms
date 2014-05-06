@@ -1,54 +1,136 @@
 /*
- * cms.css
+ * CMS de Movimiento Libre
+ *
+ * Copyright 2014 Guillermo Valdés Lozano <guivaloz@movimientolibre.com>
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ * MA 02110-1301, USA.
+ *
  */
 
 /*
  * GENERAL
  */
-body { padding-top:60px; background-color:#DFDFDF; }
+body {
+    background-color:#888;
+    padding-top:50px;
+    font-family:"Liberation Sans",Arial,sans-serif;
+}
 a,
 a:hover,
 a:focus   { color:#A52A2A; }
 a:active,
 a:visited { color:#C51111; }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family:"Liberation Sans",Arial,sans-serif;
+    font-weight:bold;
+}
+code, kbd, pre, samp {
+    font-family:"Liberation Mono","DejaVu Sans Mono","Courier New",monospace;
+}
+
+/*
+ * SIN ESQUINAS REDONDEADAS
+ */
+.panel,
+.panel-default,
+.panel-group,
+.panel,
+.panel-heading,
+.list-group{
+    border-radius:0px;
+    border:0px;
+}
+.panel > .list-group:last-child .list-group-item:last-child {
+    border-radius:0px;
+}
 
 /*
  * MENU PRINCIPAL
  */
-.menu-principal { background-color:#A52A2A; }
+#menu-principal {
+    background-color:#FFF;
+    border-bottom:solid 2px #931111;
+}
 
 /* NOMBRE DEL SITIO */
-.menu-principal a.navbar-brand,
-.menu-principal a.navbar-brand:active,
-.menu-principal a.navbar-brand:visited { color:white; }
-.menu-principal a.navbar-brand:hover,
-.menu-principal a.navbar-brand:focus   { background-color:#701313; color:white; }
+#menu-principal a.navbar-brand         { background-color:#FFF; color:#222; }
+#menu-principal a.navbar-brand:hover,
+#menu-principal a.navbar-brand:focus   { background-color:#EEE; color:#000; }
+#menu-principal a.navbar-brand:active,
+#menu-principal a.navbar-brand:visited { color:#222; }
 
 /* OPCIONES */
-.menu-principal .navbar-nav li a,
-.menu-principal .navbar-nav li a:active,
-.menu-principal .navbar-nav li a:visited { color:#FFFFFF; }
-.menu-principal .navbar-nav li a:hover,
-.menu-principal .navbar-nav li a:focus   { background-color:#701313; color:white; }
+#menu-principal .navbar-nav li a         { background-color:#FFF; color:#222; }
+#menu-principal .navbar-nav li a:hover,
+#menu-principal .navbar-nav li a:focus   { background-color:#EEE; color:#000; }
+#menu-principal .navbar-nav li a:active,
+#menu-principal .navbar-nav li a:visited { color:#222; }
 
 /*
  * CONTENIDO
  */
-
-/* EN EL JUMBOTRON PONER LA IMAGEN DE RUBY */
-.jumbotron    { background-color:white; background-image:url('../imagenes/ruby.png'); background-repeat:no-repeat; background-position:left center; }
-.jumbotron h2,
-.jumbotron p  { padding-left:130px; }
-
-/* BOTONES  */
-.publicacion-completa,
-.publicacion-completa:active,
-.publicacion-completa:visited { background-color:#A52A2A; border-color:#A52A2A; } /* #D9534F */
-.publicacion-completa:hover,
-.publicacion-completa:focus   { background-color:#701313; border-color:#701313; }
-
-/* SCREENSHOTS */
-.screenshots img { padding:10px; }
+#contenido { background-color:#888; }
+#contenido .container {
+    background-color:#EEE;
+    padding-top:8px;
+    padding-bottom:8px;
+}
+#contenido .jumbotron    { background-color:#931111; color:#FFF; margin-bottom:12px; }
+#contenido .jumbotron h1 { font-size:48px; }
+#contenido .jumbotron p  { font-size:14px; }
+#contenido section {
+    background-color:#FFF;
+    padding:8px;
+    font-size:14px;
+    line-height:1.5em;
+    border-bottom:solid 2px #BBB;
+    margin-bottom:8px;
+}
+#contenido article {
+    background-color:#FFF;
+    padding:8px;
+    font-size:14px;
+    line-height:1.5em;
+    border-bottom:solid 2px #BBB;
+    margin-bottom:8px;
+}
+#contenido h3 {
+    margin-top:8px;
+    margin-bottom:8px;
+}
+#contenido blockquote p {
+    font-size:16px;
+    line-height:1.5em;
+}
+.btn-publicacion-completa,
+.btn-publicacion-completa:hover,
+.btn-publicacion-completa:focus {
+    border-color:#A52A2A;
+    color:#A52A2A;
+}
+.btn-categoria,
+.btn-categoria:hover,
+.btn-categoria:focus {
+    color:#A52A2A;
+}
 
 /* PAGINACION */
 .pagination > .active > a,
@@ -58,4 +140,23 @@ a:visited { color:#C51111; }
 /*
  * MENU SECUNDARIO
  */
-.menu-secundario { background-color:#808080; border-color:#808080; line-height:0.5; font-size:9pt; }
+.menu-secundario { margin-bottom:8px; }
+.menu-secundario .list-group-item { padding:4px 15px; }
+
+/*
+ * PIE
+ */
+#pie {
+    background-color:#444;
+    color:#AAA;
+    font-size:12px;
+}
+#pie p {
+    padding-top:12px;
+    padding-bottom:12px;
+}
+#pie a         { color:#CCC; font-weight:bold; }
+#pie a:hover,
+#pie a:focus   { color:#FFF; }
+#pie a:active,
+#pie a:visited { color:#CCC; }
