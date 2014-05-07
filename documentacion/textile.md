@@ -1,8 +1,9 @@
 Textile
 =======
 
-Fecha: 2008-05-13 08:00
-Categorías: Instalación
+Corto: Guía de Textile
+Fecha: 2014-05-02
+Categorías: Textile, Referencias
 
 [Textile](http://en.wikipedia.org/wiki/Textile_%28markup_language%29) es un lenguaje de marcado ligero originalmente desarrollado por Dean Allen como _generador de texto web humano_.
 

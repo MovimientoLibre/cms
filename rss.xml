@@ -9,63 +9,19 @@
     <link>http://cms.movimientolibre.com</link>
     <description>Administrador de contenidos programado con Ruby para crear un sitio web con páginas estáticas.</description>
     <item>
-      <title>Descargar el CMS de Movimiento Libre</title>
-      <link>http://cms.movimientolibre.com/descargar/descargar.html</link>
+      <title>Acerca del CMS de Movimiento Libre</title>
+      <link>http://cms.movimientolibre.com/documentacion/acerca.html</link>
       <description>
-&lt;p&gt;Descargue la versión más reciente del &lt;a href=&quot;https://github.com/MovimientoLibre/cms&quot;&gt;CMS de Movimiento Libre en GitHub&lt;/a&gt; por medio del comando &lt;strong&gt;git&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Es un conjunto de scripts programados en Ruby para crear un sitio web de páginas HTML estáticas.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;git clone git@github.com:MovimientoLibre/cms.git
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Usa Twitter Bootstrap para tener una buena imagen y diseño responsivo.&lt;/p&gt;
 
-&lt;p&gt;O ingrese al repositorio público desde su navegador de internet:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;https://github.com/MovimientoLibre/cms
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&quot;cualidades-de-la-versin-actual&quot;&gt;Cualidades de la versión actual:&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Basado en Twitter Bootstrap.&lt;/li&gt;
-  &lt;li&gt;Puede alimentarse de archivos &lt;em&gt;markdown&lt;/em&gt;. Busca los que tengan extensión &lt;strong&gt;md&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;Compatible con los archivos con extensión &lt;strong&gt;rb&lt;/strong&gt; que contienen objetos de Ruby y contenido en &lt;strong&gt;RedCloth&lt;/strong&gt;.&lt;/li&gt;
-  &lt;li&gt;Puede usar rutas relativas y absolutas. Identifica las rutas relativas para ajustar todos los vínculos.&lt;/li&gt;
-  &lt;li&gt;Y muchas novedades más…&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;por-hacer&quot;&gt;Por hacer&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Que la página de inicio elabore la paginación.&lt;/li&gt;
-  &lt;li&gt;Que identifique las imágenes y agregue código para escalar con &lt;em&gt;bootstrap&lt;/em&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <author>guivaloz</author>
-      <pubDate>Fri, 07 Feb 2014 00:00:00 -0600</pubDate>
-      <dc:date>2014-02-07T00:00:00-06:00</dc:date>
-    </item>
-    <item>
-      <title>Markdown: la forma fácil de escribir para web</title>
-      <link>http://cms.movimientolibre.com/documentacion/markdown.html</link>
-      <description>
-&lt;p&gt;Este artículo es una traducción de &lt;a href=&quot;http://daringfireball.net/projects/markdown/syntax&quot;&gt;Markdown Syntax Documentation&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Markdown es una forma fácil de escribir y de leer para crear archivos HTML. Un archivo escrito en makdown es de texto plano, es to significa que puede ser elaborado en cualquier editor de texto. Cabe recalcar que mientras el HTML es un formato para &lt;em&gt;publicar&lt;/em&gt; en la web, el markdown es un formato para &lt;em&gt;escribir&lt;/em&gt; en la web. En ese concpeto, entonces markdown no pretende ser un sustituto del HTML, sino una forma cómoda para escribir contenidos.&lt;/p&gt;
+&lt;p&gt;Si te gusta programar en Ruby o quieres aprender a usarlo, este programa te será muy útil.&lt;/p&gt;
 
 </description>
       <author>guivaloz</author>
-      <pubDate>Fri, 07 Feb 2014 00:00:00 -0600</pubDate>
-      <dc:date>2014-02-07T00:00:00-06:00</dc:date>
-    </item>
-    <item>
-      <title>Versión anterior</title>
-      <link>http://cms.movimientolibre.com/descargar/version-1.3.html</link>
-      <description>
-&lt;p&gt;Por el año de 2008 comenzó a escribirse este software. Para fines históricos, puede &lt;a href=&quot;https://github.com/MovimientoLibre/cms/releases/tag/1.3&quot;&gt;descargar la versión 1.3 al 16/mayo/2008&lt;/a&gt; si lo desea estudiar.&lt;/p&gt;
-
-</description>
-      <author>guivaloz</author>
-      <pubDate>Fri, 16 May 2008 18:30:00 -0500</pubDate>
-      <dc:date>2008-05-16T18:30:00-05:00</dc:date>
+      <pubDate>Wed, 07 May 2014 00:00:00 -0500</pubDate>
+      <dc:date>2014-05-07T00:00:00-05:00</dc:date>
     </item>
     <item>
       <title>Requerimientos</title>
@@ -82,8 +38,41 @@
 &lt;/ul&gt;
 </description>
       <author>guivaloz</author>
-      <pubDate>Fri, 16 May 2008 17:50:00 -0500</pubDate>
-      <dc:date>2008-05-16T17:50:00-05:00</dc:date>
+      <pubDate>Tue, 06 May 2014 00:00:00 -0500</pubDate>
+      <dc:date>2014-05-06T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Instalar</title>
+      <link>http://cms.movimientolibre.com/documentacion/instalar.html</link>
+      <description>
+&lt;p&gt;En construcción…&lt;/p&gt;
+</description>
+      <author>guivaloz</author>
+      <pubDate>Mon, 05 May 2014 00:00:00 -0500</pubDate>
+      <dc:date>2014-05-05T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Manual de uso</title>
+      <link>http://cms.movimientolibre.com/documentacion/manual-de-uso.html</link>
+      <description>
+&lt;p&gt;En construcción…&lt;/p&gt;
+</description>
+      <author>guivaloz</author>
+      <pubDate>Sun, 04 May 2014 00:00:00 -0500</pubDate>
+      <dc:date>2014-05-04T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Markdown: la forma fácil de escribir para web</title>
+      <link>http://cms.movimientolibre.com/documentacion/markdown.html</link>
+      <description>
+&lt;p&gt;Este artículo es una traducción de &lt;a href=&quot;http://daringfireball.net/projects/markdown/syntax&quot;&gt;Markdown Syntax Documentation&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Markdown es una forma fácil de escribir y de leer para crear archivos HTML. Un archivo escrito en makdown es de texto plano, es to significa que puede ser elaborado en cualquier editor de texto. Cabe recalcar que mientras el HTML es un formato para &lt;em&gt;publicar&lt;/em&gt; en la web, el markdown es un formato para &lt;em&gt;escribir&lt;/em&gt; en la web. En ese concpeto, entonces markdown no pretende ser un sustituto del HTML, sino una forma cómoda para escribir contenidos.&lt;/p&gt;
+
+</description>
+      <author>guivaloz</author>
+      <pubDate>Sat, 03 May 2014 00:00:00 -0500</pubDate>
+      <dc:date>2014-05-03T00:00:00-05:00</dc:date>
     </item>
     <item>
       <title>Textile</title>
@@ -97,8 +86,20 @@
 
 </description>
       <author>guivaloz</author>
-      <pubDate>Tue, 13 May 2008 08:00:00 -0500</pubDate>
-      <dc:date>2008-05-13T08:00:00-05:00</dc:date>
+      <pubDate>Fri, 02 May 2014 00:00:00 -0500</pubDate>
+      <dc:date>2014-05-02T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>Autor de este programa</title>
+      <link>http://cms.movimientolibre.com/contacto/autor.html</link>
+      <description>
+&lt;p&gt;Este programa fue elaborado por &lt;em&gt;Guillermo Valdés Lozano&lt;/em&gt;. Visite el sitio personal del autor en &lt;a href=&quot;http://www.movimientolibre.com&quot;&gt;Movimiento Libre&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Puede contactarme vía correo electrónico por &lt;a href=&quot;&amp;#109;&amp;#097;&amp;#105;&amp;#108;&amp;#116;&amp;#111;:&amp;#103;&amp;#117;&amp;#105;&amp;#118;&amp;#097;&amp;#108;&amp;#111;&amp;#122;&amp;#064;&amp;#109;&amp;#111;&amp;#118;&amp;#105;&amp;#109;&amp;#105;&amp;#101;&amp;#110;&amp;#116;&amp;#111;&amp;#108;&amp;#105;&amp;#098;&amp;#114;&amp;#101;&amp;#046;&amp;#099;&amp;#111;&amp;#109;&quot;&gt;&amp;#103;&amp;#117;&amp;#105;&amp;#118;&amp;#097;&amp;#108;&amp;#111;&amp;#122;&amp;#064;&amp;#109;&amp;#111;&amp;#118;&amp;#105;&amp;#109;&amp;#105;&amp;#101;&amp;#110;&amp;#116;&amp;#111;&amp;#108;&amp;#105;&amp;#098;&amp;#114;&amp;#101;&amp;#046;&amp;#099;&amp;#111;&amp;#109;&lt;/a&gt; o vía &lt;a href=&quot;https://twitter.com/guivaloz&quot;&gt;twitter&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <author>guivaloz</author>
+      <pubDate>Tue, 01 Aug 2006 00:00:00 -0500</pubDate>
+      <dc:date>2006-08-01T00:00:00-05:00</dc:date>
     </item>
   </channel>
 </rss>

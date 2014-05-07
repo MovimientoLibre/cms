@@ -40,7 +40,7 @@ class Imprenta
         @publicaciones_directorios       = Array.new
         @publicaciones_etiquetas         = Hash.new
         @autor_por_defecto               = 'Autor'
-        @publicaciones_por_pagina_maximo = 5
+        @publicaciones_por_pagina_maximo = 10
         # Estas propiedades definen los directorios
         @autores_directorio    = 'autores'
         @categorias_directorio = 'categorias'

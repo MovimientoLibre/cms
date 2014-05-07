@@ -41,16 +41,16 @@ class CMS < Imprenta
     def initialize
         super
         # Modifique estas propiedades
-        @sitio_titulo              = "CMS de Movimiento Libre"
-        @sitio_descripcion         = "Administrador de contenidos programado con Ruby para crear un sitio web con páginas estáticas."
-        @sitio_url                 = "http://cms.movimientolibre.com"                 # No use diagonal al final
-        @autor_por_defecto         = "guivaloz"
-        @publicaciones_directorios = %w{ contacto descargar documentacion licencias } # Los directorios que contenen las publicaciones
-        @publicaciones_etiquetas   = { 'documentacion' => 'Documentación' }           # Si hay que usar una etiqueta diferente para el directorio
+        @sitio_titulo                    = "CMS de Movimiento Libre"
+        @sitio_descripcion               = "Administrador de contenidos programado con Ruby para crear un sitio web con páginas estáticas."
+        @sitio_url                       = "http://cms.movimientolibre.com"        # No use diagonal al final
+        @autor_por_defecto               = "guivaloz"                              # El autor por defecto para las publicaciones que no lo tengan definido
+        @publicaciones_directorios       = %w{ contacto documentacion licencias }  # Los directorios que contenen las publicaciones
+        @publicaciones_etiquetas         = { 'documentacion' => 'Documentación' }  # Si hay que usar una etiqueta diferente para el directorio
+        @publicaciones_por_pagina_maximo = 8                                       # Por defecto se ponen 5 publicaciones por página, aquí lo cambiamos a 8
         # Prepare el menu principal
         @menu_principal              = MenuPrincipal.new
         @menu_principal.sitio_titulo = @sitio_titulo
-        @menu_principal.agregar('Descargar',      'descargar/index.html')
         @menu_principal.agregar('Documentación',  'documentacion/index.html')
         @menu_principal.agregar('Licencias',      'licencias/index.html')
         @menu_principal.agregar('Contacto',       'contacto/index.html')

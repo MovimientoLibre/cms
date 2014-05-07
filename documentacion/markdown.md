@@ -1,9 +1,9 @@
 Markdown: la forma fácil de escribir para web
 =============================================
 
-Corto: Manual de Markdown
-Fecha: 2014-02-07 00:00
-Categorías: Documentación
+Corto: Guía de Markdown
+Fecha: 2014-05-03
+Categorías: Markdown, Referencias
 
 Este artículo es una traducción de [Markdown Syntax Documentation](http://daringfireball.net/projects/markdown/syntax).
 

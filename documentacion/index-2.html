@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <title>CMS de Movimiento Libre - Uso del OpenSSH para este CMS</title>
+  <title>CMS de Movimiento Libre - Documentación</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="guivaloz">
@@ -51,35 +51,26 @@
                 <p>Administrador de contenidos programado con Ruby para crear un sitio web con páginas estáticas.</p>
             </div>
 
-<article>
-  <header>
-    <h1>Uso del OpenSSH para este CMS</h1>
-    <p><small>2008-05-13 08:00 - guivaloz</small></p>
-  </header>
+<header><h1>Documentación</h1></header>
+<section>
+  <h3><a href="../documentacion/textile.html">Textile</a></h3>
+  <blockquote>
 
-<p>OpenSSH permite establecer comunicaciones cifradas entre su equipo y su servidor. Aquí muestro algunos comandos tanto para copiar como para ejecutar remotamente el script.</p>
+<p><a href="http://en.wikipedia.org/wiki/Textile_%28markup_language%29">Textile</a> es un lenguaje de marcado ligero originalmente desarrollado por Dean Allen como <em>generador de texto web humano</em>.</p>
 
-<h4 id="subir-las-ltimas-publicaciones-a-su-servidor">Subir las últimas publicaciones a su servidor</h4>
+<p>Textile convierte el texto marcado como tal en XHTML válido. También convierte algunos caracteres a su código HTML y les hace mejoras; como las comillas dobles a comillas dobles que abren al inicio y comillas dobles que cierran al final.</p>
 
-<p>Si tiene comunicación con su servidor web vía OpenSSH puede usar este comando para sólo copiar los nuevos archivos y los que haya modificado.</p>
+<p>Textile es distribuido bajo la <a href="http://en.wikipedia.org/wiki/BSD_licenses">Licencia BSD</a></p>
 
-<pre><code>$ cd ~/www
-$ rsync -avz -e ssh * suusuario@suservidor.com:/home/suusuario/www/
-</code></pre>
 
-<h4 id="para-ejecutar-remotamente-el-script-del-cms-en-su-servidor">Para ejecutar remotamente el script del CMS en su servidor</h4>
-
-<p>Debe tener instalado Ruby con Redcloth y Kramdown para que funcione:</p>
-
-<pre><code>$ ssh suusuario@suservidor.com /home/suusuario/www/cms.rb
-</code></pre>
-
-  <footer>
-    <div class="btn-group">
-<button class="btn btn-default btn-group-sm btn-categoria" type="buttom" onclick="location.href='../categorias/openssh.html'">OpenSSH</button>
-    </div>
-  </footer>
-</article>
+  </blockquote>
+  <button class="btn btn-default btn-sm btn-publicacion-completa" type="button" onclick="location.href='../documentacion/textile.html'">Publicación completa...</button>
+</section>
+<ul class="pagination">
+  <li><a href="index.html">&laquo;</a></li>
+  <li><a href="index.html">1</a></li>
+  <li class="active"><a href="#">2 <span class="sr-only">(current)</span></a></li>
+</ul>
       </div>
       <div class="col-md-3">
         <aside>
@@ -96,14 +87,12 @@ $ rsync -avz -e ssh * suusuario@suservidor.com:/home/suusuario/www/
   Categorías
 </div>
 <ul class="list-group">
-  <li class="list-group-item"><a href="../categorias/descargar.html">Descargar</a><span class="badge">1</span></li>
-  <li class="list-group-item"><a href="../categorias/descargas.html">Descargas</a><span class="badge">1</span></li>
-  <li class="list-group-item"><a href="../categorias/documentacion.html">Documentación</a><span class="badge">1</span></li>
   <li class="list-group-item"><a href="../categorias/faq.html">FAQ</a><span class="badge">1</span></li>
-  <li class="list-group-item"><a href="../categorias/github.html">GitHub</a><span class="badge">1</span></li>
-  <li class="list-group-item"><a href="../categorias/instalacion.html">Instalación</a><span class="badge">2</span></li>
+  <li class="list-group-item"><a href="../categorias/introduccion.html">Introducción</a><span class="badge">2</span></li>
   <li class="list-group-item"><a href="../categorias/licencias.html">Licencias</a><span class="badge">4</span></li>
-  <li class="list-group-item"><a href="../categorias/openssh.html">OpenSSH</a><span class="badge">1</span></li>
+  <li class="list-group-item"><a href="../categorias/manual.html">Manual</a><span class="badge">3</span></li>
+  <li class="list-group-item"><a href="../categorias/markdown.html">Markdown</a><span class="badge">1</span></li>
+  <li class="list-group-item"><a href="../categorias/textile.html">Textile</a><span class="badge">1</span></li>
 </ul>
 </div><div class="panel panel-default menu-secundario">
 <div class="panel-heading">
@@ -117,11 +106,11 @@ $ rsync -avz -e ssh * suusuario@suservidor.com:/home/suusuario/www/
   Últimas publicaciones
 </div>
 <ul class="list-group">
-  <li class="list-group-item"><a href="../descargar/descargar.html">Descargar</a></li>
-  <li class="list-group-item"><a href="../documentacion/markdown.html">Manual de Markdown</a></li>
-  <li class="list-group-item"><a href="../descargar/version-1.3.html">Versión anterior</a></li>
+  <li class="list-group-item"><a href="../documentacion/acerca.html">Acerca</a></li>
   <li class="list-group-item"><a href="../documentacion/requerimientos.html">Requerimientos</a></li>
-  <li class="list-group-item"><a href="../documentacion/textile.html">Textile</a></li>
+  <li class="list-group-item"><a href="../documentacion/instalar.html">Instalar</a></li>
+  <li class="list-group-item"><a href="../documentacion/manual-de-uso.html">Manual de uso</a></li>
+  <li class="list-group-item"><a href="../documentacion/markdown.html">Guía de Markdown</a></li>
 </ul>
 </div>
         </aside>

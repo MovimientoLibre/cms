@@ -1,8 +1,8 @@
 Requerimientos
 ==============
 
-Fecha: 2008-05-16 17:50
-Categorías: Instalación
+Fecha: 2014-05-06
+Categorías: Manual
 
 Para usar el CMS de Movimiento Libre necesita tener instalado:
 
