@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>CMS de Movimiento Libre - Markdown: la forma fácil de escribir para web</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="guivaloz">
+  <link href="../rss.xml" rel="alternate" type="application/rss+xml" title="CMS de Movimiento Libre" />
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/morris.css" rel="stylesheet">
+  <link href="../css/cms.css" rel="stylesheet">
+  <!-- SOPORTE PARA IE8 -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="menu-principal">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu-principal-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../index.html">CMS de Movimiento Libre</a>
+    </div>
+    <div class="navbar-collapse collapse" id="menu-principal-collapse">
+<ul class="nav navbar-nav">
+  <li><a href="../descargar/index.html">Descargar</a></li>
+  <li><a href="../documentacion/index.html">Documentación</a></li>
+  <li><a href="../licencias/index.html">Licencias</a></li>
+  <li><a href="../contacto/index.html">Contacto</a></li>
+</ul>
+<ul class="nav navbar-nav navbar-right">
+  <li><a href="https://github.com/MovimientoLibre/cms">GitHub</a></li>
+  <li><a href="../rss.xml">RSS</a></li>
+</ul>
+    </div>
+  </div>
+</nav>
+<div id="contenido">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9">
+            <div class="jumbotron">
+                <h1>CMS de Movimiento Libre</h1>
+                <p>Administrador de contenidos programado con Ruby para crear un sitio web con páginas estáticas.</p>
+            </div>
+
+<article>
+  <header>
+    <h1>Markdown: la forma fácil de escribir para web</h1>
+    <p><small>2014-02-07 00:00 - guivaloz</small></p>
+  </header>
+
+<p>Este artículo es una traducción de <a href="http://daringfireball.net/projects/markdown/syntax">Markdown Syntax Documentation</a>.</p>
+
+<p>Markdown es una forma fácil de escribir y de leer para crear archivos HTML. Un archivo escrito en makdown es de texto plano, es to significa que puede ser elaborado en cualquier editor de texto. Cabe recalcar que mientras el HTML es un formato para <em>publicar</em> en la web, el markdown es un formato para <em>escribir</em> en la web. En ese concpeto, entonces markdown no pretende ser un sustituto del HTML, sino una forma cómoda para escribir contenidos.</p>
+
+<h4 id="caracteres-especiales">Caracteres especiales</h4>
+
+<p>Puede usar caracteres especiales en su contenido. Por ejemplo, para el signo de <em>copyright</em> use:</p>
+
+<pre><code>&amp;copy;
+</code></pre>
+
+<p>El <em>menor que</em> y <em>amperson</em> son caracteres especiales que si quiere conservarlos en su contenido debe escribirlos codificados</p>
+
+<pre><code>&amp;lt; &amp;amp;
+</code></pre>
+
+<h4 id="prrafos">Párrafos</h4>
+
+<p>Un párrafo es simplemente una serie de caracteres y líneas de texto, que tienen una línea en blanco antes y otra después. También que no se encuentran <em>indentados</em> por espacios o tabulaciones.</p>
+
+<p>En los casos que requiera de un avance de línea, el que se da por el <em>tag</em> &lt; br &gt;, escriba dos o más espacios al final de la línea.</p>
+
+<h4 id="encabezados">Encabezados</h4>
+
+<p>Hay dos formas de definir encabezados, escribiendo signos de igual o guines medios debajo de la línea que será encabezado.</p>
+
+<pre><code>Esto será un encabezado H1
+==========================
+
+Esto será un encabezado H2
+--------------------------
+</code></pre>
+
+<p>O usando de uno a seis <em>gatos</em> antes del texto:</p>
+
+<pre><code># Esto será un encabezado H1
+
+## Esto será un encabezado H2
+
+###### Esto será un encabezado H6
+</code></pre>
+
+<h4 id="citas-o-blockquotes">Citas o <em>blockquotes</em></h4>
+
+<p>Del mismo modo que en un mensaje de correo electrónico, en markdown se puede definir un bloque de cita colocando un &gt; en cada línea de los párrafos a citar.</p>
+
+<pre><code>&gt; En un lugar de la Mancha, de cuyo nombre no quiero acordarme,
+&gt; no ha mucho tiempo que vivía un hidalgo de los de lanza en astillero,
+&gt; adarga antigua, rocín flaco y galgo corredor.
+&gt;
+&gt; Una olla de algo más vaca que carnero,salpicón las más noches,
+&gt; duelos y quebrantos los sábados, lantejas los viernes,
+&gt; algún palomino de añadidura los domingos, consumían las tres partes de su hacienda.
+</code></pre>
+
+<p>Markdown también permite citar en un modo <em>perezoso</em> sólo poniendo un &gt; al inicio de cada línea de cada párrafo.</p>
+
+<pre><code>&gt; En un lugar de la Mancha, de cuyo nombre no quiero acordarme,
+no ha mucho tiempo que vivía un hidalgo de los de lanza en astillero,
+adarga antigua, rocín flaco y galgo corredor.
+&gt;
+&gt; Una olla de algo más vaca que carnero,salpicón las más noches,
+duelos y quebrantos los sábados, lantejas los viernes,
+algún palomino de añadidura los domingos, consumían las tres partes de su hacienda.
+</code></pre>
+
+<p>Es posible citar dentro de una cita</p>
+
+<pre><code>&gt; Esto está citado
+&gt;
+&gt; &gt; Esto está dentro de dos citas
+&gt;
+&gt; De regreso a la primer cita
+</code></pre>
+
+<p>Además, son válidos los demás mecanismos de formato dentro de las citas:</p>
+
+<pre><code>&gt; ## Esto es un encabezado H2
+&gt;
+&gt; 1. Primer elemento de un listado numerado
+&gt; 2. Segundo elemento de un listado numerado
+&gt;
+&gt; Sigue una muestra de código
+&gt;
+&gt;     echo "Hola Mundo!";
+</code></pre>
+
+<h4 id="listados">Listados</h4>
+
+<p>Un listado sin orden se declara usando asteriscos, signos de más o guines:</p>
+
+<pre><code>* Rojo
+* Verde
+* Azul
+</code></pre>
+
+<p>Lo anterior es igual a:</p>
+
+<pre><code>+ Rojo
++ Verde
++ Azul
+</code></pre>
+
+<p>Y también a:</p>
+
+<pre><code>- Rojo
+- Verde
+- Azul
+</code></pre>
+
+<p>Para un listado numerado, use los números seguidos de un punto y espacio:</p>
+
+<pre><code>1. Primero
+2. Segundo
+3. Tercero
+</code></pre>
+
+<p>Los listados pueden contener varios párrafos, sólo hay que indentarlos apropiadamente:</p>
+
+<pre><code>* Este es el primer párrafo de un punto.
+
+  Este es el segundo párrafo del mismo punto.
+
+* Este es el siguiente punto.
+</code></pre>
+
+<p>De igual forma para poner una cita dentro de una lista numerada:</p>
+
+<pre><code>* Este es el párrafo de un punto.
+
+  &gt; Esta cita va dentro del primer punto;
+  &gt; con este contenido.
+</code></pre>
+
+<p>Y en el caso de código dentro de una lista; éste debe estar doblemente indentado, es decir tener ocho espacios antes o dos tabuladores:</p>
+
+<pre><code>* Este es el párrafo de un punto.
+
+        &lt;echo "Hola mundo!";&gt;
+</code></pre>
+
+<p>Para que un número seguido de un punto NO sea considerado como un listado numerado:</p>
+
+<pre><code>1991\. Año en que nace Linux.
+</code></pre>
+
+<h4 id="cdigo-fuente">Código fuente</h4>
+
+<p>Bloques de código fuente los cuales son limitados por los <em>tags</em> &gt;pre&lt; y &gt;code&lt; deben tener cuatro espacios o un tabulador al principio de cada línea:</p>
+
+<pre><code>Este es un párrafo común. Enseguida viene código fuente:
+
+    #!/usr/bin/env ruby
+    n = 3
+    print "Con #{n} lados, "
+    a = 360 / n
+    print "el ángulo central es #{a} "
+    t = 180 * (n - 2) / n
+    puts "y el ángulo interno es #{t}"
+
+Y continuamos escribiendo.
+</code></pre>
+
+<p>Una bondad del bloque <em>código fuente</em> en markdown es que no hay necesidad de codificar los amperson, mayor que o menor que. Al convertir a HTML hace la conversión automática de éstos a las claves necesarias. Así que, para nosotros, sólo copiamos, pegamos e indentamos el código.</p>
+
+<h3 id="section">#</h3>
+
+<h4 id="referencias">Referencias</h4>
+
+<ul>
+  <li><a href="http://daringfireball.net/projects/markdown/syntax">Markdown Syntax Documentation</a></li>
+</ul>
+
+  <footer>
+    <div class="btn-group">
+<button class="btn btn-default btn-group-sm btn-categoria" type="buttom" onclick="location.href='../categorias/documentacion.html'">Documentación</button>
+    </div>
+  </footer>
+</article>
+      </div>
+      <div class="col-md-3">
+        <aside>
+<div class="panel panel-default">
+  <div class="panel-heading">Descargar</div>
+  <div class="panel-body">
+    <a href="https://github.com/MovimientoLibre/cms/archive/master.zip">Descargue la versión 2.1 como archivo ZIP</a>
+    o
+    <a href="https://github.com/MovimientoLibre/cms">Clone el repositorio en GitHub.</a>
+  </div>
+</div>
+<div class="panel panel-default menu-secundario">
+<div class="panel-heading">
+  Categorías
+</div>
+<ul class="list-group">
+  <li class="list-group-item"><a href="../categorias/descargar.html">Descargar</a><span class="badge">1</span></li>
+  <li class="list-group-item"><a href="../categorias/descargas.html">Descargas</a><span class="badge">1</span></li>
+  <li class="list-group-item"><a href="../categorias/documentacion.html">Documentación</a><span class="badge">1</span></li>
+  <li class="list-group-item"><a href="../categorias/faq.html">FAQ</a><span class="badge">1</span></li>
+  <li class="list-group-item"><a href="../categorias/github.html">GitHub</a><span class="badge">1</span></li>
+  <li class="list-group-item"><a href="../categorias/instalacion.html">Instalación</a><span class="badge">2</span></li>
+  <li class="list-group-item"><a href="../categorias/licencias.html">Licencias</a><span class="badge">4</span></li>
+  <li class="list-group-item"><a href="../categorias/openssh.html">OpenSSH</a><span class="badge">1</span></li>
+</ul>
+</div><div class="panel panel-default menu-secundario">
+<div class="panel-heading">
+  Autores
+</div>
+<ul class="list-group">
+  <li class="list-group-item"><a href="../autores/guivaloz.html">guivaloz</a><span class="badge">11</span></li>
+</ul>
+</div><div class="panel panel-default menu-secundario">
+<div class="panel-heading">
+  Últimas publicaciones
+</div>
+<ul class="list-group">
+  <li class="list-group-item"><a href="../descargar/descargar.html">Descargar</a></li>
+  <li class="list-group-item"><a href="../documentacion/markdown.html">Manual de Markdown</a></li>
+  <li class="list-group-item"><a href="../descargar/version-1.3.html">Versión anterior</a></li>
+  <li class="list-group-item"><a href="../documentacion/requerimientos.html">Requerimientos</a></li>
+  <li class="list-group-item"><a href="../documentacion/textile.html">Textile</a></li>
+</ul>
+</div>
+        </aside>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="pie">
+ <div class="container">
+            <p>
+                Copyright (c) 2006-2014 Guillermo Valdés Lozano. Se otorga permiso para copiar, distribuir y/o modificar este documento.<br>
+                El programa está protegido por la licencia <a href="http://cms.movimientolibre.com/licencias/gpl-2.html">GPL versión 2</a>.<br>
+                La documentación está protegida por la licencia <a href="http://cms.movimientolibre.com/licencias/gfdl.html">GFDL</a>.
+            </p>
+
+  </div>
+</div>
+  <!-- CODIGO JAVASCRIPT PUESTO AL FINAL PARA QUE SE CARGUE MAS RAPIDO LA PAGINA -->
+  <script src="../js/jquery.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script src="../js/raphael-min.js"></script>
+  <script src="../js/morris.min.js"></script>
+
+</body>
+</html>

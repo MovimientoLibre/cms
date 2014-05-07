@@ -211,6 +211,15 @@ class Imprenta
     # Clasificar autores
 
     def clasificar_autores
+        # Si no existe el directorio, intentará crearlo
+        if not FileTest.exist?(@autores_directorio)
+            begin
+                Dir.mkdir(@autores_directorio)
+            rescue SystemCallError
+                puts "ERROR: No se pudo crear el directorio #@autores_directorio"
+                raise
+            end
+        end
         # Este hash tendrá las multipáginas de cada autor, lo usará paginas_autores
         @autores = Hash.new
         # Se entregará un menú secundario con conteo
@@ -246,6 +255,15 @@ class Imprenta
     # Clasificar categorías
 
     def clasificar_categorias
+        # Si no existe el directorio, intentará crearlo
+        if not FileTest.exist?(@categorias_directorio)
+            begin
+                Dir.mkdir(@categorias_directorio)
+            rescue SystemCallError
+                puts "ERROR: No se pudo crear el directorio #@categorias_directorio"
+                raise
+            end
+        end
         # Este hash tendrá las multipáginas de cada categoría, lo usará paginas_categorias
         @categorias = Hash.new
         # Se entregará un menú secundario con conteo
