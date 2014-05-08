@@ -2,8 +2,7 @@ Autor de este programa
 ======================
 
 Corto: Autor
-Fecha: 2006-08-01 00:00
-Categorías: FAQ
+Fecha: 2006-08-01
 
 Este programa fue elaborado por *Guillermo Valdés Lozano*. Visite el sitio personal del autor en [Movimiento Libre](http://www.movimientolibre.com).
 

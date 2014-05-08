@@ -21,6 +21,13 @@
 #
 #
 
+##
+# Si gusta, puede descomentar el cambio al directorio donde va a tener este sitio web.
+# Dir.chdir('/home/usuario/Documentos/GitHub/cms')
+
+##
+# Cargar los archivos con las clases necesarias
+
 require './src/Imprenta.rb'
 require './src/Menu.rb'
 require './src/MenuPrincipal.rb'
@@ -31,7 +38,9 @@ require './src/Plantilla.rb'
 require './src/Publicacion.rb'
 
 ##
-# CMS
+# CMS es una extensión de Imprenta.
+#
+# Haga las modificaciones necesarias para personalizar su sitio web.
 
 class CMS < Imprenta
 

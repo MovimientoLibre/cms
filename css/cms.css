@@ -112,6 +112,8 @@ code, kbd, pre, samp {
     border-bottom:solid 2px #BBB;
     margin-bottom:8px;
 }
+#contenido h1,
+#contenido h2,
 #contenido h3 {
     margin-top:8px;
     margin-bottom:8px;
@@ -119,6 +121,11 @@ code, kbd, pre, samp {
 #contenido blockquote p {
     font-size:16px;
     line-height:1.5em;
+}
+.autor-fecha {
+    font-size:12px;
+    line-height:1em;
+    color:#888;
 }
 .btn-publicacion-completa,
 .btn-publicacion-completa:hover,

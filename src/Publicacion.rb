@@ -164,7 +164,7 @@ class Publicacion
         a << '<article>'
         a << '  <header>'
         a << "    <h1>#@nombre</h1>"
-        a << "    <p><small>#@fecha - #@autor</small></p>" if @aparece_en_pagina_inicial
+        a << "    <p class=\"autor-fecha\">Por #@autor, #@fecha</p>" if @aparece_en_pagina_inicial
         a << '  </header>'
         a << texto.to_html
         if @vinculos_categorias.length > 0
