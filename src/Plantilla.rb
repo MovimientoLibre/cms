@@ -25,7 +25,8 @@
 # Plantilla
 #
 # Es la estructura básica para todas las páginas del sitio. Estas propiedades definen su contenido:
-# * sitio_titulo          Título del sitio web
+#
+# * sitio_titulo          El nombre del sitio web
 # * titulo                Título de la página
 # * autor                 Persona que sea la autora
 # * descripcion           Descripción del sitio o la página

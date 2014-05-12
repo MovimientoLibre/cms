@@ -122,3 +122,4 @@ end
 
 cms = CMS.new
 cms.construir
+puts "Su sitio web está listo :-)"

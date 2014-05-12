@@ -25,6 +25,7 @@
 # Imprenta
 #
 # Defina estas propiedades:
+#
 # * publicaciones_directorios  Arreglo con los nombres de los directorios donde están las publicaciones.
 # * publicaciones_etiquetas    Hash con las etiquetas a usar para cada directorio
 # * autor_por_defecto          Autor por defecto a aplicar a las publicaciones que no lo tengan.
@@ -108,10 +109,25 @@ class Imprenta
                 @cantidad += 1
             end
         end
-        # Asignar el autor por defecto en las publicaciones que no lo tengan
+        # Asignar el tipo 'rb' y el autor por defecto en las publicaciones que no lo tengan
         pubs.each do |pub|
             pub.tipo  = 'rb'
             pub.autor = @autor_por_defecto if pub.autor.nil?
+            # Buscar las lineas que empiecen con un espacio
+            nuevo   = String.new
+            bandera = false
+            pub.contenido.each_line do |linea|
+                if bandera == false and linea[0] == " "
+                    nuevo  += "<pre><code>\n"
+                    bandera = true
+                end
+                if bandera == true and linea.chomp != "" and linea[0] != " "
+                    nuevo  += "</code></pre>"
+                    bandera = false
+                end
+                nuevo += linea
+            end
+            pub.contenido = nuevo
         end
         # Acumular en la propiedad
         @publicaciones.concat(pubs)

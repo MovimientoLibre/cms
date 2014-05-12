@@ -32,17 +32,18 @@ require 'kramdown'
 # Publicación
 #
 # Se usa como contenedor de TODA la información de UNA publicación. Estas son las descripciones de sus propiedades:
-# * nombre
-# * nombre_menu
-# * directorio
-# * archivo
-# * fecha
-# * autor
-# * contenido                  Contenido. Puede tener una línea con <!-- break --> para separar la parte breve.
+#
+# * nombre                     Título completo de la publicación
+# * nombre_menu                Un título corto para el menú, si se omite, se copia el nombre
+# * directorio                 Directorio donde está guardada la publicación completa
+# * archivo                    El nombre del archivo para la publicación
+# * fecha                      La fecha en forma de YYYY-MM-DD HH:MM, siendo así se ordena cronológicamente
+# * autor                      El nombre o apodo a quien se le atribuye
+# * contenido                  Contenido de la publicación. Puede tener una línea con <!-- break --> para separar la parte breve.
 # * javascript                 Código Javascript. Debe estar aparte para ponerlo al final de la página.
-# * categorias
-# * aparece_en_pagina_inicial  Verdadero si va aparecer en la página de inicio
-# * en_raiz                    Verdadero si el archivo va a la raiz del sitio web.
+# * categorias                 Separadas por comas, las categorías de la publicación.
+# * aparece_en_pagina_inicial  Verdadero si va aparecer en la página de inicio.
+# * en_raiz                    Verdadero si el archivo va a la raiz del sitio web. Debe ser verdadero cuando se hacen las páginas de inicio.
 # * en_otro                    Verdadero si el archivo va a OTRO lugar como al directorio autores, categorias, etc.
 # * tipo                       Extensión del archivo de origen, puede ser "md" para markdown o "rb" para rubí.
 
