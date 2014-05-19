@@ -3,6 +3,8 @@ Requerimientos
 
 Fecha: 2014-05-06
 Categorías: Manual
+Descripción: Requerimientos del CMS de Movimiento Libre
+Claves: Requerimientos
 
 Para usar el CMS de Movimiento Libre necesita tener instalado:
 

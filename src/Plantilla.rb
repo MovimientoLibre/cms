@@ -74,7 +74,7 @@ class Plantilla
         a << '  <meta name="viewport" content="width=device-width, initial-scale=1.0">'
         a << "  <meta name=\"description\" content=\"#@descripcion\">" if not @descripcion.nil?
         a << "  <meta name=\"author\" content=\"#@autor\">" if not @autor.nil?
-        a << "  <meta name=\"keywords\" content=\"\">" if not @claves.nil?
+        a << "  <meta name=\"keywords\" content=\"#@claves\">" if not @claves.nil?
         if @en_raiz
             a << "  <link href=\"#@favicon\" rel=\"shortcut icon\" type=\"image/x-icon\">" if not @favicon.nil?
             a << "  <link href=\"#@rss\" rel=\"alternate\" type=\"application/rss+xml\" title=\"#@sitio_titulo\" />" if not @rss.nil?

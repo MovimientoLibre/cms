@@ -111,23 +111,26 @@ class Imprenta
         end
         # Asignar el tipo 'rb' y el autor por defecto en las publicaciones que no lo tengan
         pubs.each do |pub|
-            pub.tipo  = 'rb'
-            pub.autor = @autor_por_defecto if pub.autor.nil?
-            # Buscar las lineas que empiecen con un espacio
-            nuevo   = String.new
-            bandera = false
-            pub.contenido.each_line do |linea|
-                if bandera == false and linea[0] == " "
-                    nuevo  += "<pre><code>\n"
-                    bandera = true
+            pub.tipo           = 'rb'
+            pub.autor          = @autor_por_defecto if pub.autor.nil?
+            pub.tipo_contenido = 'redcloth' if pub.tipo_contenido.nil?
+            # Si es redcloth, cambiar las lineas que empiecen con un espacio a monoespaciado
+            if pub.tipo_contenido == 'redcloth'
+                nuevo   = String.new
+                bandera = false
+                pub.contenido.each_line do |linea|
+                    if bandera == false and linea[0] == " "
+                        nuevo  += "<pre><code>\n"
+                        bandera = true
+                    end
+                    if bandera == true and linea.chomp != "" and linea[0] != " "
+                        nuevo  += "</code></pre>"
+                        bandera = false
+                    end
+                    nuevo += linea
                 end
-                if bandera == true and linea.chomp != "" and linea[0] != " "
-                    nuevo  += "</code></pre>"
-                    bandera = false
-                end
-                nuevo += linea
+                pub.contenido = nuevo
             end
-            pub.contenido = nuevo
         end
         # Acumular en la propiedad
         @publicaciones.concat(pubs)
@@ -158,35 +161,43 @@ class Imprenta
                 IO.foreach(ruta) do |linea|
                     renglon += 1
                     if renglon == 1
-                        pub.nombre      = linea.chomp  # Se espera que el primer renglón sea el título de la publicación
-                        pub.nombre_menu = linea.chomp  # Por defecto igual al nombre
+                        pub.nombre = linea.chomp.strip      # Se espera que el primer renglón sea el título de la publicación
                     elsif renglon == 2 and linea =~ /[=]+/
-                        next                           # Se espera que el segundo renglón sea el subrayado del título
+                        next                                # Se espera que el segundo renglón sea el subrayado del título
                     elsif javascript_on == false and linea =~ /<script/
-                        javascript_on  = true
+                        javascript_on = true
                         javascript.push(linea.chomp)
                     elsif javascript_on == true and linea =~ /<\/script>/
                         javascript.push(linea.chomp)
-                        javascript_on  = false
+                        javascript_on = false
                     elsif javascript_on == true
                         javascript.push(linea.chomp)
-                    elsif linea.chomp  =~ /^Corto: /
-                        pub.nombre_menu  = $'          # Sobreescribe al nombre si está definido Corto
-                    elsif linea.chomp  =~ /^Autor: /
-                        pub.autor = $'
-                    elsif linea.chomp  =~ /^Fecha: /
-                        pub.fecha = $'
-                    elsif linea.chomp  =~ /^Categorías: /
-                        pub.categorias   = $'.split(/, /)
+                    elsif linea.chomp =~ /^Corto: / && pub.nombre_menu.nil?
+                        pub.nombre_menu = $'.strip
+                    elsif linea.chomp =~ /^Descripción: / && pub.descripcion.nil?
+                        pub.descripcion = $'.strip
+                    elsif linea.chomp =~ /^Claves: / && pub.claves.nil?
+                        pub.claves = $'.strip
+                    elsif linea.chomp =~ /^Autor: / && pub.autor.nil?
+                        pub.autor = $'.strip
+                    elsif linea.chomp =~ /^Fecha: / && pub.fecha.nil?
+                        pub.fecha = $'.strip
+                    elsif linea.chomp =~ /^Categorías: / && pub.categorias.length == 0
+                        pub.categorias = $'.split(/, /)
+                    elsif linea.chomp =~ /^Aparece en pagina inicial: /
+                        d = $'.downcase.strip
+                        pub.aparece_en_pagina_inicial = (d == '1') || (d == 'si') || (d == 'true')
                     else
                         contenido.push(linea.chomp)
                     end
                 end
-                pub.contenido  = contenido.join("\n")                  # Pasamos el contenido
-                pub.javascript = javascript.join("\n")                 # Pasamos el javascript
-                pub.autor      = @autor_por_defecto if pub.autor.nil?  # Si no hay autor en el archivo markdown, le asignamos el autor por defecto
-                pubs.push(pub)                                         # Acumular la publicación
-                @cantidad += 1                                         # Incrementar la cantidad de las mismas
+                pub.contenido      = contenido.join("\n")                  # Pasamos el contenido
+                pub.javascript     = javascript.join("\n")                 # Pasamos el javascript
+                pub.nombre_menu    = pub.nombre if pub.nombre_menu.nil?    # Si no hay nombre_menu, le copiamos el nombre
+                pub.autor          = @autor_por_defecto if pub.autor.nil?  # Si no hay autor en el archivo markdown, le asignamos el autor por defecto
+                pub.tipo_contenido = 'markdown' if pub.tipo_contenido.nil? # Si no se ha definido el tipo de contenido, por defecto es "markdown"
+                pubs.push(pub)                                             # Acumular la publicación
+                @cantidad += 1                                             # Incrementar la cantidad de las mismas
             end
         end
         # Almacenar en @publicaciones
@@ -352,9 +363,11 @@ class Imprenta
         multipagina.publicaciones_por_pagina_maximo = @publicaciones_por_pagina_maximo
         # Bucle para agregar cada publicación a multipágina
         @publicaciones.each do |pub|
-            pub.en_raiz = true
-            pub.en_otro = false
-            multipagina.agregar(pub)
+            if pub.aparece_en_pagina_inicial
+                pub.en_raiz = true
+                pub.en_otro = false
+                multipagina.agregar(pub)
+            end
         end
         # Las paǵinas iniciales están en la raíz del sitio web. Usan el título "Inicio" y el autor por defecto.
         @plantilla.en_raiz = true
@@ -385,10 +398,12 @@ class Imprenta
         # Bluce para cada una de las publicaciones
         @publicaciones.each do |pub|
             # Pasar las propiedades de la publicación a la plantilla
-            @plantilla.titulo     = pub.nombre
-            @plantilla.autor      = pub.autor
-            @plantilla.contenido  = pub.completo_html
-            @plantilla.javascript = pub.javascript
+            @plantilla.titulo      = pub.nombre
+            @plantilla.autor       = pub.autor
+            @plantilla.descripcion = pub.descripcion
+            @plantilla.claves      = pub.claves
+            @plantilla.contenido   = pub.completo_html
+            @plantilla.javascript  = pub.javascript
             # Acumular el código HTML
             paginas[pub.ruta] = @plantilla.to_html
         end

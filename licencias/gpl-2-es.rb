@@ -6,7 +6,9 @@ def publicacion(dir)
     p.archivo                   = 'gpl-2-es'
     p.nombre                    = 'Licencia Pública General GNU v2'
     p.nombre_menu               = 'Licencia GPL v2 español'
-    p.fecha                     = "2007-08-06 10:40"
+    p.descripcion               = 'Licencia de Software Libre por Free Software Fundation'
+    p.claves                    = 'GNU,GPL,Software,Libre'
+    p.fecha                     = "2007-08-06"
     p.categorias                = ['Licencias']
     p.aparece_en_pagina_inicial = false
     p.contenido                 = <<FIN_CONTENIDO

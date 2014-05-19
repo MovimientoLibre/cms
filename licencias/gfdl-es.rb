@@ -6,7 +6,9 @@ def publicacion(dir)
     p.archivo                   = 'gfdl-es'
     p.nombre                    = 'Licencia de Documentación Libre de GNU v1.2'
     p.nombre_menu               = 'Licencia GFDL'
-    p.fecha                     = "2007-07-30 00:00"
+    p.descripcion               = 'Licencia Libre para Documentación por Free Software Fundation'
+    p.claves                    = 'GNU,GFDL,Licencia,Libre'
+    p.fecha                     = "2007-07-30"
     p.categorias                = ['Licencias']
     p.aparece_en_pagina_inicial = false
     p.contenido                 = <<FIN_CONTENIDO

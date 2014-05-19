@@ -39,6 +39,8 @@ require 'kramdown'
 # * archivo                    El nombre del archivo para la publicación
 # * fecha                      La fecha en forma de YYYY-MM-DD HH:MM, siendo así se ordena cronológicamente
 # * autor                      El nombre o apodo a quien se le atribuye
+# * descripcion                Descripción del sitio o la página
+# * claves                     Claves que ayuden a los buscadores
 # * contenido                  Contenido de la publicación. Puede tener una línea con <!-- break --> para separar la parte breve.
 # * javascript                 Código Javascript. Debe estar aparte para ponerlo al final de la página.
 # * categorias                 Separadas por comas, las categorías de la publicación.
@@ -46,17 +48,18 @@ require 'kramdown'
 # * en_raiz                    Verdadero si el archivo va a la raiz del sitio web. Debe ser verdadero cuando se hacen las páginas de inicio.
 # * en_otro                    Verdadero si el archivo va a OTRO lugar como al directorio autores, categorias, etc.
 # * tipo                       Extensión del archivo de origen, puede ser "md" para markdown o "rb" para rubí.
+# * tipo_contenido             Si es "html" no se procesa como markdown o redcloth
 
 class Publicacion
 
-    attr_writer :nombre, :nombre_menu, :directorio, :archivo, :fecha, :autor, :contenido, :javascript, :categorias, :aparece_en_pagina_inicial, :en_raiz, :en_otro, :tipo
-    attr_reader :nombre, :nombre_menu, :directorio, :archivo, :fecha, :autor, :contenido, :javascript, :categorias, :aparece_en_pagina_inicial, :en_raiz, :en_otro, :tipo
+    attr_writer :nombre, :nombre_menu, :directorio, :archivo, :fecha, :autor, :descripcion, :claves, :contenido, :javascript, :categorias, :aparece_en_pagina_inicial, :en_raiz, :en_otro, :tipo, :tipo_contenido
+    attr_reader :nombre, :nombre_menu, :directorio, :archivo, :fecha, :autor, :descripcion, :claves, :contenido, :javascript, :categorias, :aparece_en_pagina_inicial, :en_raiz, :en_otro, :tipo, :tipo_contenido
 
     ##
     # Inicializar
 
     def initialize
-        @fecha                     = '1980-01-01' # La fecha por defecto es del pasado.
+     #~ @fecha                     = '1980-01-01' # La fecha por defecto es del pasado.
         @aparece_en_pagina_inicial = true
         @en_raiz                   = false
         @en_otro                   = false
@@ -153,13 +156,20 @@ class Publicacion
     def completo_html
         # Si aparece el break, es retirado
         if @contenido =~ /<!-- break -->/
-            mostrar = $` + $'
+            crudo = $` + $'
         else
-            mostrar = @contenido
+            crudo = @contenido
         end
-        # De acuerdo al tipo, el contenido se procesará
-        texto = RedCloth.new(mostrar)           if @tipo == 'rb'
-        texto = Kramdown::Document.new(mostrar) if @tipo == 'md'
+        # De acuerdo al tipo, el contenido se transformará
+        if @tipo_contenido == 'html'
+            mostrar = crudo
+        elsif @tipo_contenido == 'markdown'
+            transformador = Kramdown::Document.new(crudo)
+            mostrar       = transformador.to_html
+        elsif @tipo_contenido == 'redcloth'
+            transformador = RedCloth.new(crudo)
+            mostrar       = transformador.to_html
+        end
         # En este arreglo acumularemos la salida
         a = Array.new
         a << '<article>'
@@ -167,7 +177,7 @@ class Publicacion
         a << "    <h1>#@nombre</h1>"
         a << "    <p class=\"autor-fecha\">Por #@autor, #@fecha</p>" if @aparece_en_pagina_inicial
         a << '  </header>'
-        a << texto.to_html
+        a << mostrar
         if @vinculos_categorias.length > 0
             a << '  <footer>'
             a << '    <div class="btn-group">'
@@ -194,10 +204,10 @@ class Publicacion
     def breve_html
         # Si aparece el break en el contenido, se entregará lo que está antes de éste
         if @contenido =~ /<!-- break -->/
-            mostrar    = $`
+            crudo    = $`
             incompleto = true
         else
-            mostrar    = @contenido
+            crudo    = @contenido
             incompleto = false
         end
         # Determinar el vínculo a esta publicación
@@ -206,16 +216,23 @@ class Publicacion
         else
             vinculo = '../' + @directorio + '/' + @archivo + '.html'
         end
-        # De acuerdo al tipo, el contenido se procesará
-        texto = RedCloth.new(mostrar)           if @tipo == 'rb'
-        texto = Kramdown::Document.new(mostrar) if @tipo == 'md'
+        # De acuerdo al tipo, el contenido se transformará
+        if @tipo_contenido == 'html'
+            mostrar = crudo
+        elsif @tipo_contenido == 'markdown'
+            transformador = Kramdown::Document.new(crudo)
+            mostrar       = transformador.to_html
+        elsif @tipo_contenido == 'redcloth'
+            transformador = RedCloth.new(crudo)
+            mostrar       = transformador.to_html
+        end
         # Modificar los vínculos de acuerdo al lugar donde se pondrá
         if @en_raiz
-            texto_html = urls_en_raiz(texto.to_html)
+            modificado = urls_en_raiz(mostrar)
         elsif @en_otro
-            texto_html = urls_en_otro(texto.to_html)
+            modificado = urls_en_otro(mostrar)
         else
-            texto_html = texto.to_html
+            modificado = mostrar
         end
         # En este arreglo acumularemos la salida
         a = Array.new
@@ -227,13 +244,13 @@ class Publicacion
             # Se usarán blockquote para el breve y el botón "publicación completa"
          #~ a << "  <p><small>#@fecha - #@autor</small></p>" if @aparece_en_pagina_inicial
             a << '  <blockquote>'
-            a << texto_html
+            a << modificado
             a << '  </blockquote>'
             a << "  <button class=\"btn btn-default btn-sm btn-publicacion-completa\" type=\"button\" onclick=\"location.href='#{vinculo}'\">Publicación completa...</button>"
         else
             # La publicación se pone completa
          #~ a << "  <p><small>#@fecha - #@autor</small></p>" if @aparece_en_pagina_inicial
-            a << texto_html
+            a << modificado
         end
         a << '</section>'
         # Entregar
@@ -246,15 +263,22 @@ class Publicacion
     def rss
         # Si aparece el break en el contenido, se entregará lo que está antes de éste
         if @contenido =~ /<!-- break -->/
-            mostrar = $`
+            crudo = $`
         else
-            mostrar = @contenido
+            crudo = @contenido
         end
-        # De acuerdo al tipo, el contenido se procesará
-        texto = RedCloth.new(mostrar)           if @tipo == 'rb'
-        texto = Kramdown::Document.new(mostrar) if @tipo == 'md'
+        # De acuerdo al tipo, el contenido se transformará
+        if @tipo_contenido == 'html'
+            mostrar = crudo
+        elsif @tipo_contenido == 'markdown'
+            transformador = Kramdown::Document.new(crudo)
+            mostrar       = transformador.to_html
+        elsif @tipo_contenido == 'redcloth'
+            transformador = RedCloth.new(crudo)
+            mostrar       = transformador.to_html
+        end
         # Entregar
-        texto.to_html
+        mostrar
     end
 
 end

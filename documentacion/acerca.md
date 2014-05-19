@@ -4,6 +4,8 @@ Acerca del CMS de Movimiento Libre
 Corto: Acerca
 Fecha: 2014-05-07
 Categorías: Acerca
+Descripción: Acerca del CMS de Movimiento Libre
+Claves: Descripción,Novedades
 
 Es un conjunto de scripts programados en Ruby para crear un sitio web de páginas HTML estáticas.
 
