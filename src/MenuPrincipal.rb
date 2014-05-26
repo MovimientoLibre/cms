@@ -30,10 +30,14 @@ require './Menu.rb' if __FILE__ == $0
 # Menú Principal
 #
 # Construye el menú principal, el que va en la parte superior de todas las páginas.
+# Tiene las siguientes propiedades:
+#
+# * sitio_titulo  Título del sitio, a falta de éste se usa Inicio
+# * sitio_imagen  Opcional, ruta relativa desde la raiz a una imagen a poner del lado izquierdo o en lugar del título
 
 class MenuPrincipal < Menu
 
-    attr_writer :sitio_titulo
+    attr_writer :sitio_titulo, :sitio_imagen
 
     ##
     # Inicializar
@@ -61,8 +65,14 @@ class MenuPrincipal < Menu
     def to_html(sera_para_la_raiz=nil)
         # Si se da el parámetro
         @en_raiz = sera_para_la_raiz if not sera_para_la_raiz.nil?
-        # En caso de no tener definido el título del sitio por defecto se usa Inicio
-        @sitio_titulo = 'Inicio' if @sitio_titulo.nil?
+        # En caso de no tener definido el título del sitio
+        if @sitio_titulo.nil?
+            if @sitio_imagen.nil?
+                @sitio_titulo = 'Inicio' # No hay imagen, se usa Inicio
+            else
+                @sitio_titulo = ''       # Si hay imagen
+            end
+        end
         # Acumular la salida en este arreglo
         a = Array.new
         a << '<nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="menu-principal">'
@@ -75,9 +85,17 @@ class MenuPrincipal < Menu
         a << '        <span class="icon-bar"></span>'
         a << '      </button>'
         if @en_raiz
-            a << "      <a class=\"navbar-brand\" href=\"index.html\">#@sitio_titulo</a>"
+            if @sitio_imagen.nil?
+                a << "      <a class=\"navbar-brand\" href=\"index.html\">#@sitio_titulo</a>"
+            else
+                a << "      <a class=\"navbar-brand\" href=\"index.html\"><img class=\"navbar-brand-img\" src=\"#@sitio_imagen\">#@sitio_titulo</a>"
+            end
         else
-            a << "      <a class=\"navbar-brand\" href=\"../index.html\">#@sitio_titulo</a>"
+            if @sitio_imagen.nil?
+                a << "      <a class=\"navbar-brand\" href=\"../index.html\">#@sitio_titulo</a>"
+            else
+                a << "      <a class=\"navbar-brand\" href=\"../index.html\"><img class=\"navbar-brand-img\" src=\"../#@sitio_imagen\">#@sitio_titulo</a>"
+            end
         end
         a << '    </div>'
         a << '    <div class="navbar-collapse collapse" id="menu-principal-collapse">'

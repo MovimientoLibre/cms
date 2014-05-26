@@ -25,8 +25,8 @@
 # Menu
 #
 # Es la base para construir menús. Las clases MenuPrincipal, MenuSecundario y MenuSecundarioContandoson sus herederas.
+# Tiene las siguientes propiedades:
 #
-# Pueden definirse las siguientes propiedades:
 # * en_raiz
 # * div_clase
 # * heading_clase

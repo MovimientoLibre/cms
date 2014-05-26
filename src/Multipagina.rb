@@ -29,16 +29,20 @@
 # * publicaciones_por_pagina_maximo Es la cantidad de publicaciones por página, por defecto es cinco.
 # * directorio                      Directorio donde será guardado el archivo, por defecto es '.'.
 # * nombre                          Nombre común del archivo, sin la extensión, por defecto es 'index'.
+# * en_raiz                         Verdadero si el archivo va a la raiz del sitio web. Debe ser verdadero cuando se hacen las páginas de inicio.
+# * en_otro                         Verdadero si el archivo va a OTRO lugar como al directorio autores, categorias, etc.
 
 class Multipagina
 
-    attr_writer :titulo, :publicaciones_por_pagina_maximo, :directorio, :nombre
+    attr_writer :titulo, :publicaciones_por_pagina_maximo, :directorio, :nombre, :en_raiz, :en_otro
 
     def initialize
         @publicaciones_por_pagina_maximo = 5
         @directorio                      = '.'
         @nombre                          = 'index'
         @publicaciones                   = Array.new
+        @en_raiz                         = false
+        @en_otro                         = false
     end
 
     ##
@@ -64,6 +68,9 @@ class Multipagina
         javascript = Array.new
         # Bucle por las publicaciones
         @publicaciones.each do |pub|
+            # Pasamos las banderas
+            pub.en_raiz = @en_raiz
+            pub.en_otro = @en_otro
             # Acumularemos los breves de las publicaciones
             contenido.push(pub.breve_html)
             javascript.push(pub.javascript) if pub.javascript != ''

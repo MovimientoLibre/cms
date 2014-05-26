@@ -157,8 +157,6 @@ Bloques de código fuente los cuales son limitados por los _tags_ &gt;pre&lt; y 
 
 Una bondad del bloque _código fuente_ en markdown es que no hay necesidad de codificar los amperson, mayor que o menor que. Al convertir a HTML hace la conversión automática de éstos a las claves necesarias. Así que, para nosotros, sólo copiamos, pegamos e indentamos el código.
 
-####
-
 #### Referencias
 
 * [Markdown Syntax Documentation](http://daringfireball.net/projects/markdown/syntax)

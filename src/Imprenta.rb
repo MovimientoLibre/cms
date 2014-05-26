@@ -266,6 +266,8 @@ class Imprenta
                 multipagina.publicaciones_por_pagina_maximo = @publicaciones_por_pagina_maximo
                 multipagina.directorio                      = @autores_directorio
                 multipagina.nombre                          = sustituir_caracteres(pub.autor)
+                multipagina.en_raiz                         = false
+                multipagina.en_otro                         = true
                 @autores[pub.autor]                         = multipagina
             end
             # Acumular en el hash autores
@@ -298,6 +300,7 @@ class Imprenta
         @menu_categorias.encabezado("Categorías")
         # Bucle para cada publicación
         @publicaciones.each do |pub|
+            # Saltar si NO tiene categorías
             next if pub.categorias.nil?
             # Bucle para cada categoría de la publicación
             pub.categorias.each do |nombre|
@@ -312,6 +315,8 @@ class Imprenta
                     multipagina.publicaciones_por_pagina_maximo = @publicaciones_por_pagina_maximo
                     multipagina.directorio                      = @categorias_directorio
                     multipagina.nombre                          = sustituir_caracteres(nombre)
+                    multipagina.en_raiz                         = false
+                    multipagina.en_otro                         = true
                     @categorias[nombre]                         = multipagina
                 end
                 # Acumular en el hash categorias
@@ -361,6 +366,8 @@ class Imprenta
         multipagina                                 = Multipagina.new
         multipagina.titulo                          = "Inicio"
         multipagina.publicaciones_por_pagina_maximo = @publicaciones_por_pagina_maximo
+        multipagina.en_raiz                         = true
+        multipagina.en_otro                         = false
         # Bucle para agregar cada publicación a multipágina
         @publicaciones.each do |pub|
             if pub.aparece_en_pagina_inicial
@@ -435,6 +442,8 @@ class Imprenta
             multipagina.titulo                          = @plantilla.titulo
             multipagina.publicaciones_por_pagina_maximo = @publicaciones_por_pagina_maximo
             multipagina.directorio                      = dir
+            multipagina.en_raiz                         = false
+            multipagina.en_otro                         = false
             # Bucle para cada publicación
             @publicaciones.each do |pub|
                 pub.en_raiz = false
