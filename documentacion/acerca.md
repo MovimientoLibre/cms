@@ -4,10 +4,10 @@ Acerca del CMS de Movimiento Libre
 Corto: Acerca
 Fecha: 2014-05-07
 Categorías: Acerca
-Descripción: Acerca del CMS de Movimiento Libre
+Descripción: El CMS de Movimiento Libre es un conjunto de scripts programados en Ruby para crear un sitio web de páginas HTML estáticas. Usa Twitter Bootstrap para tener una buena imagen y diseño responsivo. Si te gusta programar en Ruby o quieres aprender a usarlo, este programa te será muy útil.
 Claves: Descripción,Novedades
 
-Es un conjunto de scripts programados en Ruby para crear un sitio web de páginas HTML estáticas.
+El CMS de Movimiento Libre es un conjunto de scripts programados en Ruby para crear un sitio web de páginas HTML estáticas.
 
 Usa Twitter Bootstrap para tener una buena imagen y diseño responsivo.
 

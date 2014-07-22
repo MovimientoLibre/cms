@@ -49,17 +49,17 @@ require 'kramdown'
 # * en_otro                    Verdadero si el archivo va a OTRO lugar como al directorio autores, categorias, etc.
 # * tipo                       Extensión del archivo de origen, puede ser "md" para markdown o "rb" para rubí.
 # * tipo_contenido             Si es "html" no se procesa como markdown o redcloth
+# * imagen_previa              Ruta relativa a un archivo de imagen para la vista previa a compartir en redes sociales
 
 class Publicacion
 
-    attr_writer :nombre, :nombre_menu, :directorio, :archivo, :fecha, :autor, :descripcion, :claves, :contenido, :javascript, :categorias, :aparece_en_pagina_inicial, :en_raiz, :en_otro, :tipo, :tipo_contenido
-    attr_reader :nombre, :nombre_menu, :directorio, :archivo, :fecha, :autor, :descripcion, :claves, :contenido, :javascript, :categorias, :aparece_en_pagina_inicial, :en_raiz, :en_otro, :tipo, :tipo_contenido
+    attr_writer :nombre, :nombre_menu, :directorio, :archivo, :fecha, :autor, :descripcion, :claves, :contenido, :javascript, :categorias, :aparece_en_pagina_inicial, :en_raiz, :en_otro, :tipo, :tipo_contenido, :imagen_previa
+    attr_reader :nombre, :nombre_menu, :directorio, :archivo, :fecha, :autor, :descripcion, :claves, :contenido, :javascript, :categorias, :aparece_en_pagina_inicial, :en_raiz, :en_otro, :tipo, :tipo_contenido, :imagen_previa
 
     ##
     # Inicializar
 
     def initialize
-     #~ @fecha                     = '1980-01-01' # La fecha por defecto es del pasado.
         @aparece_en_pagina_inicial = true
         @en_raiz                   = false
         @en_otro                   = false
@@ -296,6 +296,7 @@ if __FILE__ == $0
     pub.autor      = "Nombre Apellidos"
     pub.fecha      = "2014-05-01"
     pub.tipo       = "md"
+    pub.url        = "http://www.foo.com/articulos/lorem-ipsum-dolor.html"
     pub.contenido  = <<FINAL
 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumyeirmod tempor invidunt ut labore et dolore magna aliquyam erat.
 

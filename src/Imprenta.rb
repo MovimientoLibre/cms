@@ -176,6 +176,8 @@ class Imprenta
                         pub.nombre_menu = $'.strip
                     elsif linea.chomp =~ /^Descripción: / && pub.descripcion.nil?
                         pub.descripcion = $'.strip
+                    elsif linea.chomp =~ /^Imagen previa: / && pub.imagen_previa.nil?
+                        pub.imagen_previa = $'.strip
                     elsif linea.chomp =~ /^Claves: / && pub.claves.nil?
                         pub.claves = $'.strip
                     elsif linea.chomp =~ /^Autor: / && pub.autor.nil?
@@ -377,9 +379,10 @@ class Imprenta
             end
         end
         # Las paǵinas iniciales están en la raíz del sitio web. Usan el título "Inicio" y el autor por defecto.
-        @plantilla.en_raiz = true
-        @plantilla.titulo  = "Inicio"
-        @plantilla.autor   = @autor_por_defecto
+        @plantilla.en_raiz        = true
+        @plantilla.titulo         = "Inicio"
+        @plantilla.autor          = @autor_por_defecto
+        @plantilla.para_compartir = false
         # En este arreglo juntaremos el hash que se va entregar
         paginas = Hash.new
         # Bucle para cada página en la multipágina
@@ -399,18 +402,21 @@ class Imprenta
 
     def paginas_publicaciones
         # Estas paǵinas NO están en la raíz del sitio web
-        @plantilla.en_raiz = false
+        @plantilla.en_raiz        = false
+        @plantilla.para_compartir = true
         # En este arreglo acumularemos el hash que se va entregar
         paginas = Hash.new
         # Bluce para cada una de las publicaciones
         @publicaciones.each do |pub|
             # Pasar las propiedades de la publicación a la plantilla
-            @plantilla.titulo      = pub.nombre
-            @plantilla.autor       = pub.autor
-            @plantilla.descripcion = pub.descripcion
-            @plantilla.claves      = pub.claves
-            @plantilla.contenido   = pub.completo_html
-            @plantilla.javascript  = pub.javascript
+            @plantilla.titulo        = pub.nombre
+            @plantilla.autor         = pub.autor
+            @plantilla.descripcion   = pub.descripcion
+            @plantilla.claves        = pub.claves
+            @plantilla.ruta          = pub.ruta
+            @plantilla.contenido     = pub.completo_html
+            @plantilla.javascript    = pub.javascript
+            @plantilla.imagen_previa = pub.imagen_previa
             # Acumular el código HTML
             paginas[pub.ruta] = @plantilla.to_html
         end
@@ -423,8 +429,9 @@ class Imprenta
 
     def paginas_directorios
         # Estas páginas NO están en la raíz del sitio web
-        @plantilla.en_raiz = false
-        @plantilla.autor   = @autor_por_defecto
+        @plantilla.en_raiz        = false
+        @plantilla.para_compartir = false
+        @plantilla.autor          = @autor_por_defecto
         # En este arreglo juntaremos el hash que se va entregar
         paginas = Hash.new
         # Bucle para cada directorio
@@ -468,8 +475,9 @@ class Imprenta
 
     def paginas_autores
         # Estas páginas NO están en la raíz del sitio web
-        @plantilla.en_raiz = false
-        @plantilla.autor   = @autor_por_defecto
+        @plantilla.en_raiz        = false
+        @plantilla.para_compartir = false
+        @plantilla.autor          = @autor_por_defecto
         # En este arreglo juntaremos el hash que se va entregar
         paginas = Hash.new
         # Bucle para cada autor
@@ -494,8 +502,9 @@ class Imprenta
 
     def paginas_categorias
         # Estas páginas NO están en la raíz del sitio web
-        @plantilla.en_raiz = false
-        @plantilla.autor   = @autor_por_defecto
+        @plantilla.en_raiz        = false
+        @plantilla.para_compartir = false
+        @plantilla.autor          = @autor_por_defecto
         # En este arreglo juntaremos el hash que se va entregar
         paginas = Hash.new
         # Bucle para cada categoría

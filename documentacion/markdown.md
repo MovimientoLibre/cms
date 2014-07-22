@@ -4,12 +4,12 @@ Markdown: la forma fácil de escribir para web
 Corto: Guía de Markdown
 Fecha: 2014-05-03
 Categorías: Markdown, Referencias
-Descripción: Guía sobre Markdown
+Descripción: Markdown es una forma fácil de escribir y de leer para crear archivos HTML. Un archivo escrito en makdown es de texto plano, esto significa que puede ser elaborado en cualquier editor de texto.
 Claves: Manual,Markdown
 
 Este artículo es una traducción de [Markdown Syntax Documentation](http://daringfireball.net/projects/markdown/syntax).
 
-Markdown es una forma fácil de escribir y de leer para crear archivos HTML. Un archivo escrito en makdown es de texto plano, es to significa que puede ser elaborado en cualquier editor de texto. Cabe recalcar que mientras el HTML es un formato para _publicar_ en la web, el markdown es un formato para _escribir_ en la web. En ese concpeto, entonces markdown no pretende ser un sustituto del HTML, sino una forma cómoda para escribir contenidos.
+Markdown es una forma fácil de escribir y de leer para crear archivos HTML. Un archivo escrito en makdown es de texto plano, esto significa que puede ser elaborado en cualquier editor de texto. Cabe recalcar que mientras el HTML es un formato para _publicar_ en la web, el markdown es un formato para _escribir_ en la web. En ese concpeto, entonces markdown no pretende ser un sustituto del HTML, sino una forma cómoda para escribir contenidos.
 
 <!-- break -->
 

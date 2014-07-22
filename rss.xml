@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0"
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/"
+  version="2.0"
+  xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
   xmlns:content="http://purl.org/rss/1.0/modules/content/"
-  xmlns:dc="http://purl.org/dc/elements/1.1/"
-  xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
-  xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
+  xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
   <channel>
     <title>CMS de Movimiento Libre</title>
     <link>http://cms.movimientolibre.com</link>
@@ -12,7 +12,7 @@
       <title>Acerca del CMS de Movimiento Libre</title>
       <link>http://cms.movimientolibre.com/documentacion/acerca.html</link>
       <description>
-&lt;p&gt;Es un conjunto de scripts programados en Ruby para crear un sitio web de páginas HTML estáticas.&lt;/p&gt;
+&lt;p&gt;El CMS de Movimiento Libre es un conjunto de scripts programados en Ruby para crear un sitio web de páginas HTML estáticas.&lt;/p&gt;
 
 &lt;p&gt;Usa Twitter Bootstrap para tener una buena imagen y diseño responsivo.&lt;/p&gt;
 
@@ -45,7 +45,7 @@
       <title>Instalar</title>
       <link>http://cms.movimientolibre.com/documentacion/instalar.html</link>
       <description>
-&lt;p&gt;En construcción…&lt;/p&gt;
+&lt;p&gt;En construcción&amp;#8230;&lt;/p&gt;
 </description>
       <author>guivaloz</author>
       <pubDate>Mon, 05 May 2014 00:00:00 -0500</pubDate>
@@ -55,7 +55,7 @@
       <title>Manual de uso</title>
       <link>http://cms.movimientolibre.com/documentacion/manual-de-uso.html</link>
       <description>
-&lt;p&gt;En construcción…&lt;/p&gt;
+&lt;p&gt;En construcción&amp;#8230;&lt;/p&gt;
 </description>
       <author>guivaloz</author>
       <pubDate>Sun, 04 May 2014 00:00:00 -0500</pubDate>
@@ -67,7 +67,7 @@
       <description>
 &lt;p&gt;Este artículo es una traducción de &lt;a href=&quot;http://daringfireball.net/projects/markdown/syntax&quot;&gt;Markdown Syntax Documentation&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;Markdown es una forma fácil de escribir y de leer para crear archivos HTML. Un archivo escrito en makdown es de texto plano, es to significa que puede ser elaborado en cualquier editor de texto. Cabe recalcar que mientras el HTML es un formato para &lt;em&gt;publicar&lt;/em&gt; en la web, el markdown es un formato para &lt;em&gt;escribir&lt;/em&gt; en la web. En ese concpeto, entonces markdown no pretende ser un sustituto del HTML, sino una forma cómoda para escribir contenidos.&lt;/p&gt;
+&lt;p&gt;Markdown es una forma fácil de escribir y de leer para crear archivos HTML. Un archivo escrito en makdown es de texto plano, esto significa que puede ser elaborado en cualquier editor de texto. Cabe recalcar que mientras el HTML es un formato para &lt;em&gt;publicar&lt;/em&gt; en la web, el markdown es un formato para &lt;em&gt;escribir&lt;/em&gt; en la web. En ese concpeto, entonces markdown no pretende ser un sustituto del HTML, sino una forma cómoda para escribir contenidos.&lt;/p&gt;
 
 </description>
       <author>guivaloz</author>

@@ -68,6 +68,7 @@ class CMS < Imprenta
         # Preparar plantilla
         @plantilla              = Plantilla.new
         @plantilla.sitio_titulo = @sitio_titulo
+        @plantilla.sitio_url    = @sitio_url
         @plantilla.encabezado   = <<FINAL
             <div class="jumbotron">
                 <h1>#@sitio_titulo</h1>
