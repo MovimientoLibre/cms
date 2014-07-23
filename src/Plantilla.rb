@@ -102,7 +102,7 @@ class Plantilla
             a << '  <link href="../css/morris.css" rel="stylesheet">'
             a << '  <link href="../css/cms.css" rel="stylesheet">'
         end
-        a << "  <base href=\"#@sitio_url\" target=\"_blank\">" if not @sitio_url.nil?
+       #a << "  <base href=\"#@sitio_url\" target=\"_blank\">" if not @sitio_url.nil?
         a << '  <!-- SOPORTE PARA IE8 -->'
         a << '  <!--[if lt IE 9]>'
         a << '  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>'
