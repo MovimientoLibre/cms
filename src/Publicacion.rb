@@ -277,8 +277,16 @@ class Publicacion
             transformador = RedCloth.new(crudo)
             mostrar       = transformador.to_html
         end
+        # Modificar los vínculos de acuerdo al lugar donde se pondrá
+        if @en_raiz
+            modificado = urls_en_raiz(mostrar)
+        elsif @en_otro
+            modificado = urls_en_otro(mostrar)
+        else
+            modificado = mostrar
+        end
         # Entregar
-        mostrar
+        modificado
     end
 
 end

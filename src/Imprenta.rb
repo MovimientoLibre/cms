@@ -537,6 +537,7 @@ class Imprenta
             contador              = 0
             @publicaciones.each do |pub|
                 pub.en_raiz = true
+                pub.en_otro = false
                 if pub.aparece_en_pagina_inicial
                     i             = m.items.new_item
                     i.title       = pub.nombre
